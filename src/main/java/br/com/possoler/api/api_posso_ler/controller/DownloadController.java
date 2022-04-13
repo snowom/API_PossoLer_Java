@@ -1,5 +1,8 @@
 package br.com.possoler.api.api_posso_ler.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,5 +25,19 @@ public class DownloadController {
     {
         Download download = downloadService.getDownloadEntity();
         return ResponseEntity.ok().body(DownloadDTO.parseToDTO(download));
+    }
+
+
+    @GetMapping("/incrementDownloads")
+    private ResponseEntity<Map<String, String>> incrementDownloads()
+    {
+        Map<String, String> response = new HashMap<>();
+        Boolean status = downloadService.incrementDownload();
+        if(status){
+            response.put("status", "sucesso");
+            return ResponseEntity.ok().body(response);
+        }
+        response.put("status", "falha");
+        return ResponseEntity.internalServerError().body(response);
     }
 }
