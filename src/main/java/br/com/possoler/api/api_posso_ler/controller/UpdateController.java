@@ -14,7 +14,12 @@ public class UpdateController {
 
     @Autowired
     private SnackbarUpdateService snackbarUpdateService;
-    
+
+    /**
+     * Retorna dados da versão mais atual da extensão
+     * @author thomazf
+     * @return ResponseEntity
+     */
     @GetMapping("/searchUpdates")
     private ResponseEntity<SnackbarUpdate> searchUpdates()
     {

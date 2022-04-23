@@ -11,6 +11,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import br.com.possoler.api.api_posso_ler.entity.DadosAcesso;
+import br.com.possoler.api.api_posso_ler.entity.Site;
+import br.com.possoler.api.api_posso_ler.repository.DadosAcessoRepository;
+import br.com.possoler.api.api_posso_ler.service.DadosAcessoService;
 import lombok.Builder;
 import lombok.Data;
 
@@ -28,10 +31,10 @@ public class DadosAcessoDTO {
     private LocalTime horario;
 
 
-    public static DadosAcesso parseToEntity(DadosAcessoDTO dto)
+    public static DadosAcesso parseToEntity(DadosAcessoDTO dto, Site site)
     {
         return DadosAcesso.builder()
-            .codigo_site(dto.getCodigo_site())
+            .site(site)
             .data(dto.getData())
             .horario(dto.getHorario())
             .build();

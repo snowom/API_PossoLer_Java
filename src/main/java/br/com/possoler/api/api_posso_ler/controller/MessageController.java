@@ -19,7 +19,12 @@ public class MessageController {
 
     @Autowired
     MessageService messageService;
-    
+
+    /**
+     * Retorna mensagens do ADMIN para os usuários
+     * @author thomazf
+     * @return ResponseEntity
+     */
     @GetMapping("/searchMessages")
     private ResponseEntity<MessageDTO> getMessages()
     {

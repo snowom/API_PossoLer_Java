@@ -11,6 +11,7 @@ public class MessageService {
     
     /**
      * Preenche DTO e o retorna
+     * @author thomazf
      * @return MessageDTO
      */
     public MessageDTO fillDTO()

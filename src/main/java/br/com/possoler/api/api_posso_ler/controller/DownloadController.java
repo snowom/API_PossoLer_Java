@@ -20,6 +20,11 @@ public class DownloadController {
     @Autowired
     DownloadService downloadService;
 
+    /**
+     * Retorna a quantidade total de downloads da extensão
+     * @author thomazf
+     * @return ResponseEntity
+     */
     @GetMapping("/getDownloads")
     private ResponseEntity<DownloadDTO> getDownloads()
     {
@@ -28,6 +33,11 @@ public class DownloadController {
     }
 
 
+    /**
+     * Incrementa 1 na quantidade total de downloads
+     * @author thomazf
+     * @return ResponseEntity
+     */
     @GetMapping("/incrementDownloads")
     private ResponseEntity<Map<String, String>> incrementDownloads()
     {

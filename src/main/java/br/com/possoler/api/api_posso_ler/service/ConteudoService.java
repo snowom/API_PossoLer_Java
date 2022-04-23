@@ -15,6 +15,7 @@ public class ConteudoService {
 
     /**
      * Pega e retorna a entidade Conteudo
+     * @author thomazf
      * @return Conteudo
      */
     public Conteudo getConteudoEntity()
@@ -27,6 +28,7 @@ public class ConteudoService {
 
     /**
      * Incrementa conteúdos visualizados no BD
+     * @author thomazf
      * @return Boolean
      */
     public Boolean incrementConteudo()

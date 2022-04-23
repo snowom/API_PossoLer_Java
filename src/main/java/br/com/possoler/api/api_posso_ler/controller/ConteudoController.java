@@ -6,11 +6,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.possoler.api.api_posso_ler.dto.ConteudoDTO;
 import br.com.possoler.api.api_posso_ler.entity.Conteudo;
-import br.com.possoler.api.api_posso_ler.exceptions.ServerErrorException;
 import br.com.possoler.api.api_posso_ler.service.ConteudoService;
 
 @RestController
@@ -19,7 +19,12 @@ public class ConteudoController {
 
     @Autowired
     ConteudoService conteudoService;
-    
+
+    /**
+     * Retorna quantidade total de conteúdos desbloqueados pela extensão
+     * @author thomazf
+     * @return ResponseEntity
+     */
     @GetMapping("/getConteudos")
     private ResponseEntity<ConteudoDTO> getConteudos()
     {
@@ -27,8 +32,13 @@ public class ConteudoController {
         return ResponseEntity.ok().body(ConteudoDTO.parseToDTO(conteudo));
     }
 
-    
-    @GetMapping("/incrementViewsConteudos")
+
+    /**
+     * Incrementa na quantidade total de conteudos desbloqueados pela extensão
+     * @author thomazf
+     * @return ResponseEntity
+     */
+    @PostMapping("/incrementViewsConteudos")
     private ResponseEntity<Map<String, String>> incrementConteudos()
     {
         Map<String, String> response = new HashMap<>();

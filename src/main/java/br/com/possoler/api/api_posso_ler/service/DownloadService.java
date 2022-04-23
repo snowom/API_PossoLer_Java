@@ -14,6 +14,7 @@ public class DownloadService {
 
     /**
      * Pega e retorna a entidade Download
+     * @author thomazf
      * @return Integer
      */
     public Download getDownloadEntity()
@@ -26,6 +27,7 @@ public class DownloadService {
 
     /**
      * Incrementa a quantidade de downloads
+     * @author thomazf
      * @return Boolean
      */
     public Boolean incrementDownload()

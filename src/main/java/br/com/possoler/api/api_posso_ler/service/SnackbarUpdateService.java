@@ -11,6 +11,7 @@ public class SnackbarUpdateService {
 
     /**
      * Setta e retorna os valores da entity SnackbarUpdate
+     * @author thomazf
      * @return SnackbarUpdate
      */
     public SnackbarUpdate setValues()
