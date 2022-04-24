@@ -1,9 +1,7 @@
-package br.com.possoler.api.api_posso_ler.service;
+package br.com.possoler.api.api_posso_ler.core_api.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.possoler.api.api_posso_ler.core_api.entity.SnackbarUpdate;
 import org.springframework.stereotype.Service;
-
-import br.com.possoler.api.api_posso_ler.entity.SnackbarUpdate;
 
 @Service
 public class SnackbarUpdateService {

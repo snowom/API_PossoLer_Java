@@ -1,28 +1,24 @@
-package br.com.possoler.api.api_posso_ler.controller;
+package br.com.possoler.api.api_posso_ler.core_api.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 
+import br.com.possoler.api.api_posso_ler.core_api.dto.DadosAcessoDTO;
+import br.com.possoler.api.api_posso_ler.core_api.dto.SiteAccessDTO;
+import br.com.possoler.api.api_posso_ler.core_api.entity.DadosAcesso;
+import br.com.possoler.api.api_posso_ler.core_api.entity.Site;
+import br.com.possoler.api.api_posso_ler.core_api.service.DadosAcessoService;
+import br.com.possoler.api.api_posso_ler.core_api.service.SiteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.possoler.api.api_posso_ler.dto.DadosAcessoDTO;
-import br.com.possoler.api.api_posso_ler.dto.SiteAccessDTO;
-import br.com.possoler.api.api_posso_ler.entity.DadosAcesso;
-import br.com.possoler.api.api_posso_ler.entity.Site;
-import br.com.possoler.api.api_posso_ler.service.DadosAcessoService;
-import br.com.possoler.api.api_posso_ler.service.SiteService;
-
 @RestController
-@RequestMapping("/API")
 public class DadosAcessoController {
     
     @Autowired
@@ -36,7 +32,7 @@ public class DadosAcessoController {
      * @param dto
      * @return ResponseEntity
      */
-    @PostMapping("/acessos/insertDadosAccess")
+    @PostMapping("${core-api.endpoint.insertAccess}")
     private ResponseEntity<Map<String, String>> insertDadosAccess(@RequestBody @Valid DadosAcessoDTO dto)
     {
         Site site = siteService.getSiteEntityById(dto.getCodigo_site());
@@ -50,7 +46,7 @@ public class DadosAcessoController {
      * @author thomazf
      * @return ResponseEntity
      */
-    @GetMapping("/chart/countAllSitesAccess")
+    @GetMapping("${core-api.endpoint.count-all-sites-access}")
     private ResponseEntity<List<SiteAccessDTO>> getAllSitesAccess()
     {
         return dadosAcessoService.countAllSitesAccess();

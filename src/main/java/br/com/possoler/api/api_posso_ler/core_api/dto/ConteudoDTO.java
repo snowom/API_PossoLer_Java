@@ -1,6 +1,6 @@
-package br.com.possoler.api.api_posso_ler.dto;
+package br.com.possoler.api.api_posso_ler.core_api.dto;
 
-import br.com.possoler.api.api_posso_ler.entity.Conteudo;
+import br.com.possoler.api.api_posso_ler.core_api.entity.Conteudo;
 import lombok.Builder;
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package br.com.possoler.api.api_posso_ler.entity;
+package br.com.possoler.api.api_posso_ler.core_api.entity;
 
 import org.springframework.stereotype.Component;
 
@@ -8,12 +8,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Component
-@Data
 @Builder
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-public class Message {
+@NoArgsConstructor
+public class SnackbarUpdate {
     
-    private String msg;
-    private Integer time;
+    String currentVersion;
+    String message;
+    String buttonMessage;
+    Integer time;
 }

@@ -1,4 +1,4 @@
-package br.com.possoler.api.api_posso_ler.entity;
+package br.com.possoler.api.api_posso_ler.core_api.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

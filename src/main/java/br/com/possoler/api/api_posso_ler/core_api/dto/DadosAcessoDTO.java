@@ -1,19 +1,12 @@
-package br.com.possoler.api.api_posso_ler.dto;
+package br.com.possoler.api.api_posso_ler.core_api.dto;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import br.com.possoler.api.api_posso_ler.entity.DadosAcesso;
-import br.com.possoler.api.api_posso_ler.entity.Site;
-import br.com.possoler.api.api_posso_ler.repository.DadosAcessoRepository;
-import br.com.possoler.api.api_posso_ler.service.DadosAcessoService;
+import br.com.possoler.api.api_posso_ler.core_api.entity.DadosAcesso;
+import br.com.possoler.api.api_posso_ler.core_api.entity.Site;
 import lombok.Builder;
 import lombok.Data;
 

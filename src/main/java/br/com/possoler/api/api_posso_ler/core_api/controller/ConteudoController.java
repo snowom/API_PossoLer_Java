@@ -1,20 +1,18 @@
-package br.com.possoler.api.api_posso_ler.controller;
+package br.com.possoler.api.api_posso_ler.core_api.controller;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import br.com.possoler.api.api_posso_ler.core_api.dto.ConteudoDTO;
+import br.com.possoler.api.api_posso_ler.core_api.entity.Conteudo;
+import br.com.possoler.api.api_posso_ler.core_api.service.ConteudoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.possoler.api.api_posso_ler.dto.ConteudoDTO;
-import br.com.possoler.api.api_posso_ler.entity.Conteudo;
-import br.com.possoler.api.api_posso_ler.service.ConteudoService;
 
 @RestController
-@RequestMapping("/API")
 public class ConteudoController {
 
     @Autowired
@@ -25,7 +23,7 @@ public class ConteudoController {
      * @author thomazf
      * @return ResponseEntity
      */
-    @GetMapping("/getConteudos")
+    @GetMapping("${core-api.endpoint.get-conteudo}")
     private ResponseEntity<ConteudoDTO> getConteudos()
     {
         Conteudo conteudo = conteudoService.getConteudoEntity();
@@ -38,7 +36,7 @@ public class ConteudoController {
      * @author thomazf
      * @return ResponseEntity
      */
-    @PostMapping("/incrementViewsConteudos")
+    @PostMapping("${core-api.endpoint.increment-views}")
     private ResponseEntity<Map<String, String>> incrementConteudos()
     {
         Map<String, String> response = new HashMap<>();

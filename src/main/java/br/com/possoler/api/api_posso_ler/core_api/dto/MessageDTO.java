@@ -1,10 +1,9 @@
-package br.com.possoler.api.api_posso_ler.dto;
+package br.com.possoler.api.api_posso_ler.core_api.dto;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import br.com.possoler.api.api_posso_ler.entity.Message;
+import br.com.possoler.api.api_posso_ler.core_api.entity.Message;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

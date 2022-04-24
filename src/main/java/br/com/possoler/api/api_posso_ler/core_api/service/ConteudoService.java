@@ -1,11 +1,10 @@
-package br.com.possoler.api.api_posso_ler.service;
+package br.com.possoler.api.api_posso_ler.core_api.service;
 
+import br.com.possoler.api.api_posso_ler.core_api.entity.Conteudo;
+import br.com.possoler.api.api_posso_ler.core_api.repository.ConteudoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import br.com.possoler.api.api_posso_ler.entity.Conteudo;
 import br.com.possoler.api.api_posso_ler.exceptions.ServerErrorException;
-import br.com.possoler.api.api_posso_ler.repository.ConteudoRepository;
 
 @Service
 public class ConteudoService {

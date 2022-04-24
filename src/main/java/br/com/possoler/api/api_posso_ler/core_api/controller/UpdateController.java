@@ -1,15 +1,13 @@
-package br.com.possoler.api.api_posso_ler.controller;
+package br.com.possoler.api.api_posso_ler.core_api.controller;
 
+import br.com.possoler.api.api_posso_ler.core_api.entity.SnackbarUpdate;
+import br.com.possoler.api.api_posso_ler.core_api.service.SnackbarUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import br.com.possoler.api.api_posso_ler.entity.SnackbarUpdate;
-import br.com.possoler.api.api_posso_ler.service.SnackbarUpdateService;
 
 @RestController
-@RequestMapping("/API")
 public class UpdateController {
 
     @Autowired
@@ -20,7 +18,7 @@ public class UpdateController {
      * @author thomazf
      * @return ResponseEntity
      */
-    @GetMapping("/searchUpdates")
+    @GetMapping("${core-api.endpoint.search-updates}")
     private ResponseEntity<SnackbarUpdate> searchUpdates()
     {
         SnackbarUpdate snkUpdate = snackbarUpdateService.setValues();

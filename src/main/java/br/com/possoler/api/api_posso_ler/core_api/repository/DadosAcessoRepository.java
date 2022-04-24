@@ -1,20 +1,16 @@
-package br.com.possoler.api.api_posso_ler.repository;
+package br.com.possoler.api.api_posso_ler.core_api.repository;
+
+import br.com.possoler.api.api_posso_ler.core_api.dto.SiteAccessDTO;
+import br.com.possoler.api.api_posso_ler.core_api.entity.DadosAcesso;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-import br.com.possoler.api.api_posso_ler.dto.SiteAccessDTO;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
-import br.com.possoler.api.api_posso_ler.entity.DadosAcesso;
-
 @Repository
-public interface DadosAcessoRepository extends JpaRepository<DadosAcesso, Long>{
+public interface DadosAcessoRepository extends JpaRepository<DadosAcesso, Long> {
     @Query(value = "SELECT st.nome, COUNT(da.codigo_site) as acessos FROM dados_acesso as da inner join sites as st on st.id = da.codigo_site where da.codigo_site = 1 UNION ALL\n" +
             "SELECT st.nome, COUNT(da.codigo_site) as acessos FROM dados_acesso as da inner join sites as st on st.id = da.codigo_site where da.codigo_site = 2 UNION ALL\n" +
             "SELECT st.nome, COUNT(da.codigo_site) as acessos FROM dados_acesso as da inner join sites as st on st.id = da.codigo_site where da.codigo_site = 3 UNION ALL\n" +

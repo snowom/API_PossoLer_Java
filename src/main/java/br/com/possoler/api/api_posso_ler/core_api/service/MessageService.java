@@ -1,10 +1,11 @@
-package br.com.possoler.api.api_posso_ler.service;
+package br.com.possoler.api.api_posso_ler.core_api.service;
 
 import java.util.Arrays;
 import java.util.List;
+
+import br.com.possoler.api.api_posso_ler.core_api.dto.MessageDTO;
+import br.com.possoler.api.api_posso_ler.core_api.entity.Message;
 import org.springframework.stereotype.Service;
-import br.com.possoler.api.api_posso_ler.dto.MessageDTO;
-import br.com.possoler.api.api_posso_ler.entity.Message;
 
 @Service
 public class MessageService {

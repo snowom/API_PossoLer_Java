@@ -1,22 +1,16 @@
-package br.com.possoler.api.api_posso_ler.service;
+package br.com.possoler.api.api_posso_ler.core_api.service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.websocket.server.ServerEndpoint;
-
+import br.com.possoler.api.api_posso_ler.core_api.dto.SiteAccessDTO;
+import br.com.possoler.api.api_posso_ler.core_api.entity.DadosAcesso;
+import br.com.possoler.api.api_posso_ler.core_api.repository.DadosAcessoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import br.com.possoler.api.api_posso_ler.dto.SiteAccessDTO;
-import br.com.possoler.api.api_posso_ler.entity.DadosAcesso;
-import br.com.possoler.api.api_posso_ler.entity.Site;
 import br.com.possoler.api.api_posso_ler.exceptions.ServerErrorException;
-import br.com.possoler.api.api_posso_ler.repository.DadosAcessoRepository;
-import br.com.possoler.api.api_posso_ler.repository.SiteRepository;
 
 @Service
 public class DadosAcessoService {
