@@ -10,7 +10,7 @@ import br.com.possoler.api.api_posso_ler.core_api.repository.DadosAcessoReposito
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import br.com.possoler.api.api_posso_ler.exceptions.ServerErrorException;
+import exceptions.ServerErrorException;
 
 @Service
 public class DadosAcessoService {

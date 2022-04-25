@@ -1,4 +1,4 @@
-package br.com.possoler.api.api_posso_ler.exceptions;
+package exceptions;
 
 public class ServerErrorException extends RuntimeException{
 

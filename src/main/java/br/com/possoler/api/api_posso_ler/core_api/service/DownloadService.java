@@ -4,7 +4,7 @@ import br.com.possoler.api.api_posso_ler.core_api.entity.Download;
 import br.com.possoler.api.api_posso_ler.core_api.repository.DownloadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import br.com.possoler.api.api_posso_ler.exceptions.ServerErrorException;
+import exceptions.ServerErrorException;
 
 @Service
 public class DownloadService {
