@@ -1,4 +1,4 @@
-package advice;
+package br.com.possoler.api.api_posso_ler.advice;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.HashMap;
@@ -74,7 +74,6 @@ public class AdviceExceptions {
     private Map<String, String> missingServletRequestParameterException(MissingServletRequestParameterException e){
         Map<String, String> response = new HashMap<>();
         response.put("error", e.getMessage());
-        response.put("message", "Erro ao pegar valor de options");
         return response;
     }
 }

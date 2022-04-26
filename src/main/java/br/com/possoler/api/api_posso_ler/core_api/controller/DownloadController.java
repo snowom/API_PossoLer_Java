@@ -9,6 +9,7 @@ import br.com.possoler.api.api_posso_ler.core_api.service.DownloadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -35,7 +36,7 @@ public class DownloadController {
      * @author thomazf
      * @return ResponseEntity
      */
-    @GetMapping("${core-api.endpoint.increment-download}")
+    @PostMapping("${core-api.endpoint.increment-download}")
     private ResponseEntity<Map<String, String>> incrementDownloads()
     {
         Map<String, String> response = new HashMap<>();
