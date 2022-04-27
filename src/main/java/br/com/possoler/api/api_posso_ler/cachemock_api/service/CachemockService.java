@@ -1,10 +1,10 @@
 package br.com.possoler.api.api_posso_ler.cachemock_api.service;
 
 import br.com.possoler.api.api_posso_ler.cachemock_api.dto.PostModelDTO;
-import br.com.possoler.api.api_posso_ler.cachemock_api.entity.GetModelEntity;
 import br.com.possoler.api.api_posso_ler.cachemock_api.entity.PostModelEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.ClientErrorException;
+import exceptions.ServerErrorException;
 import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
@@ -77,5 +77,38 @@ public class CachemockService {
         if(key.length() == 0)
             throw new ClientErrorException("O parâmetro \"key\" não pode ser nulo ou vazio");
         return true;
+    }
+
+
+    /**
+     * Retorna a quantidade de arquivos desbloqueados
+     * @author thomazf
+     * @return Integer
+     */
+    public Integer getUnlockedFilesQuantity()
+    {
+        try{
+            return new File(this.RESOURCES_PATH).listFiles().length;
+        }catch(NullPointerException e){
+            throw new ServerErrorException(e.getMessage());
+        }
+    }
+
+
+    /**
+     * Deleta todos arquivos desbloqueados
+     * @author thomazf
+     */
+    public void clearUnlockedFiles()
+    {
+        try{
+            File[] files = new File(this.RESOURCES_PATH).listFiles();
+            for(File f : files){
+                if(f.getName().equals(".gitkeep")) continue;
+                f.delete();
+            }
+        }catch(RuntimeException e){
+            throw new ServerErrorException(e.getMessage());
+        }
     }
 }
