@@ -28,6 +28,13 @@ public class RespondeAiService {
     private RestTemplate restTemplate = new RestTemplate();
 
 
+    /**
+     * Realiza Requisicao para API do Responde Ai e retorna objeto obtido na requisicao
+     * @author thomazf
+     * @param payload
+     * @param token
+     * @return DataBookExerciseResponseDTO
+     */
     public DataBookExerciseResponseDTO doRequestToRespodeAi_API(BodyRequestDTO payload, String token)
     {
         BookExerciseRequestEntity requestBody = this.mountRequestBody(payload.getExerciseId());
