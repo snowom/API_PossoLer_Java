@@ -28,7 +28,7 @@ public class RespondeAiService {
 
     /**
      * Realiza Requisicao para API do Responde Ai e retorna objeto obtido na requisicao
-     * @author snowon
+     * @author snowom
      * @param payload
      * @param token
      * @return DataBookExerciseResponseDTO
