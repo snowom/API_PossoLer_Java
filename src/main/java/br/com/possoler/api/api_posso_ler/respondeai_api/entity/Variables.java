@@ -12,5 +12,4 @@ import lombok.NoArgsConstructor;
 public class Variables {
 
     private String id;
-    private Boolean showBody;
 }

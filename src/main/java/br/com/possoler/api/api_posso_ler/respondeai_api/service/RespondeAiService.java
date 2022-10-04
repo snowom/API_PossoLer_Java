@@ -1,14 +1,13 @@
 package br.com.possoler.api.api_posso_ler.respondeai_api.service;
 
-import br.com.possoler.api.api_posso_ler.respondeai_api.dto.BodyRequestDTO;
-import br.com.possoler.api.api_posso_ler.respondeai_api.dto.DataBookExerciseResponseDTO;
-import br.com.possoler.api.api_posso_ler.respondeai_api.entity.BookExerciseRequestEntity;
+import br.com.possoler.api.api_posso_ler.respondeai_api.constants.Request;
+import br.com.possoler.api.api_posso_ler.respondeai_api.dto.ExerciseRequestDTO;
+import br.com.possoler.api.api_posso_ler.respondeai_api.dto.ExerciseRequestPayloadDTO;
 import br.com.possoler.api.api_posso_ler.respondeai_api.entity.Variables;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.ClientErrorException;
 import exceptions.NotFoundException;
 import exceptions.ServerErrorException;
-import lombok.Getter;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -21,72 +20,123 @@ import java.io.IOException;
 @Service
 public class RespondeAiService {
 
-    @Getter
-    private final String URL_REQUEST = "https://content.respondeai.com.br/graphql";
-    private final String QUERY = "query bookExercise($id: ID!) {bookExercise(id: $id) {id solution answer}}";
-    private final String OPERATION_NAME_BOOK_EXERCISE_SOLVED = "bookExercise";
     private RestTemplate restTemplate = new RestTemplate();
+    private HttpMethod httpMethod;
+    private HttpEntity<?> entity;
+    private ResponseEntity response;
 
 
     /**
      * Realiza Requisicao para API do Responde Ai e retorna objeto obtido na requisicao
-     * @author thomazf
+     * @author snowon
      * @param payload
      * @param token
      * @return DataBookExerciseResponseDTO
      */
-    public DataBookExerciseResponseDTO doRequestToRespodeAi_API(BodyRequestDTO payload, String token)
+    public Object getData(String operation, ExerciseRequestDTO payload, String token)
     {
-        BookExerciseRequestEntity requestBody = this.mountRequestBody(payload.getExerciseId());
         HttpHeaders header = this.setHeaders(token);
-        HttpEntity<BookExerciseRequestEntity> entity = new HttpEntity<BookExerciseRequestEntity>(requestBody, header);
-        ResponseEntity response = restTemplate.exchange(this.URL_REQUEST, HttpMethod.POST, entity, String.class);
+        String URI = buildURIRequest(operation, payload.getExerciseId());
 
-        if(!response.hasBody())
+        if((isBookData(operation))){
+            this.httpMethod = HttpMethod.GET;
+            this.entity = new HttpEntity<>(header);
+        }else{
+            this.httpMethod = HttpMethod.POST;
+            String operationName = defineOperationName(operation);
+            String query = defineQuery(operation);
+            ExerciseRequestPayloadDTO bodyRequest = this.buildBodyRequest(operationName, query, payload.getExerciseId());
+            this.entity = new HttpEntity<>(bodyRequest, header);
+        }
+
+        this.response = restTemplate.exchange(URI, this.httpMethod, entity, String.class);
+
+        if(!this.response.hasBody())
             throw new NotFoundException("Não há conteúdos para exibir");
-        String responseBody = (String)response.getBody();
+
+        String responseBody = (String)this.response.getBody();
         return this.parseResponseToEntity(responseBody);
     }
 
+    private ExerciseRequestPayloadDTO buildBodyRequest(String operationName, String query, String exerciseId) {
+        return ExerciseRequestPayloadDTO
+            .builder()
+            .operationName(operationName)
+            .query(query)
+            .variables(Variables.builder().id(exerciseId).build())
+            .build();
+    }
+
+    private String defineQuery(String operation) throws ClientErrorException{
+        if(operation.equalsIgnoreCase(Request.Operation.THEORY.getOperationValue())){
+            return Request.THEORY_QUERY;
+        }
+        if(operation.equalsIgnoreCase(Request.Operation.FIXATION_EXERCISE.getOperationValue())){
+            return Request.FIXATION_EXERCISE_QUERY;
+        }
+        if(operation.equalsIgnoreCase(Request.Operation.LIST_EXERCISE.getOperationValue())){
+            return Request.LIST_EXERCISE_OPERATION_QUERY;
+        }
+        throw new ClientErrorException("Valor do parâmetro operation inválido");
+    }
+
+    private String defineOperationName(String operation) throws ClientErrorException{
+        if(operation.equalsIgnoreCase(Request.Operation.THEORY.getOperationValue())){
+            return Request.THEORY_OPERATION_NAME;
+        }
+        if(operation.equalsIgnoreCase(Request.Operation.FIXATION_EXERCISE.getOperationValue())){
+            return Request.FIXATION_EXERCISE_OPERATION_NAME;
+        }
+        if(operation.equalsIgnoreCase(Request.Operation.LIST_EXERCISE.getOperationValue())){
+            return Request.LIST_EXERCISE_OPERATION_NAME;
+        }
+        throw new ClientErrorException("Valor do parâmetro operation inválido");
+    }
+
+    private Boolean isBookData(String operation){
+        return operation.equalsIgnoreCase(Request.Operation.BOOK_EXERCISE.getOperationValue());
+    }
 
     /**
-     * Converte resposta do request em uma entity
-     * @author thomazf
+     * Gera URI de request para API do Responde Aí
+     * @author snowon
+     * @param exerciseId
+     * @return String
+     */
+    private String buildURIRequest(String operation, String exerciseId) {
+
+        if(operation.equalsIgnoreCase(Request.Operation.BOOK_EXERCISE.getOperationValue())){
+            return Request.DOMAIN_REQUEST + Request.BOOK_EXERCISE_ENDPOINT_REQUEST + exerciseId;
+        }
+        if(
+            operation.equalsIgnoreCase(Request.Operation.THEORY.getOperationValue()) ||
+            operation.equalsIgnoreCase(Request.Operation.FIXATION_EXERCISE.getOperationValue()) ||
+            operation.equalsIgnoreCase(Request.Operation.LIST_EXERCISE.getOperationValue())
+        ){
+            return Request.DOMAIN_REQUEST + Request.THEORY_ENDPOINT;
+        }
+        return null;
+    }
+
+    /**
+     * Converte resposta do request (JSON) em uma entity
+     * @author snowon
      * @param response
      * @return DataBookExerciseResponseDTO
      */
-    private DataBookExerciseResponseDTO parseResponseToEntity(String response)
+    private Object parseResponseToEntity(String response)
     {
         try{
             ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(response, DataBookExerciseResponseDTO.class);
+            return mapper.readValue(response, Object.class);
         }catch(IOException e){
             throw new ServerErrorException(e.getMessage());
         }
     }
 
-
-    /**
-     * Monta e retorna payload em forma de entidade para requisição no RespondeAi
-     * @author thomazf
-     * @return BookExerciseRequestEntity
-     */
-    private BookExerciseRequestEntity mountRequestBody(String exerciseId)
-    {
-        return BookExerciseRequestEntity.builder()
-                .operationName(this.OPERATION_NAME_BOOK_EXERCISE_SOLVED)
-                .query(this.QUERY)
-                .variables(Variables.builder()
-                        .id(exerciseId)
-                        .showBody(false)
-                        .build()
-                ).build();
-    }
-
-
     /**
      * Setta headers para chamada da API externa
-     * @author thomazf
+     * @author snowon
      * @return HttpHeaders
      */
     public HttpHeaders setHeaders(String jwtToken)

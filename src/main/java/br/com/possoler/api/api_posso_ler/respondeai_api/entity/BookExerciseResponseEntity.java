@@ -12,6 +12,8 @@ import java.util.List;
 public class BookExerciseResponseEntity {
 
     private String id;
-    private List<String> solution;
-    private String answer;
+    private String lightBody;
+    private List<String> lightSolution;
+    private String lightAnswer;
+    private Object topic;
 }
