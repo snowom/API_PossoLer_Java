@@ -103,7 +103,7 @@ public class RespondeAiService {
      * @param exerciseId
      * @return String
      */
-    private String buildURIRequest(String operation, String exerciseId) {
+    private String buildURIRequest(String operation, String exerciseId) throws ClientErrorException {
 
         if(operation.equalsIgnoreCase(Request.Operation.BOOK_EXERCISE.getOperationValue())){
             return Request.DOMAIN_REQUEST + Request.BOOK_EXERCISE_ENDPOINT_REQUEST + exerciseId;
@@ -115,7 +115,7 @@ public class RespondeAiService {
         ){
             return Request.DOMAIN_REQUEST + Request.THEORY_ENDPOINT;
         }
-        return null;
+        throw new ClientErrorException("Valor do parâmetro operation inválido");
     }
 
     /**
