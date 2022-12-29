@@ -6,13 +6,16 @@ import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_BlocoDoacoesE
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_BlocoDoacoesEnum;
 import br.com.possoler.api.api_posso_ler.site.model.BlocoDoacoes;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 @Service
 public class BlocoDoacoesService {
 
-    public BlocoDoacoes blocoDoacoesFactory(String idioma) {
+    public void blocoDoacoesFactory(String idioma, ModelAndView modelAndView) {
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
-            return BlocoDoacoes.builder()
+            modelAndView.addObject(
+    "blocoDoacoes",
+                BlocoDoacoes.builder()
                 .tituloBlocoDoacoes(en_BlocoDoacoesEnum.TITULO_BLOCO_DOACOES.getLabel())
                 .label1(en_BlocoDoacoesEnum.LABEL_1.getLabel())
                 .label2(en_BlocoDoacoesEnum.LABEL_2.getLabel())
@@ -21,10 +24,14 @@ public class BlocoDoacoesService {
                 .label5(en_BlocoDoacoesEnum.LABEL_5.getLabel())
                 .label6(en_BlocoDoacoesEnum.LABEL_6.getLabel())
                 .label7(en_BlocoDoacoesEnum.LABEL_7.getLabel())
-                .build();
+                .build()
+            );
+            return;
         }
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_ES.getIdioma())) {
-            return BlocoDoacoes.builder()
+            modelAndView.addObject(
+    "blocoDoacoes",
+                BlocoDoacoes.builder()
                 .tituloBlocoDoacoes(es_BlocoDoacoesEnum.TITULO_BLOCO_DOACOES.getLabel())
                 .label1(es_BlocoDoacoesEnum.LABEL_1.getLabel())
                 .label2(es_BlocoDoacoesEnum.LABEL_2.getLabel())
@@ -33,9 +40,13 @@ public class BlocoDoacoesService {
                 .label5(es_BlocoDoacoesEnum.LABEL_5.getLabel())
                 .label6(es_BlocoDoacoesEnum.LABEL_6.getLabel())
                 .label7(es_BlocoDoacoesEnum.LABEL_7.getLabel())
-                .build();
+                .build()
+            );
+            return;
         }
-        return BlocoDoacoes.builder()
+        modelAndView.addObject(
+"blocoDoacoes",
+            BlocoDoacoes.builder()
             .tituloBlocoDoacoes(br_BlocoDoacoesEnum.TITULO_BLOCO_DOACOES.getLabel())
             .label1(br_BlocoDoacoesEnum.LABEL_1.getLabel())
             .label2(br_BlocoDoacoesEnum.LABEL_2.getLabel())
@@ -44,6 +55,7 @@ public class BlocoDoacoesService {
             .label5(br_BlocoDoacoesEnum.LABEL_5.getLabel())
             .label6(br_BlocoDoacoesEnum.LABEL_6.getLabel())
             .label7(br_BlocoDoacoesEnum.LABEL_7.getLabel())
-            .build();
+            .build()
+        );
     }
 }

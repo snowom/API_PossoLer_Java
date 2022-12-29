@@ -4,6 +4,7 @@ import br.com.possoler.api.api_posso_ler.site.model.*;
 import br.com.possoler.api.api_posso_ler.site.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,29 +27,35 @@ public class HomeController {
     BlocoPerguntasServices blocoPerguntasServices;
     @Autowired
     BlocoTecnologiaService blocoTecnologiaService;
+    @Autowired
+    BlocoTutorialService blocoTutorialService;
+    @Autowired
+    BlocoComentarioService blocoComentarioService;
+    @Autowired
+    FooterService footerService;
+    @Autowired
+    GlideScriptService glideScriptService;
+    @Autowired
+    VersaoExtensaoScriptService versaoExtensaoScriptService;
 
     @GetMapping("${homepage}")
-    public ModelAndView index() {
+    public ModelAndView index(Model model) {
 
         ModelAndView mv = new ModelAndView();
-        MenuLateral menuLateral = menuLateralService.menuLateralFactory("br");
-        Head head = headService.headFactory("br");
-        Conteudos conteudos = conteudosService.conteudoFactory("");
-        BlocoDownload blocoDownload = blocoDownloadService.blocoDownloadFactory("");
-        BlocoSobre blocoSobre = blocoSobreService.blocoSobreFactory("");
-        BlocoDoacoes blocoDoacoes = blocoDoacoesService.blocoDoacoesFactory("");
-        BlocoPerguntasFrequentes blocoPerguntas = blocoPerguntasServices.blocoPerguntasFactory("");
-        BlocoTecnologia blocoTecnologias = blocoTecnologiaService.blocoTecnologiaFactory("");
+        menuLateralService.menuLateralFactory("br", mv);
+        headService.headFactory("br", mv);
+        conteudosService.conteudoFactory("", mv);
+        blocoDownloadService.blocoDownloadFactory("", mv);
+        blocoSobreService.blocoSobreFactory("", mv);
+        blocoDoacoesService.blocoDoacoesFactory("", mv);
+        blocoPerguntasServices.blocoPerguntasFactory("", mv);
+        blocoTecnologiaService.blocoTecnologiaFactory("", mv);
+        blocoTutorialService.blocoTutorialFactory("", mv);
+        blocoComentarioService.blocoComentarioFactory("", mv);
+        footerService.footerFactory("", mv);
+        glideScriptService.GlidScriptFactory("", model);
+        versaoExtensaoScriptService.versaoExtensaoScriptFactory("", model);
 
-
-        mv.addObject("menuLateral", menuLateral);
-        mv.addObject("head", head);
-        mv.addObject("conteudos", conteudos);
-        mv.addObject("blocoDownload", blocoDownload);
-        mv.addObject("blocoSobre", blocoSobre);
-        mv.addObject("blocoDoacoes", blocoDoacoes);
-        mv.addObject("blocoPerguntas", blocoPerguntas);
-        mv.addObject("blocoTecnologias", blocoTecnologias);
         mv.setViewName("index");
         return mv;
     }

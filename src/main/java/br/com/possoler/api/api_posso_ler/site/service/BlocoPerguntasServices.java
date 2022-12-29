@@ -6,13 +6,16 @@ import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_BlocoPergunta
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_BlocoPerguntasEnum;
 import br.com.possoler.api.api_posso_ler.site.model.BlocoPerguntasFrequentes;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 @Service
 public class BlocoPerguntasServices {
 
-    public BlocoPerguntasFrequentes blocoPerguntasFactory(String idioma) {
+    public void blocoPerguntasFactory(String idioma, ModelAndView modelAndView) {
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
-            return BlocoPerguntasFrequentes.builder()
+            modelAndView.addObject(
+    "blocoPerguntas",
+                BlocoPerguntasFrequentes.builder()
                 .labelPerguntasFrequentes(en_BlocoPerguntasEnum.LABEL_PERGUNTAS_FREQUENTES.getLabel())
                 .label1(en_BlocoPerguntasEnum.LABEL_1.getLabel()).label2(en_BlocoPerguntasEnum.LABEL_2.getLabel())
                 .label3(en_BlocoPerguntasEnum.LABEL_3.getLabel()).label4(en_BlocoPerguntasEnum.LABEL_4.getLabel())
@@ -56,10 +59,14 @@ public class BlocoPerguntasServices {
                 .label79(en_BlocoPerguntasEnum.LABEL_79.getLabel()).label80(en_BlocoPerguntasEnum.LABEL_80.getLabel())
                 .label81(en_BlocoPerguntasEnum.LABEL_81.getLabel()).label82(en_BlocoPerguntasEnum.LABEL_82.getLabel())
                 .label83(en_BlocoPerguntasEnum.LABEL_83.getLabel()).label84(en_BlocoPerguntasEnum.LABEL_84.getLabel())
-                .build();
+                .build()
+            );
+            return;
         }
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_ES.getIdioma())) {
-            return BlocoPerguntasFrequentes.builder()
+            modelAndView.addObject(
+    "blocoPerguntas",
+                BlocoPerguntasFrequentes.builder()
                 .labelPerguntasFrequentes(es_BlocoPerguntasEnum.LABEL_PERGUNTAS_FREQUENTES.getLabel())
                 .label1(es_BlocoPerguntasEnum.LABEL_1.getLabel()).label2(es_BlocoPerguntasEnum.LABEL_2.getLabel())
                 .label3(es_BlocoPerguntasEnum.LABEL_3.getLabel()).label4(es_BlocoPerguntasEnum.LABEL_4.getLabel())
@@ -103,9 +110,13 @@ public class BlocoPerguntasServices {
                 .label79(es_BlocoPerguntasEnum.LABEL_79.getLabel()).label80(es_BlocoPerguntasEnum.LABEL_80.getLabel())
                 .label81(es_BlocoPerguntasEnum.LABEL_81.getLabel()).label82(es_BlocoPerguntasEnum.LABEL_82.getLabel())
                 .label83(es_BlocoPerguntasEnum.LABEL_83.getLabel()).label84(es_BlocoPerguntasEnum.LABEL_84.getLabel())
-                .build();
+                .build()
+            );
+            return;
         }
-        return BlocoPerguntasFrequentes.builder()
+        modelAndView.addObject(
+"blocoPerguntas",
+            BlocoPerguntasFrequentes.builder()
             .labelPerguntasFrequentes(br_BlocoPerguntasEnum.LABEL_PERGUNTAS_FREQUENTES.getLabel())
             .label1(br_BlocoPerguntasEnum.LABEL_1.getLabel()).label2(br_BlocoPerguntasEnum.LABEL_2.getLabel())
             .label3(br_BlocoPerguntasEnum.LABEL_3.getLabel()).label4(br_BlocoPerguntasEnum.LABEL_4.getLabel())
@@ -149,6 +160,7 @@ public class BlocoPerguntasServices {
             .label79(br_BlocoPerguntasEnum.LABEL_79.getLabel()).label80(br_BlocoPerguntasEnum.LABEL_80.getLabel())
             .label81(br_BlocoPerguntasEnum.LABEL_81.getLabel()).label82(br_BlocoPerguntasEnum.LABEL_82.getLabel())
             .label83(br_BlocoPerguntasEnum.LABEL_83.getLabel()).label84(br_BlocoPerguntasEnum.LABEL_84.getLabel())
-            .build();
+            .build()
+        );
     }
 }

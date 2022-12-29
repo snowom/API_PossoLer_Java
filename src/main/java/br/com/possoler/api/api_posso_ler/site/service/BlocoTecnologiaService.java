@@ -6,13 +6,16 @@ import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_BlocoTecnolog
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_BlocoTecnologiasEnum;
 import br.com.possoler.api.api_posso_ler.site.model.BlocoTecnologia;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 @Service
 public class BlocoTecnologiaService {
 
-    public BlocoTecnologia blocoTecnologiaFactory(String idioma) {
+    public void blocoTecnologiaFactory(String idioma, ModelAndView modelAndView) {
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
-            return BlocoTecnologia.builder()
+            modelAndView.addObject(
+    "blocoTecnologias",
+                BlocoTecnologia.builder()
                 .labelTecnologiasUsadas(en_BlocoTecnologiasEnum.LABEL_TECNOLOGIAS_USADAS.getLabel())
                 .label1(en_BlocoTecnologiasEnum.LABEL_1.getLabel())
                 .label2(en_BlocoTecnologiasEnum.LABEL_2.getLabel())
@@ -35,10 +38,14 @@ public class BlocoTecnologiaService {
                 .label19(en_BlocoTecnologiasEnum.LABEL_19.getLabel())
                 .label20(en_BlocoTecnologiasEnum.LABEL_20.getLabel())
                 .label21(en_BlocoTecnologiasEnum.LABEL_21.getLabel())
-                .build();
+                .build()
+            );
+            return;
         }
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_ES.getIdioma())) {
-            return BlocoTecnologia.builder()
+            modelAndView.addObject(
+    "blocoTecnologias",
+                BlocoTecnologia.builder()
                 .labelTecnologiasUsadas(es_BlocoTecnologiasEnum.LABEL_TECNOLOGIAS_USADAS.getLabel())
                 .label1(es_BlocoTecnologiasEnum.LABEL_1.getLabel())
                 .label2(es_BlocoTecnologiasEnum.LABEL_2.getLabel())
@@ -61,9 +68,12 @@ public class BlocoTecnologiaService {
                 .label19(es_BlocoTecnologiasEnum.LABEL_19.getLabel())
                 .label20(es_BlocoTecnologiasEnum.LABEL_20.getLabel())
                 .label21(es_BlocoTecnologiasEnum.LABEL_21.getLabel())
-                .build();
+                .build());
+            return;
         }
-        return BlocoTecnologia.builder()
+        modelAndView.addObject(
+"blocoTecnologias",
+            BlocoTecnologia.builder()
             .labelTecnologiasUsadas(br_BlocoTecnologiasEnum.LABEL_TECNOLOGIAS_USADAS.getLabel())
             .label1(br_BlocoTecnologiasEnum.LABEL_1.getLabel())
             .label2(br_BlocoTecnologiasEnum.LABEL_2.getLabel())
@@ -86,6 +96,7 @@ public class BlocoTecnologiaService {
             .label19(br_BlocoTecnologiasEnum.LABEL_19.getLabel())
             .label20(br_BlocoTecnologiasEnum.LABEL_20.getLabel())
             .label21(br_BlocoTecnologiasEnum.LABEL_21.getLabel())
-            .build();
+            .build()
+        );
     }
 }

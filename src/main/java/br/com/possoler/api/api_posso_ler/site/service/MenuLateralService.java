@@ -6,13 +6,18 @@ import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_MenuLateralEn
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_MenuLateralEnum;
 import br.com.possoler.api.api_posso_ler.site.model.MenuLateral;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
 
 @Service
 public class MenuLateralService {
 
-    public MenuLateral menuLateralFactory(String idioma) {
+    public void menuLateralFactory(String idioma, ModelAndView modelAndView) {
+
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())){
-            return MenuLateral.builder()
+            modelAndView.addObject(
+                "menuLateral",
+                MenuLateral.builder()
                     .MenuLateralMenu(en_MenuLateralEnum.MENU_LATERAL_MENU.getWord())
                     .MenuLateralInicio(en_MenuLateralEnum.MENU_LATERAL_INICIO.getWord())
                     .MenuLateralDownload(en_MenuLateralEnum.MENU_LATERAL_DOWNLOAD.getWord())
@@ -23,10 +28,14 @@ public class MenuLateralService {
                     .MenuLateralTutoriais(en_MenuLateralEnum.MENU_LATERAL_TUTORIAIS.getWord())
                     .MenuLateralComentarios(en_MenuLateralEnum.MENU_LATERAL_COMENTARIOS.getWord())
                     .MenuLateralVaiUmCafe(en_MenuLateralEnum.MENU_LATERAL_VAIUMCAFE.getWord())
-                    .build();
+                    .build()
+            );
+            return;
         }
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_ES.getIdioma())){
-            return MenuLateral.builder()
+            modelAndView.addObject(
+                "menuLateral",
+                MenuLateral.builder()
                     .MenuLateralMenu(es_MenuLateralEnum.MENU_LATERAL_MENU.getWord())
                     .MenuLateralInicio(es_MenuLateralEnum.MENU_LATERAL_INICIO.getWord())
                     .MenuLateralDownload(es_MenuLateralEnum.MENU_LATERAL_DOWNLOAD.getWord())
@@ -37,9 +46,13 @@ public class MenuLateralService {
                     .MenuLateralTutoriais(es_MenuLateralEnum.MENU_LATERAL_TUTORIAIS.getWord())
                     .MenuLateralComentarios(es_MenuLateralEnum.MENU_LATERAL_COMENTARIOS.getWord())
                     .MenuLateralVaiUmCafe(es_MenuLateralEnum.MENU_LATERAL_VAIUMCAFE.getWord())
-                    .build();
+                    .build()
+                );
+            return;
         }
-        return MenuLateral.builder()
+        modelAndView.addObject(
+            "menuLateral",
+            MenuLateral.builder()
                 .MenuLateralMenu(br_MenuLateralEnum.MENU_LATERAL_MENU.getWord())
                 .MenuLateralInicio(br_MenuLateralEnum.MENU_LATERAL_INICIO.getWord())
                 .MenuLateralDownload(br_MenuLateralEnum.MENU_LATERAL_DOWNLOAD.getWord())
@@ -50,6 +63,7 @@ public class MenuLateralService {
                 .MenuLateralTutoriais(br_MenuLateralEnum.MENU_LATERAL_TUTORIAIS.getWord())
                 .MenuLateralComentarios(br_MenuLateralEnum.MENU_LATERAL_COMENTARIOS.getWord())
                 .MenuLateralVaiUmCafe(br_MenuLateralEnum.MENU_LATERAL_VAIUMCAFE.getWord())
-                .build();
+                .build()
+            );
     }
 }
