@@ -748,9 +748,226 @@
 
         <!-- INFO VERSAO EXTENSAO SCRIPT -->
         <script th:inline="javascript">
-            let t = /*[[${teste}]]*/
-            alert(t);
+            const DATA_PUBLICACAO = /*[[${versaoExtensaoScript_data}]]*/;
+            let VERSAO = /*[[${versaoExtensaoScript_versao}]]*/;
+            let VERSAO_INSTALADA = /*[[${versaoExtensaoScript_label1}]]*/;
+
+            function montaStringVersao(paramString)
+            {
+                let tmpString="";
+                for(let i=0; i<paramString.length; i++)
+                {
+                    tmpString = (tmpString=="") ? tmpString+paramString.charAt(i) : (i<(paramString-1)) ? `${tmpString}.${paramString.charAt(i)}` : `${tmpString}${paramString.charAt(i)}`;
+                }
+                return tmpString;
+            }
+
+
+            function setLabelVersaoInstalada()
+            {
+                if(typeof(VERSAO_ATUAL) != "undefined")
+                {
+                    return montaStringVersao(VERSAO_ATUAL);
+                }
+                return /*[[${versaoExtensaoScript_label1}]]*/;
+            }
+
+
+            function setMenuInstalacao(tutorial)
+            {
+                let lbl1 = /*[[${versaoExtensaoScript_label2}]]*/;
+                let lbl2 = /*[[${versaoExtensaoScript_label3}]]*/;
+                let lbl3 = /*[[${versaoExtensaoScript_label4}]]*/;
+
+                return `<spam class="container-fluid" style="margin-top: 50px !important;" id="spamSpace"></spam>
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <button id=install_tab class="btn btn-block btnActive">${lbl1}</button>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <button id=generate_access_key_button class="btn btn-block btnDisabled">${lbl2}</button>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <button id=changelog_tab class="btn btn-block btnDisabled">${lbl3}</button>
+                            </div>
+                        </div>
+
+                        <div class="container-fluid" id="content">
+                            ${tutorial}
+                        </div>`;
+            }
         </script>
+
+
+        <!-- INSTRUCOES DOWNLOAD DESKTOP -->
+        <script th:inline="javascript">
+            lbl1 = /*[[${instrucoesDownloadDesk_label1}]]*/;
+            lbl2 = /*[[${instrucoesDownloadDesk_label2}]]*/;
+            lbl3 = /*[[${instrucoesDownloadDesk_label3}]]*/;
+            lbl4 = /*[[${instrucoesDownloadDesk_label4}]]*/;
+            lbl5 = /*[[${instrucoesDownloadDesk_label5}]]*/;
+            lbl6 = /*[[${instrucoesDownloadDesk_label6}]]*/;
+            lbl7 = /*[[${instrucoesDownloadDesk_label7}]]*/;
+            lbl8 = /*[[${instrucoesDownloadDesk_label8}]]*/;
+            lbl9 = /*[[${instrucoesDownloadDesk_label9}]]*/;
+            lbl10 = /*[[${instrucoesDownloadDesk_label10}]]*/;
+            lbl11 = /*[[${instrucoesDownloadDesk_label11}]]*/;
+            lbl12 = /*[[${instrucoesDownloadDesk_label12}]]*/;
+            lbl13 = /*[[${instrucoesDownloadDesk_label13}]]*/;
+            lbl14 = /*[[${instrucoesDownloadDesk_label14}]]*/;
+            lbl15 = /*[[${instrucoesDownloadDesk_label15}]]*/;
+            lbl16 = /*[[${instrucoesDownloadDesk_label16}]]*/;
+            lbl17 = /*[[${instrucoesDownloadDesk_label17}]]*/;
+            lbl18 = /*[[${instrucoesDownloadDesk_label18}]]*/;
+
+
+            function montaPaginaDownloadDesk()
+            {
+                const TMPK =
+                `<div class="row marginHR card shadow p-3 mb-5 mt-5 rounded">
+                    <div class="col-12">
+                        <p class="lead subtitulo">${lbl1}</p>
+                        <div class="row mb-5">
+                            <div class="col-12">${lbl13}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>1)</strong>${lbl2}<a target="_blank" href="https://www.tampermonkey.net/">Tampermonkey</a></spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>2)</strong>${lbl3}<a id="btnDownloadDesk" href="" download>PossoLer.user.js</a></spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>3) </strong>${lbl4}</spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>4) </strong>${lbl5}</spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>5) </strong>${lbl6}</spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>6) </strong>${lbl7}</spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>7) </strong>${lbl8}</spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>8) </strong>${lbl9}</spam>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <spam class="small_Lead">${lbl10}</spam>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="col-12">
+                        <p class="lead subtitulo" style="margin-top: 30px !important">${lbl14}</p>
+                        <div class="row mb-5">
+                            <div class="col-12">${lbl18}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>1)</strong>${lbl15}</spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>2)</strong>${lbl3}<a id="btnAtualizacaoDesk" href="" download>PossoLer.user.js</a></spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>3) </strong>${lbl4}</spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>4) </strong>${lbl5}</spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>5) </strong>${lbl6}</spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>6) </strong>${lbl7}</spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>7) </strong>${lbl8}</spam>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <spam class="small_Lead"><strong>8) </strong>${lbl9}</spam>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <spam class="small_Lead">${lbl10}</spam>
+                            </div>
+                        </div>
+                    </div>
+                </div>`
+
+                let MANUAL = setMenuInstalacao(TMPK);
+                containerDownload.innerHTML = `${MANUAL}`;
+
+                //SETA AÇÃO PARA OS LINKS DE TUTORIAIS
+                gotoTutorial("linkTutAtt", 2);
+                gotoTutorial("linkTutDesk", 0);
+
+                //SETA AÇÃO NOS BOTOES "Instalação" e "O que há de novo?"
+                setDisableAndEnableButtons("#install_tab", ["#changelog_tab", "#generate_access_key_button"]);
+                setDisableAndEnableButtons("#changelog_tab", ["#install_tab", "#generate_access_key_button"]);
+                setDisableAndEnableButtons("#generate_access_key_button", ["#install_tab", "#changelog_tab"]);
+
+                getElement("#install_tab").addEventListener("click", ()=>{
+                    montaPaginaDownloadDesk();
+                });
+
+                getElement("#changelog_tab").addEventListener("click", ()=>{
+                    montaPaginaChengelog();
+                });
+
+                getElement("#generate_access_key_button").addEventListener("click", ()=>{
+                    montaCardChaveAcesso();
+                });
+
+                getElement("#btnDownloadDesk").addEventListener("click",(event)=>{
+                    event.preventDefault();
+                    downloadExtension("possoLer.user.js");
+                });
+
+                getElement("#btnAtualizacaoDesk").addEventListener("click",(event)=>{
+                    event.preventDefault();
+                    downloadExtension("possoLer.user.js");
+                });
+            }
+        </script>>
 
 
         <!-- =-=-=--=-=-= DISQUS SCRIPT =-=-=-=-=-=--= -->

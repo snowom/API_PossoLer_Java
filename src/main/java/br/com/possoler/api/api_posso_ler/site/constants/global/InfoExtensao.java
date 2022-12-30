@@ -1,4 +1,4 @@
-package br.com.possoler.api.api_posso_ler.site.constants;
+package br.com.possoler.api.api_posso_ler.site.constants.global;
 
 import lombok.Getter;
 

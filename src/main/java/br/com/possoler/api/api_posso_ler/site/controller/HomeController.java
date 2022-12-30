@@ -37,6 +37,8 @@ public class HomeController {
     GlideScriptService glideScriptService;
     @Autowired
     VersaoExtensaoScriptService versaoExtensaoScriptService;
+    @Autowired
+    InstrucoesDownloadDeskService instrucoesDownloadDeskService;
 
     @GetMapping("${homepage}")
     public ModelAndView index(Model model) {
@@ -54,7 +56,9 @@ public class HomeController {
         blocoComentarioService.blocoComentarioFactory("", mv);
         footerService.footerFactory("", mv);
         glideScriptService.GlidScriptFactory("", model);
+        versaoExtensaoScriptService.setInfoExtensao("", model);
         versaoExtensaoScriptService.versaoExtensaoScriptFactory("", model);
+        instrucoesDownloadDeskService.instrucoesDownloadDeskFactory("", model);
 
         mv.setViewName("index");
         return mv;

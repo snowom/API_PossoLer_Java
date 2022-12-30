@@ -4,10 +4,10 @@ import lombok.Getter;
 
 public enum es_VersaoExtensaoScriptEnum {
 
-    LABEL_1(""),
-    LABEL_2(""),
-    LABEL_3(""),
-    LABEL_4("");
+    LABEL_1("No se encontró ninguna versión de <strong>Posso Ler?</strong>"),
+    LABEL_2("Instalación"),
+    LABEL_3("Recuperar clave de acceso"),
+    LABEL_4("¿Que hay de nuevo?");
 
     @Getter
     private String label;
