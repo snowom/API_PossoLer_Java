@@ -1,6 +1,5 @@
 package br.com.possoler.api.api_posso_ler.site.controller;
 
-import br.com.possoler.api.api_posso_ler.site.model.*;
 import br.com.possoler.api.api_posso_ler.site.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

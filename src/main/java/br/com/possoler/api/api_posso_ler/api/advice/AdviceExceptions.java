@@ -99,7 +99,7 @@ public class AdviceExceptions {
     }
 
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NotFoundException.class)
     private Map<String, String> notFoundException(NotFoundException e){
         Map<String, String> response = new HashMap<>();
