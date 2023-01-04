@@ -1023,6 +1023,158 @@
             }
         </script>
 
+
+        <!-- INSTRUCOES DOWNLOAD MOBILE -->
+        <script th:inline="javascript">
+            let lbl1_mb = /*[[${instrucoesDownloadMobile_label1}]]*/;
+            let lbl2_mb = /*[[${instrucoesDownloadMobile_label2}]]*/;
+            let lbl3_mb = /*[[${instrucoesDownloadMobile_label3}]]*/;
+            let lbl4_mb = /*[[${instrucoesDownloadMobile_label4}]]*/;
+            let lbl5_mb = /*[[${instrucoesDownloadMobile_label5}]]*/;
+            let lbl6_mb = /*[[${instrucoesDownloadMobile_label6}]]*/;
+            let lbl7_mb = /*[[${instrucoesDownloadMobile_label7}]]*/;
+            let lbl8_mb = /*[[${instrucoesDownloadMobile_label8}]]*/;
+            let lbl9_mb = /*[[${instrucoesDownloadMobile_label9}]]*/;
+            let lbl10_mb = /*[[${instrucoesDownloadMobile_label10}]]*/;
+            let lbl11_mb = /*[[${instrucoesDownloadMobile_label11}]]*/;
+            let lbl12_mb = /*[[${instrucoesDownloadMobile_label12}]]*/;
+            let lbl13_mb = /*[[${instrucoesDownloadMobile_label13}]]*/;
+            let lbl14_mb = /*[[${instrucoesDownloadMobile_label14}]]*/;
+            let lbl15_mb = /*[[${instrucoesDownloadMobile_label15}]]*/;
+            let lbl16_mb = /*[[${instrucoesDownloadMobile_label16}]]*/;
+            let lbl17_mb = /*[[${instrucoesDownloadMobile_label17}]]*/;
+            let lbl18_mb = /*[[${instrucoesDownloadMobile_label18}]]*/;
+            let lbl19_mb = /*[[${instrucoesDownloadMobile_label19}]]*/;
+            let lbl20_mb = /*[[${instrucoesDownloadMobile_label20}]]*/;
+            let lbl21_mb = /*[[${instrucoesDownloadMobile_label21}]]*/;
+            let lbl22_mb = /*[[${instrucoesDownloadMobile_label22}]]*/;
+            let lbl23_mb = /*[[${instrucoesDownloadMobile_label23}]]*/;
+            let lbl24_mb = /*[[${instrucoesDownloadMobile_label24}]]*/;
+            let lbl25_mb = /*[[${instrucoesDownloadMobile_label25}]]*/;
+            let lbl26_mb = /*[[${instrucoesDownloadMobile_label26}]]*/;
+            let lbl27_mb = /*[[${instrucoesDownloadMobile_label27}]]*/;
+            let lbl28_mb = /*[[${instrucoesDownloadMobile_label28}]]*/;
+            let lbl29_mb = /*[[${instrucoesDownloadMobile_label29}]]*/;
+            let lbl30_mb = /*[[${instrucoesDownloadMobile_label30}]]*/;
+            let lbl31_mb = /*[[${instrucoesDownloadMobile_label31}]]*/;
+            let lbl32_mb = /*[[${instrucoesDownloadMobile_label32}]]*/;
+            let lbl33_mb = /*[[${instrucoesDownloadMobile_label33}]]*/;
+            let lbl34_mb = /*[[${instrucoesDownloadMobile_label34}]]*/;
+            let lbl35_mb = /*[[${instrucoesDownloadMobile_label35}]]*/;
+            let lbl36_mb = /*[[${instrucoesDownloadMobile_label36}]]*/;
+
+            function montaPaginaMobile()
+            {
+                let INSTRUCOES = `
+                <div class="row card shadow p-3 mb-5 mt-5 rounded">
+                    <div class="col-12">
+                        <p class="lead subtitulo">${lbl1_mb}</p>
+                            <div class="row mb-5">
+                                <div class="col-12">
+                                    <a class="small_Lead" id="linkTutMob" href=""><spam style="font-size: 16px">${lbl2_mb}</spam></a>
+                                </div>
+                            </div>
+                            <spam class="small_Lead"><strong>1) </strong>
+                                ${lbl3_mb}
+                                <a id="btnDownloadMob" href="">${lbl4_mb}</a>
+                            </spam><br>
+                            <spam class="small_Lead"><strong>2) </strong>${lbl5_mb}</spam><br>
+                            <spam class="small_Lead"><strong>3) </strong>
+                                ${lbl6_mb}
+                                <a href="https://play.google.com/store/apps/details?id=com.kiwibrowser.browser">
+                                    ${lbl7_mb}
+                                </a>
+                                ${lbl8_mb}
+                            </spam><br>
+                            <spam class="small_Lead"><strong>4) </strong>${lbl9_mb}</spam><br>
+                            <spam class="small_Lead"><strong>5) </strong>
+                                ${lbl10_mb}
+                                <strong>${lbl11_mb}</strong>
+                                ${lbl12_mb}
+                            </spam><br>
+                            <spam class="small_Lead"><strong>6) </strong>
+                                ${lbl13_mb}
+                                <strong>${lbl14_mb}</strong>,
+                                <strong>${lbl15_mb}</strong>,
+                                <strong>${lbl16_mb}</strong>,
+                                <strong>${lbl17_mb}</strong>
+                                ${lbl18_mb}
+                                <strong>${lbl15_mb}</strong>
+                                ${lbl19_mb}
+                                <strong>${lbl20_mb}</strong>.
+                            </spam><br>
+                            <spam class="small_Lead"><strong>7) </strong>
+                                ${lbl21_mb}
+                                <strong>${lbl22_mb}</strong>
+                            </spam><br>
+                            <spam class="small_Lead"><strong>8) </strong>
+                                ${lbl23_mb}
+                                <strong>${lbl24_mb}</strong>
+                                ${lbl25_mb}
+                            </spam><br>
+                            <spam class="small_Lead"><strong>9) </strong>
+                                ${lbl26_mb}
+                                <strong>${lbl27_mb}</strong>
+                            </spam><br>
+                            <spam class="small_Lead"><strong>10) </strong>
+                                ${lbl28_mb}
+                            </spam><br>
+                            <spam class="small_Lead"><strong>11) </strong>
+                                ${lbl29_mb}
+                                <strong>${lbl30_mb}</strong>
+                                ${lbl31_mb}
+                            </spam><br>
+                            <spam class="small_Lead"><strong>12) </strong>
+                                ${lbl32_mb}
+                            </spam><br>
+                            <spam class="small_Lead"><strong>13) </strong>
+                                <em>${lbl33_mb}</em>
+                                ${lbl34_mb}
+                            </spam><br>
+                        </p>
+                    </div>
+                    <div class="row mt-3">
+                            <div class="col-12">
+                                <spam class="small_Lead">
+                                    <strong>${lbl35_mb}</strong>
+                                    ${lbl36_mb}
+                                </spam>
+                            </div>
+                        </div>
+                </div>`;
+
+                let MANUAL = setMenuInstalacao(INSTRUCOES);
+                containerDownload.innerHTML = `${MANUAL}`;
+
+                //SETA AÇÃO PARA OS LINKS DE TUTORIAIS
+                gotoTutorial("linkTutMob", 1);
+
+                //SETA AÇÃO NOS BOTOES "Instalação" e "O que há de novo?"
+                setDisableAndEnableButtons("#install_tab", ["#changelog_tab", "#generate_access_key_button"]);
+                setDisableAndEnableButtons("#changelog_tab", ["#install_tab", "#generate_access_key_button"]);
+                setDisableAndEnableButtons("#generate_access_key_button", ["#install_tab", "#changelog_tab"]);
+
+
+                getElement("#install_tab").addEventListener("click", ()=>{
+                    montaPaginaMobile();
+                });
+
+                getElement("#changelog_tab").addEventListener("click", ()=>{
+                    montaPaginaChengelog();
+                });
+
+                getElement("#generate_access_key_button").addEventListener("click", ()=>{
+                    montaCardChaveAcesso();
+                });
+
+
+                getElement("#btnDownloadMob").addEventListener("click",(event)=>{
+                    event.preventDefault();
+                    downloadExtension("PossoLer.crx");
+                });
+            }
+        </script>
+
         <script>
             axios({
                 method: "GET",

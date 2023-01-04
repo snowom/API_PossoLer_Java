@@ -1,7 +1,7 @@
-package br.com.possoler.api.api_posso_ler.api.paywallDOM.controller;
+package br.com.possoler.api.api_posso_ler.api.paywallDOM.responde_ai.controller;
 
-import br.com.possoler.api.api_posso_ler.api.paywallDOM.model.RespondeAiConfigModel;
-import br.com.possoler.api.api_posso_ler.api.paywallDOM.service.PaywallDOMService;
+import br.com.possoler.api.api_posso_ler.api.paywallDOM.responde_ai.model.RespondeAiConfigModel;
+import br.com.possoler.api.api_posso_ler.api.paywallDOM.responde_ai.service.PaywallDOMService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;

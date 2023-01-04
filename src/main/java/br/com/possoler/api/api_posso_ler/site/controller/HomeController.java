@@ -38,6 +38,8 @@ public class HomeController {
     VersaoExtensaoScriptService versaoExtensaoScriptService;
     @Autowired
     InstrucoesDownloadDeskService instrucoesDownloadDeskService;
+    @Autowired
+    InstrucoesDownloadMobService instrucoesDownloadMobService;
 
     @GetMapping("${homepage}")
     public ModelAndView index(Model model) {
@@ -58,6 +60,7 @@ public class HomeController {
         versaoExtensaoScriptService.setInfoExtensao("", model);
         versaoExtensaoScriptService.versaoExtensaoScriptFactory("", model);
         instrucoesDownloadDeskService.instrucoesDownloadDeskFactory("", model);
+        instrucoesDownloadMobService.instrucoesDownloadMobFactory("en_us", model);
 
         mv.setViewName("index");
         return mv;

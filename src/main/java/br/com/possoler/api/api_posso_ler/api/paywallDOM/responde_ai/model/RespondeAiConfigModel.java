@@ -1,12 +1,10 @@
-package br.com.possoler.api.api_posso_ler.api.paywallDOM.model;
+package br.com.possoler.api.api_posso_ler.api.paywallDOM.responde_ai.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.List;
 
 @Data

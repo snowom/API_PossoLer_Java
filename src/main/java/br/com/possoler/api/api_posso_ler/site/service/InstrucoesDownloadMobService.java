@@ -1,0 +1,129 @@
+package br.com.possoler.api.api_posso_ler.site.service;
+
+import br.com.possoler.api.api_posso_ler.site.constants.configs.ConstantsConfigs;
+import br.com.possoler.api.api_posso_ler.site.constants.i18n.en_us.en_InstrucoesDownloadMobileEnum;
+import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_InstrucoesDownloadMobileEnum;
+import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_InstrucoesDownloadMobileEnum;
+import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+
+@Service
+public class InstrucoesDownloadMobService {
+
+    public void instrucoesDownloadMobFactory(String idioma, Model model) {
+        if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
+            model.addAttribute("instrucoesDownloadMobile_label1", en_InstrucoesDownloadMobileEnum.LABEL_1.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label2", en_InstrucoesDownloadMobileEnum.LABEL_2.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label3", en_InstrucoesDownloadMobileEnum.LABEL_3.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label4", en_InstrucoesDownloadMobileEnum.LABEL_4.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label5", en_InstrucoesDownloadMobileEnum.LABEL_5.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label6", en_InstrucoesDownloadMobileEnum.LABEL_6.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label7", en_InstrucoesDownloadMobileEnum.LABEL_7.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label8", en_InstrucoesDownloadMobileEnum.LABEL_8.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label9", en_InstrucoesDownloadMobileEnum.LABEL_9.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label10", en_InstrucoesDownloadMobileEnum.LABEL_10.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label11", en_InstrucoesDownloadMobileEnum.LABEL_11.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label12", en_InstrucoesDownloadMobileEnum.LABEL_12.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label13", en_InstrucoesDownloadMobileEnum.LABEL_13.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label14", en_InstrucoesDownloadMobileEnum.LABEL_14.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label15", en_InstrucoesDownloadMobileEnum.LABEL_15.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label16", en_InstrucoesDownloadMobileEnum.LABEL_16.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label17", en_InstrucoesDownloadMobileEnum.LABEL_17.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label18", en_InstrucoesDownloadMobileEnum.LABEL_18.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label19", en_InstrucoesDownloadMobileEnum.LABEL_19.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label20", en_InstrucoesDownloadMobileEnum.LABEL_20.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label21", en_InstrucoesDownloadMobileEnum.LABEL_21.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label22", en_InstrucoesDownloadMobileEnum.LABEL_22.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label23", en_InstrucoesDownloadMobileEnum.LABEL_23.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label24", en_InstrucoesDownloadMobileEnum.LABEL_24.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label25", en_InstrucoesDownloadMobileEnum.LABEL_25.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label26", en_InstrucoesDownloadMobileEnum.LABEL_26.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label27", en_InstrucoesDownloadMobileEnum.LABEL_27.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label28", en_InstrucoesDownloadMobileEnum.LABEL_28.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label29", en_InstrucoesDownloadMobileEnum.LABEL_29.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label30", en_InstrucoesDownloadMobileEnum.LABEL_30.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label31", en_InstrucoesDownloadMobileEnum.LABEL_31.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label32", en_InstrucoesDownloadMobileEnum.LABEL_32.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label33", en_InstrucoesDownloadMobileEnum.LABEL_33.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label34", en_InstrucoesDownloadMobileEnum.LABEL_34.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label35", en_InstrucoesDownloadMobileEnum.LABEL_35.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label36", en_InstrucoesDownloadMobileEnum.LABEL_36.getLabel());
+            return;
+        }
+        if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_ES.getIdioma())) {
+            model.addAttribute("instrucoesDownloadMobile_label1", es_InstrucoesDownloadMobileEnum.LABEL_1.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label2", es_InstrucoesDownloadMobileEnum.LABEL_2.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label3", es_InstrucoesDownloadMobileEnum.LABEL_3.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label4", es_InstrucoesDownloadMobileEnum.LABEL_4.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label5", es_InstrucoesDownloadMobileEnum.LABEL_5.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label6", es_InstrucoesDownloadMobileEnum.LABEL_6.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label7", es_InstrucoesDownloadMobileEnum.LABEL_7.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label8", es_InstrucoesDownloadMobileEnum.LABEL_8.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label9", es_InstrucoesDownloadMobileEnum.LABEL_9.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label10", es_InstrucoesDownloadMobileEnum.LABEL_10.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label11", es_InstrucoesDownloadMobileEnum.LABEL_11.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label12", es_InstrucoesDownloadMobileEnum.LABEL_12.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label13", es_InstrucoesDownloadMobileEnum.LABEL_13.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label14", es_InstrucoesDownloadMobileEnum.LABEL_14.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label15", es_InstrucoesDownloadMobileEnum.LABEL_15.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label16", es_InstrucoesDownloadMobileEnum.LABEL_16.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label17", es_InstrucoesDownloadMobileEnum.LABEL_17.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label18", es_InstrucoesDownloadMobileEnum.LABEL_18.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label19", es_InstrucoesDownloadMobileEnum.LABEL_19.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label20", es_InstrucoesDownloadMobileEnum.LABEL_20.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label21", es_InstrucoesDownloadMobileEnum.LABEL_21.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label22", es_InstrucoesDownloadMobileEnum.LABEL_22.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label23", es_InstrucoesDownloadMobileEnum.LABEL_23.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label24", es_InstrucoesDownloadMobileEnum.LABEL_24.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label25", es_InstrucoesDownloadMobileEnum.LABEL_25.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label26", es_InstrucoesDownloadMobileEnum.LABEL_26.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label27", es_InstrucoesDownloadMobileEnum.LABEL_27.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label28", es_InstrucoesDownloadMobileEnum.LABEL_28.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label29", es_InstrucoesDownloadMobileEnum.LABEL_29.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label30", es_InstrucoesDownloadMobileEnum.LABEL_30.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label31", es_InstrucoesDownloadMobileEnum.LABEL_31.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label32", es_InstrucoesDownloadMobileEnum.LABEL_32.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label33", es_InstrucoesDownloadMobileEnum.LABEL_33.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label34", es_InstrucoesDownloadMobileEnum.LABEL_34.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label35", es_InstrucoesDownloadMobileEnum.LABEL_35.getLabel());
+            model.addAttribute("instrucoesDownloadMobile_label36", es_InstrucoesDownloadMobileEnum.LABEL_36.getLabel());
+            return;
+        }
+        model.addAttribute("instrucoesDownloadMobile_label1", br_InstrucoesDownloadMobileEnum.LABEL_1.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label2", br_InstrucoesDownloadMobileEnum.LABEL_2.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label3", br_InstrucoesDownloadMobileEnum.LABEL_3.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label4", br_InstrucoesDownloadMobileEnum.LABEL_4.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label5", br_InstrucoesDownloadMobileEnum.LABEL_5.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label6", br_InstrucoesDownloadMobileEnum.LABEL_6.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label7", br_InstrucoesDownloadMobileEnum.LABEL_7.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label8", br_InstrucoesDownloadMobileEnum.LABEL_8.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label9", br_InstrucoesDownloadMobileEnum.LABEL_9.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label10", br_InstrucoesDownloadMobileEnum.LABEL_10.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label11", br_InstrucoesDownloadMobileEnum.LABEL_11.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label12", br_InstrucoesDownloadMobileEnum.LABEL_12.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label13", br_InstrucoesDownloadMobileEnum.LABEL_13.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label14", br_InstrucoesDownloadMobileEnum.LABEL_14.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label15", br_InstrucoesDownloadMobileEnum.LABEL_15.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label16", br_InstrucoesDownloadMobileEnum.LABEL_16.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label17", br_InstrucoesDownloadMobileEnum.LABEL_17.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label18", br_InstrucoesDownloadMobileEnum.LABEL_18.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label19", br_InstrucoesDownloadMobileEnum.LABEL_19.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label20", br_InstrucoesDownloadMobileEnum.LABEL_20.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label21", br_InstrucoesDownloadMobileEnum.LABEL_21.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label22", br_InstrucoesDownloadMobileEnum.LABEL_22.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label23", br_InstrucoesDownloadMobileEnum.LABEL_23.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label24", br_InstrucoesDownloadMobileEnum.LABEL_24.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label25", br_InstrucoesDownloadMobileEnum.LABEL_25.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label26", br_InstrucoesDownloadMobileEnum.LABEL_26.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label27", br_InstrucoesDownloadMobileEnum.LABEL_27.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label28", br_InstrucoesDownloadMobileEnum.LABEL_28.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label29", br_InstrucoesDownloadMobileEnum.LABEL_29.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label30", br_InstrucoesDownloadMobileEnum.LABEL_30.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label31", br_InstrucoesDownloadMobileEnum.LABEL_31.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label32", br_InstrucoesDownloadMobileEnum.LABEL_32.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label33", br_InstrucoesDownloadMobileEnum.LABEL_33.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label34", br_InstrucoesDownloadMobileEnum.LABEL_34.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label35", br_InstrucoesDownloadMobileEnum.LABEL_35.getLabel());
+        model.addAttribute("instrucoesDownloadMobile_label36", br_InstrucoesDownloadMobileEnum.LABEL_36.getLabel());
+    }
+}
