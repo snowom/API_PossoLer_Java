@@ -40,13 +40,17 @@ public class HomeController {
     InstrucoesDownloadDeskService instrucoesDownloadDeskService;
     @Autowired
     InstrucoesDownloadMobService instrucoesDownloadMobService;
+    @Autowired
+    CardChangelogService cardChangelogService;
+    @Autowired
+    CardChaveAcessoService cardChaveAcessoService;
 
     @GetMapping("${homepage}")
     public ModelAndView index(Model model) {
 
         ModelAndView mv = new ModelAndView();
-        menuLateralService.menuLateralFactory("br", mv);
-        headService.headFactory("br", mv);
+        menuLateralService.menuLateralFactory("", mv);
+        headService.headFactory("", mv);
         conteudosService.conteudoFactory("", mv);
         blocoDownloadService.blocoDownloadFactory("", mv);
         blocoSobreService.blocoSobreFactory("", mv);
@@ -56,11 +60,13 @@ public class HomeController {
         blocoTutorialService.blocoTutorialFactory("", mv);
         blocoComentarioService.blocoComentarioFactory("", mv);
         footerService.footerFactory("", mv);
-        glideScriptService.GlidScriptFactory("", model);
-        versaoExtensaoScriptService.setInfoExtensao("", model);
         versaoExtensaoScriptService.versaoExtensaoScriptFactory("", model);
-        instrucoesDownloadDeskService.instrucoesDownloadDeskFactory("", model);
-        instrucoesDownloadMobService.instrucoesDownloadMobFactory("en_us", model);
+        glideScriptService.factoryElement("", model);
+        versaoExtensaoScriptService.factoryElement("", model);
+        instrucoesDownloadDeskService.factoryElement("", model);
+        instrucoesDownloadMobService.factoryElement("", model);
+        cardChangelogService.factoryElement("", model);
+        cardChaveAcessoService.factoryElement("", model);
 
         mv.setViewName("index");
         return mv;

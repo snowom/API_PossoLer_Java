@@ -5,13 +5,14 @@ import br.com.possoler.api.api_posso_ler.site.constants.global.InfoExtensao;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.en_us.en_VersaoExtensaoScriptEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_VersaoExtensaoScriptEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_VersaoExtensaoScriptEnum;
+import br.com.possoler.api.api_posso_ler.site.interfaces.FactoryHTMLElements;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 @Service
-public class VersaoExtensaoScriptService {
+public class VersaoExtensaoScriptService implements FactoryHTMLElements {
 
-    public void setInfoExtensao(String idioma, Model model) {
+    public void factoryElement(String idioma, Model model) {
         model.addAttribute("versaoExtensaoScript_versao", InfoExtensao.VERSAO_EXTENSAO.getLabel());
         model.addAttribute("versaoExtensaoScript_data", InfoExtensao.DATA_PUBLICACAO.getLabel());
     }

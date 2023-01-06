@@ -4,13 +4,14 @@ import br.com.possoler.api.api_posso_ler.site.constants.configs.ConstantsConfigs
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.en_us.en_InstrucoesDownloadDeskEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_InstrucoesDownloadDeskEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_InstrucoesDownloadDeskEnum;
+import br.com.possoler.api.api_posso_ler.site.interfaces.FactoryHTMLElements;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 @Service
-public class InstrucoesDownloadDeskService {
+public class InstrucoesDownloadDeskService implements FactoryHTMLElements {
 
-    public void instrucoesDownloadDeskFactory(String idioma, Model model) {
+    public void factoryElement(String idioma, Model model) {
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
             model.addAttribute("instrucoesDownloadDesk_label1", en_InstrucoesDownloadDeskEnum.LABEL_1.getLabel());
             model.addAttribute("instrucoesDownloadDesk_label2", en_InstrucoesDownloadDeskEnum.LABEL_2.getLabel());

@@ -1,4 +1,4 @@
-package br.com.possoler.api.api_posso_ler.site.service;
+package br.com.possoler.api.api_posso_ler.site.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
