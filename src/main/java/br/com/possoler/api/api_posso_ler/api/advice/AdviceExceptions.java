@@ -9,6 +9,7 @@ import exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -104,6 +105,16 @@ public class AdviceExceptions {
     private Map<String, String> notFoundException(NotFoundException e){
         Map<String, String> response = new HashMap<>();
         response.put("response", e.getMessage());
+        return response;
+    }
+
+
+    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    private Map<String, String> httpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e){
+        Map<String, String> response = new HashMap<>();
+        response.put("response", "Método não permitido");
+        response.put("error_message",e.getMessage());
         return response;
     }
 }
