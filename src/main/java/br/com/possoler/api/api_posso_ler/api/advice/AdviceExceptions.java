@@ -1,5 +1,7 @@
 package br.com.possoler.api.api_posso_ler.api.advice;
 
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.HashMap;
 import java.util.Map;
@@ -115,6 +117,23 @@ public class AdviceExceptions {
         Map<String, String> response = new HashMap<>();
         response.put("response", "Método não permitido");
         response.put("error_message",e.getMessage());
+        return response;
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(MalformedURLException.class)
+    private Map<String, String> malformedURLException(MalformedURLException e){
+        Map<String, String> response = new HashMap<>();
+        response.put("response", "url mal formatada");
+        response.put("error_message",e.getMessage());
+        return response;
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(FileNotFoundException.class)
+    private Map<String, String> fileNotFoundException(FileNotFoundException e){
+        Map<String, String> response = new HashMap<>();
+        response.put("response", "falha ao localizar arquivo no servidor");
         return response;
     }
 }

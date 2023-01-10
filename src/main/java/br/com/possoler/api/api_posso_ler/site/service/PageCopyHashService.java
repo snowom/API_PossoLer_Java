@@ -13,6 +13,8 @@ public class PageCopyHashService implements FactoryHTMLElements {
 
     @Override
     public void factoryElement(String idioma, Model model) {
+        idioma = this.checkLangHeader(idioma);
+
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
             model.addAttribute("pagCopyHash_label1", en_PageCopyHashEnum.LABEL_1.getLabel());
             model.addAttribute("pagCopyHash_label2", en_PageCopyHashEnum.LABEL_2.getLabel());
@@ -36,5 +38,11 @@ public class PageCopyHashService implements FactoryHTMLElements {
         return (hash != null && !hash.equals(""))
             ? hash
             : "ERRO AO PEGAR CHAVE";
+    }
+
+    private String checkLangHeader(String langHeader) {
+        return langHeader != null
+            ? langHeader
+            : ConstantsConfigs.LANG_BR.getIdioma();
     }
 }

@@ -1,16 +1,19 @@
 function downloadExtension(filename)
 {
+    const DOWNLOAD_ENDPOINT = "/API/downloadExtension?filename=";
+    const PREPARE_DOWNLOAD_ENDPOINT = "/API/prepare_download";
+
     axios({
-        method: "GET",
-        url: "https://possoler.tech/API/signScript/index.php?action=prepare_download",
+        method: "POST",
+        url: `${PREPARE_DOWNLOAD_ENDPOINT}`,
         timeout: 30000
     }).then((resp) => {
         console.log(resp)
-        if(resp.data.status == "sucesso"){
-            window.location.href = `https://possoler.tech/API/signScript/index.php?action=download&file=${filename}`;
+        if(resp.status == 201){
+            window.location.href = `${DOWNLOAD_ENDPOINT}${filename}`;
 
             Swal.fire({
-                html: `<iframe src="/copyHash?hash=${resp.data.response}" style="width: 100%; height: 100% !important; border: none;"></iframe>`,
+                html: `<iframe src="/copyHash?hash=${resp.data.user_hash}" style="width: 100%; height: 100% !important; border: none;"></iframe>`,
                 showCloseButton: true,
                 allowEscapeKey: false,
                 allowOutsideClick: false,

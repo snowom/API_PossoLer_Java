@@ -3,7 +3,7 @@ package br.com.possoler.api.api_posso_ler.site.constants.configs;
 import lombok.Getter;
 
 public enum ConstantsConfigs {
-    LANG_EN("en_us"),
+    LANG_EN("en"),
     LANG_ES("es"),
     LANG_BR("pt-br");
 

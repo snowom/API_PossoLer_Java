@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -16,9 +17,12 @@ public class PagFeriasController {
     PagFeriasService pagFeriasService;
 
     @GetMapping("${vacationPage}")
-    public ModelAndView pagFerias(Model model) {
+    public ModelAndView pagFerias(
+        Model model,
+        @RequestHeader(name = "language") String langHeader
+    ) {
         ModelAndView mv = new ModelAndView();
-        pagFeriasService.factoryElement("en_us", model);
+        pagFeriasService.factoryElement(langHeader, model);
         pagFeriasService.sortLottieAnimation(model);
         mv.setViewName("pagFerias");
         return mv;
