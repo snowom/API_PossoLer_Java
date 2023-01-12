@@ -79,7 +79,7 @@ public enum br_BlocoPerguntasEnum {
     LABEL_73("Observação:"),
     LABEL_74(" Caso o Tampermonkey ou o userscript ou a extensão sejam "),
     LABEL_75("desinstalados ou atualizados"),
-    LABEL_76(", será necessário fazer o download novamente do Posso Ler?, pois uma vez utilizada, a chave de acesso se torna inválida."),
+    LABEL_76(", será necessário gerar novamente uma chave de acesso, pois uma vez utilizada, a chave de acesso se torna inválida."),
     LABEL_77("Qual é o problema de usar uma cópia disponibilizada por terceiros?"),
     LABEL_78("Ao usar uma cópia da extensão disponibilizada por terceiros, além de atrapalhar a divulgação do projeto original, você também corre o risco de estar instalando uma cópia modificada "),
     LABEL_79("com um código malicioso injetado"),

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,11 +19,10 @@ public class PagCopyHashController {
     @GetMapping("${copyGenHashPage}")
     public ModelAndView copyHash(
         Model model,
-        @RequestParam String hash,
-        @RequestHeader(required = false, name = "language") String langHeader
+        @RequestParam String hash
     ) {
         ModelAndView mv = new ModelAndView();
-        pageCopyHashService.factoryElement(langHeader, model);
+        pageCopyHashService.factoryElement(HomeController.homeLanguage, model);
         pageCopyHashService.setUserKey(model, hash);
         mv.setViewName("pagCopyHash");
         return mv;

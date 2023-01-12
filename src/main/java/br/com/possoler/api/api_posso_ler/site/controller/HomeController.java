@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -45,32 +45,66 @@ public class HomeController {
     CardChangelogService cardChangelogService;
     @Autowired
     CardChaveAcessoService cardChaveAcessoService;
+    @Autowired
+    IdiomaService idiomaService;
+
+    public static String homeLanguage;
 
     @GetMapping("${homepage}")
-    public ModelAndView index(
+    public ModelAndView indexGet(
         Model model,
-        @RequestHeader(name = "language") String langHeader
+        String language
     ) {
-
         ModelAndView mv = new ModelAndView();
-        menuLateralService.menuLateralFactory(langHeader, mv);
-        headService.headFactory(langHeader, mv);
-        conteudosService.conteudoFactory(langHeader, mv);
-        blocoDownloadService.blocoDownloadFactory(langHeader, mv);
-        blocoSobreService.blocoSobreFactory(langHeader, mv);
-        blocoDoacoesService.blocoDoacoesFactory(langHeader, mv);
-        blocoPerguntasServices.blocoPerguntasFactory(langHeader, mv);
-        blocoTecnologiaService.blocoTecnologiaFactory(langHeader, mv);
-        blocoTutorialService.blocoTutorialFactory(langHeader, mv);
-        blocoComentarioService.blocoComentarioFactory(langHeader, mv);
-        footerService.footerFactory(langHeader, mv);
-        versaoExtensaoScriptService.versaoExtensaoScriptFactory(langHeader, model);
-        glideScriptService.factoryElement(langHeader, model);
-        versaoExtensaoScriptService.factoryElement(langHeader, model);
-        instrucoesDownloadDeskService.factoryElement(langHeader, model);
-        instrucoesDownloadMobService.factoryElement(langHeader, model);
-        cardChangelogService.factoryElement(langHeader, model);
-        cardChaveAcessoService.factoryElement(langHeader, model);
+        homeLanguage = idiomaService.returnValidLanguage(language);
+        menuLateralService.menuLateralFactory(homeLanguage, mv);
+        headService.headFactory(homeLanguage, mv);
+        conteudosService.conteudoFactory(homeLanguage, mv);
+        blocoDownloadService.blocoDownloadFactory(homeLanguage, mv);
+        blocoSobreService.blocoSobreFactory(homeLanguage, mv);
+        blocoDoacoesService.blocoDoacoesFactory(homeLanguage, mv);
+        blocoPerguntasServices.blocoPerguntasFactory(homeLanguage, mv);
+        blocoTecnologiaService.blocoTecnologiaFactory(homeLanguage, mv);
+        blocoTutorialService.blocoTutorialFactory(homeLanguage, mv);
+        blocoComentarioService.blocoComentarioFactory(homeLanguage, mv);
+        footerService.footerFactory(homeLanguage, mv);
+        versaoExtensaoScriptService.versaoExtensaoScriptFactory(homeLanguage, model);
+        glideScriptService.factoryElement(homeLanguage, model);
+        versaoExtensaoScriptService.factoryElement(homeLanguage, model);
+        instrucoesDownloadDeskService.factoryElement(homeLanguage, model);
+        instrucoesDownloadMobService.factoryElement(homeLanguage, model);
+        cardChangelogService.factoryElement(homeLanguage, model);
+        cardChaveAcessoService.factoryElement(homeLanguage, model);
+
+        mv.setViewName("index");
+        return mv;
+    }
+
+    @PostMapping("${homepage}")
+    public ModelAndView indexPost(
+            Model model,
+            String language
+    ) {
+        ModelAndView mv = new ModelAndView();
+        homeLanguage = idiomaService.returnValidLanguage(language);
+        menuLateralService.menuLateralFactory(homeLanguage, mv);
+        headService.headFactory(homeLanguage, mv);
+        conteudosService.conteudoFactory(homeLanguage, mv);
+        blocoDownloadService.blocoDownloadFactory(homeLanguage, mv);
+        blocoSobreService.blocoSobreFactory(homeLanguage, mv);
+        blocoDoacoesService.blocoDoacoesFactory(homeLanguage, mv);
+        blocoPerguntasServices.blocoPerguntasFactory(homeLanguage, mv);
+        blocoTecnologiaService.blocoTecnologiaFactory(homeLanguage, mv);
+        blocoTutorialService.blocoTutorialFactory(homeLanguage, mv);
+        blocoComentarioService.blocoComentarioFactory(homeLanguage, mv);
+        footerService.footerFactory(homeLanguage, mv);
+        versaoExtensaoScriptService.versaoExtensaoScriptFactory(homeLanguage, model);
+        glideScriptService.factoryElement(homeLanguage, model);
+        versaoExtensaoScriptService.factoryElement(homeLanguage, model);
+        instrucoesDownloadDeskService.factoryElement(homeLanguage, model);
+        instrucoesDownloadMobService.factoryElement(homeLanguage, model);
+        cardChangelogService.factoryElement(homeLanguage, model);
+        cardChaveAcessoService.factoryElement(homeLanguage, model);
 
         mv.setViewName("index");
         return mv;

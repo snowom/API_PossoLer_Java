@@ -1,17 +1,25 @@
 package br.com.possoler.api.api_posso_ler.api.cachemock_api.service;
 
 import br.com.possoler.api.api_posso_ler.api.cachemock_api.dto.PostModelDTO;
-import br.com.possoler.api.api_posso_ler.api.cachemock_api.model.PostModelEntity;
+import br.com.possoler.api.api_posso_ler.api.cachemock_api.model.PostArticleEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.ClientErrorException;
 import exceptions.ServerErrorException;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
+
 import java.io.File;
 import java.io.IOException;
 
 @Service
 public class CachemockService {
 
+    @Autowired
+    private Environment env;
     private final String RESOURCES_PATH = System.getProperty("user.dir") + "\\api_posso_ler\\src\\main\\resources\\cachemock\\jsonFiles\\";
 
     /**
@@ -20,7 +28,7 @@ public class CachemockService {
      * @param postModel
      * @return Boolean
      */
-    public Boolean createUnlockedFile(PostModelEntity postModel)
+    public Boolean createUnlockedFile(PostArticleEntity postModel)
     {
         try {
             if(this.checkPostBodyParameters(postModel)){
@@ -42,7 +50,7 @@ public class CachemockService {
      * @return Boolean
      * @throws ClientErrorException
      */
-    private Boolean checkPostBodyParameters(PostModelEntity postModel) throws ClientErrorException {
+    private Boolean checkPostBodyParameters(PostArticleEntity postModel) throws ClientErrorException {
         if(postModel.getKey() == null || postModel.getKey().length() == 0)
             throw new ClientErrorException("O parâmetro \"key\" não pode ser nulo ou vazio");
         if(postModel.getPageSource() == null || postModel.getPageSource().length() == 0)
@@ -72,11 +80,10 @@ public class CachemockService {
      * @param key
      * @return Boolean
      */
-    public Boolean checkGetBodyParams(String key)
+    public void checkValidKey(String key)
     {
         if(key.length() == 0)
             throw new ClientErrorException("O parâmetro \"key\" não pode ser nulo ou vazio");
-        return true;
     }
 
 
@@ -110,5 +117,10 @@ public class CachemockService {
         }catch(RuntimeException e){
             throw new ServerErrorException(e.getMessage());
         }
+    }
+
+
+    public Boolean isValidAuthorizationHeader(String authHeader) {
+        return authHeader.equals(DigestUtils.sha3_256Hex(this.env.getProperty("cachemock-api.header-auth-private-key")));
     }
 }
