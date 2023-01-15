@@ -14,7 +14,7 @@ public class RespondeAiController {
     @Autowired
     private RespondeAiService respondeAiService;
 
-    @GetMapping("${respondeai-api.endpoint.getData}")
+    @PostMapping("${respondeai-api.endpoint.getData}")
     private ResponseEntity<Object> getDataRespondeAi(
             @RequestParam(name = "operation", required = true) String operation,
             @RequestHeader(name = "Authorization") String token,

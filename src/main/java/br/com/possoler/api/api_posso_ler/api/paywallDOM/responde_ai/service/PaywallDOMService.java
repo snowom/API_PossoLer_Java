@@ -34,12 +34,12 @@ public class PaywallDOMService {
             UnloggedExerciseBlock.CLASS_3.getClassName()
         );
         List<String> unloggedSolutionBlock = this.factoryDOMClassList(
-    UnloggedSolutionBlock.CLASS_1.getClassName(),
+            UnloggedSolutionBlock.CLASS_1.getClassName(),
             UnloggedSolutionBlock.CLASS_2.getClassName(),
             UnloggedSolutionBlock.CLASS_3.getClassName()
         );
         List<String> unloggedBlockedTheory = this.factoryDOMClassList(
-    UnloggedBlockedTheory.CLASS_1.getClassName(),
+            UnloggedBlockedTheory.CLASS_1.getClassName(),
             UnloggedBlockedTheory.CLASS_2.getClassName(),
             UnloggedBlockedTheory.CLASS_3.getClassName()
         );

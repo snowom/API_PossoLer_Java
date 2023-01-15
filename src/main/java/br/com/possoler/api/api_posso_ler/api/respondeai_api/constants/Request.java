@@ -16,19 +16,10 @@ public abstract class Request {
     public final static String LIST_EXERCISE_OPERATION_NAME = "listExercise";
     public final static String LIST_EXERCISE_OPERATION_QUERY = "query listExercise($id: ID!) {listExercise(id: $id) {id lightSolution videos {id provider providerId __typename} __typename}}";
 
-    public enum Operation {
 
-        BOOK_EXERCISE("getBookExercise"),
-        THEORY("getTheory"),
-        FIXATION_EXERCISE("getFixationExercise"),
-        LIST_EXERCISE("getListExercise");
-
-        @Getter
-        private final String operationValue;
-
-        Operation(String operationValue){
-            this.operationValue = operationValue;
-        }
-    }
+    public final static String  OPERATION_BOOK_EXERCISE = "getBookExercise";
+    public final static String  OPERATION_THEORY = "getTheory";
+    public final static String  OPERATION_FIXATION_EXERCISE = "getFixationExercise";
+    public final static String  OPERATION_LIST_EXERCISE = "getListExercise";
 }
 

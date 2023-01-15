@@ -27,9 +27,6 @@ public class CDNFileService {
     }
 
     private String getFileName(String file) {
-        if(file.equalsIgnoreCase(CDNEnum.JQUERY.getFileParamName())) {
-            return CDNEnum.JQUERY.getFilename();
-        }
         if(file.equalsIgnoreCase(CDNEnum.BLOCK_CORE_PAYWALL.getFileParamName())) {
             return CDNEnum.BLOCK_CORE_PAYWALL.getFilename();
         }

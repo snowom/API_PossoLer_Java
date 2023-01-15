@@ -31,7 +31,7 @@ public class AdviceExceptions {
     private Map<String, String> serverErrorException(ServerErrorException e)
     {
         Map<String, String> response = new HashMap<>();
-        response.put("error", e.getMessage());
+        response.put("response_error", e.getMessage());
         return response;
     }
 
@@ -40,7 +40,7 @@ public class AdviceExceptions {
     private Map<String, String> clientErrorException(ClientErrorException e)
     {
         Map<String, String> response = new HashMap<>();
-        response.put("error", e.getMessage());
+        response.put("response_error", e.getMessage());
         return response;
     }
 
@@ -49,7 +49,7 @@ public class AdviceExceptions {
     private Map<String, String> httpMessageNotReadableException(HttpMessageNotReadableException e){
         Map<String, String> response = new HashMap<>();
         response.put("error", e.getMessage());
-        response.put("message", "Json invalido");
+        response.put("response_error", "Json invalido");
         return response;
     }
 
@@ -58,7 +58,7 @@ public class AdviceExceptions {
     private Map<String, String> sqlIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException e){
         Map<String, String> response = new HashMap<>();
         response.put("error", e.getMessage());
-        response.put("message", "Falha ao executar query!");
+        response.put("response_error", "Falha ao executar query!");
         return response;
     }
 
@@ -69,7 +69,7 @@ public class AdviceExceptions {
 		Map<String, String> errors = new HashMap<>();
 		e.getBindingResult().getAllErrors().forEach((error) -> {
 			String errorMessage = ((FieldError) error).getDefaultMessage();
-			errors.put("error_message", errorMessage);
+			errors.put("response_error", errorMessage);
 		});
 		return errors;
 	}
@@ -79,7 +79,7 @@ public class AdviceExceptions {
     @ExceptionHandler(MissingServletRequestParameterException.class)
     private Map<String, String> missingServletRequestParameterException(MissingServletRequestParameterException e){
         Map<String, String> response = new HashMap<>();
-        response.put("error", e.getMessage());
+        response.put("response_error", e.getMessage());
         return response;
     }
 
@@ -87,7 +87,7 @@ public class AdviceExceptions {
     @ExceptionHandler(HttpClientErrorException.Unauthorized.class)
     private Map<String, String> httpClientErrorExceptionUnauthorized(HttpClientErrorException.Unauthorized e){
         Map<String, String> response = new HashMap<>();
-        response.put("response", "Token inválido ou expirado!");
+        response.put("response_error", "Token inválido ou expirado!");
         return response;
     }
 
@@ -96,7 +96,7 @@ public class AdviceExceptions {
     @ExceptionHandler(MissingRequestHeaderException.class)
     private Map<String, String> missingRequestHeaderException(MissingRequestHeaderException e){
         Map<String, String> response = new HashMap<>();
-        response.put("response", "Falha ao obter headers");
+        response.put("response_error", "Falha ao obter headers");
         response.put("error_message", e.getMessage());
         return response;
     }
@@ -106,7 +106,7 @@ public class AdviceExceptions {
     @ExceptionHandler(NotFoundException.class)
     private Map<String, String> notFoundException(NotFoundException e){
         Map<String, String> response = new HashMap<>();
-        response.put("response", e.getMessage());
+        response.put("response_error", e.getMessage());
         return response;
     }
 
@@ -115,7 +115,7 @@ public class AdviceExceptions {
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     private Map<String, String> httpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e){
         Map<String, String> response = new HashMap<>();
-        response.put("response", "Método não permitido");
+        response.put("response_error", "Método não permitido");
         response.put("error_message",e.getMessage());
         return response;
     }
@@ -124,7 +124,7 @@ public class AdviceExceptions {
     @ExceptionHandler(MalformedURLException.class)
     private Map<String, String> malformedURLException(MalformedURLException e){
         Map<String, String> response = new HashMap<>();
-        response.put("response", "url mal formatada");
+        response.put("response_error", "url mal formatada");
         response.put("error_message",e.getMessage());
         return response;
     }
@@ -133,7 +133,7 @@ public class AdviceExceptions {
     @ExceptionHandler(FileNotFoundException.class)
     private Map<String, String> fileNotFoundException(FileNotFoundException e){
         Map<String, String> response = new HashMap<>();
-        response.put("response", "falha ao localizar arquivo no servidor");
+        response.put("response_error", "falha ao localizar arquivo no servidor");
         return response;
     }
 }

@@ -7,5 +7,5 @@ public class ExerciseRequestDTO {
 
     @Getter
     @NotEmpty(message = "O campo \"exerciseId\" não pode ser vazio")
-    private String exerciseId;
+    private String itemId;
 }

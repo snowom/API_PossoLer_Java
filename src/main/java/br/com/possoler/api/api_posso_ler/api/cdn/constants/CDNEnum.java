@@ -3,7 +3,6 @@ package br.com.possoler.api.api_posso_ler.api.cdn.constants;
 import lombok.Getter;
 
 public enum CDNEnum {
-    JQUERY("jquery", "jQuery_min.js"),
     BLOCK_CORE_PAYWALL("blockCorePaywall", "[FF]blockCorePaywall.js"),
     SNACKBAR_JS("snackjs", "snackbar.js"),
     SNACKBAR_CSS("snackcss", "snackbar.css");
