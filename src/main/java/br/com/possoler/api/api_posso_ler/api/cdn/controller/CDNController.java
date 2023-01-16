@@ -19,7 +19,7 @@ public class CDNController {
 
     @GetMapping("${cdn-api.endpoint.getcdnfile}")
     private ResponseEntity<?> getCdnFile(@RequestParam(name = "file") String file) throws IOException {
-        this.cdnFileService.downloadCdnFile(file);
+        this.cdnFileService.readCdnFile(file);
         return ResponseEntity.ok().body("");
     }
 }

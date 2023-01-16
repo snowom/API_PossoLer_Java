@@ -4,6 +4,7 @@ import br.com.possoler.api.api_posso_ler.api.cachemock_api.dto.PostModelDTO;
 import br.com.possoler.api.api_posso_ler.api.cachemock_api.model.PostArticleEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.ClientErrorException;
+import exceptions.NotFoundException;
 import exceptions.ServerErrorException;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +71,7 @@ public class CachemockService {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readValue(new File(this.RESOURCES_PATH + key), PostModelDTO.class);
         } catch (IOException | RuntimeException e) {
-            throw new ClientErrorException(e.getMessage());
+            throw new NotFoundException("o arquivo solicitado não foi encontrado em cache");
         }
     }
 

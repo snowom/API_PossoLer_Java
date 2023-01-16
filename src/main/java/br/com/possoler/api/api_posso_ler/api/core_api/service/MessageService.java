@@ -15,11 +15,11 @@ public class MessageService {
      * @author thomazf
      * @return MessageDTO
      */
-    public MessageDTO fillDTO()
+    public MessageDTO buildMessages()
     {
         List<Message> msgList = Arrays.asList(
-          Message.builder().msg("MSG 1").time(10).build(),
-          Message.builder().msg("MSG 2").time(30).build()
+          //Message.builder().msg("MSG 1").time(10).build(),
+          //Message.builder().msg("MSG 2").time(30).build()
         );
         return MessageDTO.setMessages(msgList);
     }

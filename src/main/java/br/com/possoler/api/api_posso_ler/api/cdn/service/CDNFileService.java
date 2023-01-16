@@ -18,7 +18,7 @@ public class CDNFileService {
     private HttpServletResponse response;
     private final String CDN_PATH = System.getProperty("user.dir") + "\\api_posso_ler\\src\\main\\resources\\static\\CDN\\";
 
-    public void downloadCdnFile(String fileParamName) throws IOException, NotFoundException {
+    public void readCdnFile(String fileParamName) throws IOException, NotFoundException {
         String filename = this.getFileName(fileParamName);
         File file = new File(this.CDN_PATH + filename);
         FileInputStream inputStream = new FileInputStream(file);
@@ -35,6 +35,9 @@ public class CDNFileService {
         }
         if(file.equalsIgnoreCase(CDNEnum.SNACKBAR_CSS.getFileParamName())) {
             return CDNEnum.SNACKBAR_CSS.getFilename();
+        }
+        if(file.equalsIgnoreCase(CDNEnum.POSSOLER_LOGO.getFileParamName())) {
+            return CDNEnum.POSSOLER_LOGO.getFilename();
         }
         throw new NotFoundException("Arquivo CDN não encontrado");
     }

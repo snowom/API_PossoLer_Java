@@ -66,7 +66,7 @@ public class PaywallDOMService {
             .unlogged_remove_block_theory(unloggedBlockedTheory)
             .unlogged_exclusive_content(unloggedExclusiveContent)
             .data_cy(dataCy)
-            .paywall_height_size(299)
+            .paywall_height_size(300)
             .logged_locked_icons("MuiSvgIcon-root")
             .logged_enable_scroll_page("ReactModal__Body--open")
             .logged_react_modal("ReactModal__Overlay")

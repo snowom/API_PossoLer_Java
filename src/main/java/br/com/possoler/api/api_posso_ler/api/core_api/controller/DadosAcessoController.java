@@ -30,7 +30,7 @@ public class DadosAcessoController {
      * @return ResponseEntity
      */
     @PostMapping("${core-api.endpoint.insertAccess}")
-    private ResponseEntity<Map<String, String>> insertDadosAccess(@RequestBody @Valid DadosAcessoDTO dto)
+    private ResponseEntity<?> insertDadosAccess(@RequestBody @Valid DadosAcessoDTO dto)
     {
         Site site = siteService.getSiteEntityById(dto.getCodigo_site());
         DadosAcesso dadosAcesso = DadosAcessoDTO.parseToEntity(dto, site);

@@ -5,6 +5,7 @@ import lombok.Getter;
 public enum CDNEnum {
     BLOCK_CORE_PAYWALL("blockCorePaywall", "[FF]blockCorePaywall.js"),
     SNACKBAR_JS("snackjs", "snackbar.js"),
+    POSSOLER_LOGO("possolerlogo", "128.png"),
     SNACKBAR_CSS("snackcss", "snackbar.css");
 
     @Getter

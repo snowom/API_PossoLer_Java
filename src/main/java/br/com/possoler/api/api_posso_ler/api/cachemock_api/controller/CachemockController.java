@@ -35,7 +35,7 @@ public class CachemockController {
         return ResponseEntity.created(uri).body(response);
     }
 
-    @GetMapping("${cachemock-api.endpoint.getArticleContent}")
+    @PostMapping("${cachemock-api.endpoint.getArticleContent}")
     private ResponseEntity<?> getArticleContent(@RequestBody GetArticleEntity getArticleEntity) {
         Map<String, String> response = new HashMap<>();
         this.cachemockService.checkValidKey(getArticleEntity.getKey());

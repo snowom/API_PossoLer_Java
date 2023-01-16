@@ -24,16 +24,14 @@ public class DadosAcessoService {
      * @param dadosAcesso
      * @return ResponseEntity
      */
-    public ResponseEntity<Map<String, String>> insertDados(DadosAcesso dadosAcesso)
+    public ResponseEntity<?> insertDados(DadosAcesso dadosAcesso)
     {
         Map<String, String> response = new HashMap<>();
         try{
             dadosAcessoRepository.save(dadosAcesso);
-            response.put("STATUS", "Sucesso ao executar query!");
             return ResponseEntity.status(201).body(response);
         }catch(Exception e){
-            response.put("STATUS", "Falha ao executar Query");
-            return ResponseEntity.internalServerError().body(response);
+            throw new ServerErrorException("falha ao salvar dado em dashboard");
         }
     }
 

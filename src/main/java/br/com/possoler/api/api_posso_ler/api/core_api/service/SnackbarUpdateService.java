@@ -1,6 +1,7 @@
 package br.com.possoler.api.api_posso_ler.api.core_api.service;
 
 import br.com.possoler.api.api_posso_ler.api.core_api.model.SnackbarUpdate;
+import br.com.possoler.api.api_posso_ler.site.constants.global.InfoExtensao;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,7 +16,7 @@ public class SnackbarUpdateService {
     public SnackbarUpdate setValues()
     {
         return SnackbarUpdate.builder()
-        .currentVersion("166")
+        .currentVersion(InfoExtensao.VERSAO_EXTENSAO.getLabel())
         .buttonMessage("Vamos lá")
         .message("Uma nova versão do \"Posso Ler?\" já está disponível para download!")
         .time(10).build();

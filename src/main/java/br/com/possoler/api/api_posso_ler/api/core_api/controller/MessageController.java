@@ -23,7 +23,7 @@ public class MessageController {
     @GetMapping("${core-api.endpoint.search-messages}")
     private ResponseEntity<MessageDTO> getMessages()
     {
-        MessageDTO dto = messageService.fillDTO();
+        MessageDTO dto = messageService.buildMessages();
         return ResponseEntity.ok().body(dto);
     }
 }
