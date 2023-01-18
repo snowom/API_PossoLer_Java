@@ -108,21 +108,7 @@ function setDefaultMessages()
  */
 function getConfigs()
 {
-    let r = setInterval(() => {
-        if(typeof(axios) == 'function') {
-            clearInterval(r);
-
-            axios({
-                method: 'GET',
-                url: 'https://possoler.tech/API/signScript/src/Config/fakeExtensionMessageConfig.php',
-                timeout: 30000
-            }).then((resp) => {
-                configsPOSSOLER = resp.data;
-            }).catch((erro) => {
-                setDefaultMessages();
-            });
-        }
-    },800);
+    setDefaultMessages();
 }
 getConfigs();
 
@@ -157,7 +143,7 @@ function activeExtension()
                 },
                 showLoaderOnConfirm: true,
                 preConfirm: (signKey) => {
-                    
+
                     if(signKey.length == 0){
                         Swal.showValidationMessage('O campo não pode ser vazio');
                         return;
@@ -169,28 +155,35 @@ function activeExtension()
                     }
 
                     return axios({
-                        method: 'POST',
-                        url: 'https://possoler.tech/API/signScript/index.php?action=activeUser',
+                        method: 'PUT',
+                        url: 'http://localhost:8080/API/activeUser',
                         timeout: 30000,
                         data: JSON.stringify({
-                            hash: signKey
-                        })
+                            userHash: signKey
+                        }),
+                        headers: {
+                            "Content-Type" : "application/json"
+                        }
                     }).then((resp) => {
                         console.log(resp);
 
-                        if(resp.data.status == 'falha'){
-                            if(resp.data.message == "hash inválido" || resp.data.message == 'Falha ao executar query')
-                                throw new Error('A chave informada é inválida.');
-
-                            if(resp.data.message == "copia" || resp.data.message == "Extensão já habilitada para outro usuário")
-                                throw new Error('A chave inserida já foi usada por outro usuário. Por favor, acesse o site oficial do projeto e baixe a extensão novamente para gerar uma nova chave de acesso.');
-                        }
-                        else if(resp.data.status == 'sucesso'){
+                        if(resp.data.status == 'sucesso'){
                             HASH = signKey;
                             return resp;
                         }
                         throw new Error('Ops, tivemos um pequeno problema ao habilitar a extensão! Por favor, tente novamente mais tarde.');
                     }).catch((erro) => {
+                        if(erro.hasOwnProperty("response")) {
+                            if(erro.response.status == 404) {
+                                Swal.showValidationMessage('A chave informada é inválida.');
+                                return;
+                            }
+                            if(erro.response.status == 500) {
+                                Swal.showValidationMessage('A chave inserida já foi usada por outro usuário. Por favor, acesse o site oficial do projeto e gere uma nova chave de acesso.');
+                                return;
+                            }
+                            Swal.showValidationMessage(erro.toString());
+                        }
                         if(erro.toString().includes('timeout'))
                             Swal.showValidationMessage('Tempo de resposta excedido. Por favor, tente novamente utilizando uma conexão mais rápida ou mais estável.');
                         else if(erro.toString() == 'Network Error')
@@ -204,7 +197,7 @@ function activeExtension()
                     console.log(HASH);
                     GM_setValue("active", true);
                     GM_setValue("sign_key", HASH);
-                    
+
                     Swal.fire({
                         title: 'Sucesso!',
                         html: 'Extensão habilitada com sucesso!',
@@ -217,8 +210,8 @@ function activeExtension()
         }
     },800);
 }
- 
- 
+
+
  /**
   * Verifica se a extensão é uma cópia ou não
   */
@@ -230,14 +223,17 @@ function activeExtension()
             if(typeof(axios) == 'function') {
                 clearInterval(r);
 
-                const URL_VALIDATE_USER = 'https://possoler.tech/API/signScript/index.php?action=checkUser';
+                const URL_VALIDATE_USER = 'http://localhost:8080/API/checkUser';
                 axios({
                     method: 'POST',
                     url: URL_VALIDATE_USER,
                     timeout: 30000,
                     data: JSON.stringify({
-                        hash: SIGN_KEY
-                    })
+                        userHash: SIGN_KEY
+                    }),
+                    headers: {
+                        "Content-Type" : "application/json"
+                    }
                 }).then((resp) => {
                     console.log(resp.data);
                     if(resp.data.status == 'falha') {

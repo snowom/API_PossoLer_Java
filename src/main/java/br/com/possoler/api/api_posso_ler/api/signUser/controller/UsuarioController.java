@@ -42,7 +42,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED.value()).body(response);
     }
 
-    @GetMapping("${signuser-api.endpoint.checkUniqueUser}")
+    @PostMapping("${signuser-api.endpoint.checkUniqueUser}")
     public ResponseEntity<HashMap<String, String>> checkUniqueUser(@RequestBody @Valid CheckUserDTO checkUserDTO) {
         this.response = usuarioService.isUniqueUser(checkUserDTO.getUserHash());
         return ResponseEntity.ok().body(this.response);

@@ -1302,7 +1302,7 @@ function modifyOPOPULAR()
                                 );
                             }else if(erro.response.status != 404){
                                 sweetAlert(
-                                    'ok',
+                                    'error',
                                     'Atenção',
                                     `Ops, tivemos um pequeno problema!<br> Por favor, recarregue a página para tentar novamente.<br><br><spam style='font-weight: bold !important;'>Código do erro: </spam>${erro.toString()}`
                                 );
@@ -2696,7 +2696,7 @@ function verificaAtualizacaoVersao()
             let tempoAwait = 5;
 
             axios({
-                method: 'get',
+                method: 'GET',
                 url: URL_API_UPDATE,
                 timeout: 20000,
             }).then((resposta)=>{
