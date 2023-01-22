@@ -5,13 +5,17 @@ import lombok.Getter;
 public enum CDNEnum {
     BLOCK_CORE_PAYWALL("blockCorePaywall", "[FF]blockCorePaywall.js"),
     SNACKBAR_JS("snackjs", "snackbar.js"),
-    POSSOLER_LOGO("possolerlogo", "128.png"),
-    SNACKBAR_CSS("snackcss", "snackbar.css");
+    SNACKBAR_CSS("snackcss", "snackbar.css"),
+    AXIOS_LOGO("axioslogo", "img\\axiosJS.png"),
+    MAVEN_LOGO("mavenlogo", "img\\maven.png"),
+    LOMBOK_LOGO("lomboklogo", "img\\lombok.png"),
+    SPRING_LOGO("springlogo", "img\\spring.png"),
+    POSSOLER_LOGO("possolerlogo", "img\\128.png");
 
     @Getter
-    private String fileParamName;
+    private final String fileParamName;
     @Getter
-    private String filename;
+    private final String filename;
 
     CDNEnum(String fileParamName, String filename) {
         this.fileParamName = fileParamName;

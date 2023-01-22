@@ -66,7 +66,7 @@
 
 importCDNSnackBar();
 let currentURL = window.location.hostname;
-const CURRENT_VERSION = '166';
+const CURRENT_VERSION = '276';
 
 
 function main()

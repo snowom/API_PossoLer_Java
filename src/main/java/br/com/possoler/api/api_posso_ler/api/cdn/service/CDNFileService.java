@@ -39,6 +39,18 @@ public class CDNFileService {
         if(file.equalsIgnoreCase(CDNEnum.POSSOLER_LOGO.getFileParamName())) {
             return CDNEnum.POSSOLER_LOGO.getFilename();
         }
+        if(file.equalsIgnoreCase(CDNEnum.AXIOS_LOGO.getFileParamName())) {
+            return CDNEnum.AXIOS_LOGO.getFilename();
+        }
+        if(file.equalsIgnoreCase(CDNEnum.MAVEN_LOGO.getFileParamName())) {
+            return CDNEnum.MAVEN_LOGO.getFilename();
+        }
+        if(file.equalsIgnoreCase(CDNEnum.LOMBOK_LOGO.getFileParamName())) {
+            return CDNEnum.LOMBOK_LOGO.getFilename();
+        }
+        if(file.equalsIgnoreCase(CDNEnum.SPRING_LOGO.getFileParamName())) {
+            return CDNEnum.SPRING_LOGO.getFilename();
+        }
         throw new NotFoundException("Arquivo CDN não encontrado");
     }
 }
