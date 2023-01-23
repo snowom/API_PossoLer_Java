@@ -2,6 +2,7 @@ package br.com.possoler.api.api_posso_ler.api.cachemock_api.service;
 
 import br.com.possoler.api.api_posso_ler.api.cachemock_api.dto.PostModelDTO;
 import br.com.possoler.api.api_posso_ler.api.cachemock_api.model.PostArticleEntity;
+import br.com.possoler.api.api_posso_ler.api.utils.PathConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.ClientErrorException;
 import exceptions.NotFoundException;
@@ -21,8 +22,8 @@ public class CachemockService {
 
     @Autowired
     private Environment env;
-    //private final String RESOURCES_PATH = System.getProperty("user.dir") + "\\api_posso_ler\\src\\main\\resources\\cachemock\\jsonFiles\\";
-    private final String RESOURCES_PATH = System.getProperty("user.dir") + "\\cachemock\\jsonFiles\\";
+    private final String RESOURCES_PATH = System.getProperty("user.dir") + PathConstants.FOLDER_POSSOLER_INTEGRATOR + "/cachemock/jsonFiles/";
+    //private final String RESOURCES_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\cachemock\\jsonFiles\\";
 
     /**
      * Cria arquivo JSON com conteudo da pagina desbloqueada
