@@ -2,26 +2,27 @@ package br.com.possoler.api.api_posso_ler.api.cdn.service;
 
 import br.com.possoler.api.api_posso_ler.api.cdn.constants.CDNEnum;
 import exceptions.NotFoundException;
-import jakarta.servlet.http.HttpServletResponse;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.FileInputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
 
 @Service
 public class CDNFileService {
 
     @Autowired
     private HttpServletResponse response;
-    private final String CDN_PATH = System.getProperty("user.dir") + "\\api_posso_ler\\src\\main\\resources\\static\\CDN\\";
 
     public void readCdnFile(String fileParamName) throws IOException, NotFoundException {
         String filename = this.getFileName(fileParamName);
-        File file = new File(this.CDN_PATH + filename);
-        FileInputStream inputStream = new FileInputStream(file);
+        ClassLoader classLoader = getClass().getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream(filename);
+        if(inputStream == null) {
+            throw new NotFoundException("falha ao localizar arquivo no servidor");
+        }
         IOUtils.copy(inputStream, this.response.getOutputStream());
         this.response.flushBuffer();
     }

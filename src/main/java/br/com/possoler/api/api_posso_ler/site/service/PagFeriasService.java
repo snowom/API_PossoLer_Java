@@ -56,7 +56,7 @@ public class PagFeriasService implements FactoryHTMLElements {
         };
 
         Random random = new Random();
-        String lottieAnimation = lottieArray[random.nextInt(0, (lottieArray.length-1))];
+        String lottieAnimation = lottieArray[random.nextInt((lottieArray.length-1))];
         model.addAttribute("pagFerias_lottie", lottieAnimation);
     }
 }

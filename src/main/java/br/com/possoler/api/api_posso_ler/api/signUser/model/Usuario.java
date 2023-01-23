@@ -1,10 +1,11 @@
 package br.com.possoler.api.api_posso_ler.api.signUser.model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Builder
 @Data

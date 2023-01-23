@@ -4,11 +4,11 @@ import br.com.possoler.api.api_posso_ler.api.core_api.service.DownloadService;
 import br.com.possoler.api.api_posso_ler.api.signUser.dto.CheckUserDTO;
 import br.com.possoler.api.api_posso_ler.api.signUser.service.HashService;
 import br.com.possoler.api.api_posso_ler.api.signUser.service.UsuarioService;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 
 @RestController

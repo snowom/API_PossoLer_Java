@@ -2,10 +2,11 @@ package br.com.possoler.api.api_posso_ler.api.respondeai_api.controller;
 
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.ExerciseRequestDTO;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.service.RespondeAiService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*")

@@ -2,11 +2,12 @@ package br.com.possoler.api.api_posso_ler.api.core_api.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Entity(name = "dados_acesso")
 @Data

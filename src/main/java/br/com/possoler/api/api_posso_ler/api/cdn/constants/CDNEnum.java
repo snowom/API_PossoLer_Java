@@ -4,13 +4,13 @@ import lombok.Getter;
 
 public enum CDNEnum {
     BLOCK_CORE_PAYWALL("blockCorePaywall", "[FF]blockCorePaywall.js"),
-    SNACKBAR_JS("snackjs", "snackbar.js"),
-    SNACKBAR_CSS("snackcss", "snackbar.css"),
-    AXIOS_LOGO("axioslogo", "img\\axiosJS.png"),
-    MAVEN_LOGO("mavenlogo", "img\\maven.png"),
-    LOMBOK_LOGO("lomboklogo", "img\\lombok.png"),
-    SPRING_LOGO("springlogo", "img\\spring.png"),
-    POSSOLER_LOGO("possolerlogo", "img\\128.png");
+    SNACKBAR_JS("snackjs", "static\\CDN\\snackbar.js"),
+    SNACKBAR_CSS("snackcss", "static\\CDN\\snackbar.css"),
+    AXIOS_LOGO("axioslogo", "static\\CDN\\img\\axiosJS.png"),
+    MAVEN_LOGO("mavenlogo", "static\\CDN\\img\\maven.png"),
+    LOMBOK_LOGO("lomboklogo", "static\\CDN\\img\\lombok.png"),
+    SPRING_LOGO("springlogo", "static\\CDN\\img\\spring.png"),
+    POSSOLER_LOGO("possolerlogo", "static\\CDN\\img\\128.png");
 
     @Getter
     private final String fileParamName;

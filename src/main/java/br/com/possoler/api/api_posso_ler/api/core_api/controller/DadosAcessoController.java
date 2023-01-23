@@ -9,10 +9,11 @@ import br.com.possoler.api.api_posso_ler.api.core_api.model.DadosAcesso;
 import br.com.possoler.api.api_posso_ler.api.core_api.model.Site;
 import br.com.possoler.api.api_posso_ler.api.core_api.service.DadosAcessoService;
 import br.com.possoler.api.api_posso_ler.api.core_api.service.SiteService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*")

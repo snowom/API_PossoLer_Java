@@ -21,7 +21,8 @@ public class CachemockService {
 
     @Autowired
     private Environment env;
-    private final String RESOURCES_PATH = System.getProperty("user.dir") + "\\api_posso_ler\\src\\main\\resources\\cachemock\\jsonFiles\\";
+    //private final String RESOURCES_PATH = System.getProperty("user.dir") + "\\api_posso_ler\\src\\main\\resources\\cachemock\\jsonFiles\\";
+    private final String RESOURCES_PATH = System.getProperty("user.dir") + "\\cachemock\\jsonFiles\\";
 
     /**
      * Cria arquivo JSON com conteudo da pagina desbloqueada

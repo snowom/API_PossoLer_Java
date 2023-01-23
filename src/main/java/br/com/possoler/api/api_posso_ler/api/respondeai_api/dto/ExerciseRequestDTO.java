@@ -1,7 +1,7 @@
 package br.com.possoler.api.api_posso_ler.api.respondeai_api.dto;
 
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
+import javax.validation.constraints.NotEmpty;
 
 public class ExerciseRequestDTO {
 
