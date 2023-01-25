@@ -50,7 +50,7 @@ public class HomeController {
 
     public static String homeLanguage;
 
-    @GetMapping("${homepage}")
+    @GetMapping("${view.homepage}")
     public ModelAndView indexGet(
         Model model,
         String language
@@ -80,7 +80,7 @@ public class HomeController {
         return mv;
     }
 
-    @PostMapping("${homepage}")
+    @PostMapping("${view.homepage}")
     public ModelAndView indexPost(
             Model model,
             String language

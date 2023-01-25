@@ -15,7 +15,7 @@ public class PagFeriasController {
     @Autowired
     PagFeriasService pagFeriasService;
 
-    @GetMapping("${vacationPage}")
+    @GetMapping("${view.vacationPage}")
     public ModelAndView pagFerias(
         Model model
     ) {

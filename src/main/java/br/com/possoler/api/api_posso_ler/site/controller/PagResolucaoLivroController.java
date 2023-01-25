@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class PagResolucaoLivro {
+public class PagResolucaoLivroController {
 
     @Autowired
     private RespondeAiService respondeAiService;
     @Autowired
     private Environment environment;
 
-    @GetMapping("${solvedBookExercisePage}")
+    @GetMapping("${view.solvedBookExercisePage}")
     private ModelAndView pagResolucaoLivro(
         Model model,
         @RequestParam(name = "auth") String token,

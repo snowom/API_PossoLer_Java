@@ -16,7 +16,7 @@ public class PagCopyHashController {
     @Autowired
     PageCopyHashService pageCopyHashService;
 
-    @GetMapping("${copyGenHashPage}")
+    @GetMapping("${view.copyGenHashPage}")
     public ModelAndView copyHash(
         Model model,
         @RequestParam String hash
