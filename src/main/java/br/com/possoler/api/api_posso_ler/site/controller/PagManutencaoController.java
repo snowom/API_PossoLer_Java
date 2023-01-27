@@ -11,7 +11,7 @@ public class PagManutencaoController {
     @GetMapping("${view.pagmanutencao}")
     private ModelAndView pagManutencao() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("pagManutencao");
+        mv.setViewName("pagManutencaoPac");
         return mv;
     }
 }
