@@ -23,7 +23,7 @@ public class UpdateController {
     @GetMapping("${core-api.endpoint.search-updates}")
     private ResponseEntity<SnackbarUpdate> searchUpdates()
     {
-        SnackbarUpdate snkUpdate = snackbarUpdateService.setValues();
+        SnackbarUpdate snkUpdate = snackbarUpdateService.getSnackUpdateMessage();
         return ResponseEntity.ok().body(snkUpdate);
     }
 }

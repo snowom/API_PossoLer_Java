@@ -14,15 +14,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessageDTO {
-    
-    private List<Message> messages;
 
-    public static MessageDTO setMessages(List<Message> messageList)
-    {
-        List<Message> lista = new ArrayList<>();
-        for (Message message : messageList) {
-            lista.add(message);
-        }
-        return MessageDTO.builder().messages(lista).build(); 
-    }
+    private List<Message> messages;
 }
