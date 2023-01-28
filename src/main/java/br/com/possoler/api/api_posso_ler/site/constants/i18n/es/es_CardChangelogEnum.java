@@ -10,15 +10,11 @@ public enum es_CardChangelogEnum {
     LABEL_5("- Descargue la última versión <a id=\"linkInstalacao\" href=\"\"> AQUÍ </a>"),
     LABEL_6("¿Que hay de nuevo en esta versión?"),
     LABEL_7(
-    "<li class=\"lead\">Se agregó Veja Saúde</li>" +
-        "<li class=\"lead\">Se agregó Revista Casa e Jardim</li>" +
-        "<li class=\"lead\">Bypass del Responde Aí corregido</li>" +
-        "<li class=\"lead\">Bypass Exame corregido</li>" +
-        "<li class=\"lead\">Bypass Globo Rural corregido</li>" +
-        "<li class=\"lead\">Bypass Jornal do Comercio corregido</li>"
+    "<li class=\"lead\">Migración del sistema a Java</li>" +
+        "<li class=\"lead\">Se agregó soporte para videos de Vimeo en Responde Aí</li>" +
+        "<li class=\"lead\">Reducción de 10 KB en el tamaño de la extensión móvil</li>"
     ),
     LABEL_8(
-    "<li class=\"lead\">Creación de nueva API para eliminar bloqueos de Responde Aí</li>" +
         "<li class=\"lead\">Mejoras en el rendimiento de la extensión</li>" +
         "<li class=\"lead\">Se corrigieron algunos errores en versiones anteriores</li>"
     ),

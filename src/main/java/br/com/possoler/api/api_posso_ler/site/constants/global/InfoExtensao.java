@@ -4,7 +4,7 @@ import lombok.Getter;
 
 public enum InfoExtensao {
     VERSAO_EXTENSAO("276"),
-    DATA_PUBLICACAO("01/02/2023");
+    DATA_PUBLICACAO("30/01/2023");
 
     @Getter
     private String label;
