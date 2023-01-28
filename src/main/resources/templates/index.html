@@ -1120,7 +1120,7 @@
         <script>
             axios({
                 method: "GET",
-                url: "https://possoler.tech/API/showDownloads.php",
+                url: "https://possoler.tech/API/getDownloads",
                 timeout: 30000
             }).then((resposta)=>{
 
@@ -1140,7 +1140,7 @@
 
             axios({
                 method: "get",
-                url: "https://possoler.tech/API/showConteudos.php",
+                url: "https://possoler.tech/API/getConteudos",
                 timeout: 30000
             }).then((resposta)=>{
 
@@ -1254,6 +1254,7 @@
         }
     </script>
 
+    <!-- MONTA CARD RECUPERA CHAVE DE ACESSO -->
     <script th:inline="javascript">
         function montaCardChaveAcesso()
         {
@@ -1288,12 +1289,12 @@
                         btnGenKey.textContent = `${lbl2}`;
 
                         axios({
-                            method: "GET",
-                            url: "https://possoler.tech/API/signScript/index.php?action=prepare_download",
+                            method: "POST",
+                            url: "https://possoler.tech/API/prepare_download",
                             timeout: 10000
                         }).then((resp)=>{
-                            if(resp.data.status == "sucesso"){
-                                document.getElementById("txtKey").value = resp.data.response;
+                            if(resp.status == 201){
+                                document.getElementById("txtKey").value = resp.data.user_hash;
                                 btnGenKey.disabled = false;
                                 btnGenKey.textContent = `${lbl1}`;
                             }else{
@@ -1302,6 +1303,8 @@
                                     title: "Erro",
                                     html: `${lbl3}${resp.data.response}`,
                                 });
+                                btnGenKey.disabled = false;
+                                btnGenKey.textContent = `${lbl1}`;
                             }
                         }).catch((erro)=>{
                             if(erro.toString().includes("timeout")){
@@ -1310,12 +1313,16 @@
                                     title: "Erro",
                                     html: `${lbl4}${erro}`
                                 });
+                                btnGenKey.disabled = false;
+                                btnGenKey.textContent = `${lbl1}`;
                             }else{
                                 Swal.fire({
                                     icon: "error",
                                     title: "Erro",
                                     html: `${lbl3}${erro.toString()}`,
                                 });
+                                btnGenKey.disabled = false;
+                                btnGenKey.textContent = `${lbl1}`;
                             }
                         });
                     });

@@ -53,7 +53,7 @@ public class CachemockController {
     }
 
 
-    @GetMapping("${cachemock-api.endpoint.clearUnlockedFiles}")
+    @DeleteMapping("${cachemock-api.endpoint.clearUnlockedFiles}")
     private ResponseEntity<Map<String, String>> clearUnlockedFiles(
         @RequestHeader(name = "authorization") String authHeader
     )

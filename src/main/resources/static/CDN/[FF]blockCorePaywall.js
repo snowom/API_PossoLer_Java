@@ -156,7 +156,7 @@ function activeExtension()
 
                     return axios({
                         method: 'PUT',
-                        url: 'http://localhost:8080/API/activeUser',
+                        url: 'https://possoler.tech/API/activeUser',
                         timeout: 30000,
                         data: JSON.stringify({
                             userHash: signKey
@@ -223,7 +223,7 @@ function activeExtension()
             if(typeof(axios) == 'function') {
                 clearInterval(r);
 
-                const URL_VALIDATE_USER = 'http://localhost:8080/API/checkUser';
+                const URL_VALIDATE_USER = 'https://possoler.tech/API/checkUser';
                 axios({
                     method: 'POST',
                     url: URL_VALIDATE_USER,

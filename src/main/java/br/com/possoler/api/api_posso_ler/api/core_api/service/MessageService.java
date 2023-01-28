@@ -20,7 +20,7 @@ public class MessageService {
 
     private final String MESSAGES_PATH = System.getProperty("user.dir") + PathConstants.FOLDER_POSSOLER_INTEGRATOR + "/messages/";
     private final String FILE_NAME = "messages.json";
-    //private final String MESSAGES_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\messages\\";
+    //private final String MESSAGES_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\messages\\";
 
 
     public MessageDTO getMessages() {
