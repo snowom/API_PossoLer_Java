@@ -13,7 +13,8 @@
     "OrWoS",
     "bOHpeS",
     "juFcTb",
-    "cVgapz"
+    "ijJMaK",
+    "blurs"
   ],
   "unlogged_remove_book_block" : [
     "ReactModalPortal",
@@ -49,11 +50,13 @@
       "jbJaGI",
       "fLszWB",
       "dSSlQm",
-      "container-format-toggle-content"
+      "container-format-toggle-content",
+      "HVIDF",
+      "gUxbxu"
     ],
     "theory_text_content" : [
-      "rendered",
-      "container-theory-text-content"
+      "container-theory-text-content",
+      "fIjarq"
     ],
     "theory_video_content" : [
       "jWAqzd",
@@ -62,7 +65,8 @@
       "fwbkbf",
       "fUHfDK",
       "hbAPxV",
-      "container-theory-video-content"
+      "container-theory-video-content",
+      "fXSjAn"
     ],
     "exercise_answer_button" : [
       "Srqbu",
@@ -70,7 +74,11 @@
       "bNSZhm",
       "bWTfFq",
       "fXHnEe",
-      "container-exercise-show-answer-button"
+      "container-exercise-show-answer-button",
+      "gAdWTx"
+    ],
+    "exercise_div_content" : [
+      "eEclRB"
     ],
     "exercise_statement" : [
       "exercise-statement"
@@ -85,7 +93,7 @@
     "ReactModal__Body--open"
   ],
   "logged_react_modal" : [
-    "ReactModal__Overlay"
+    "ReactModalPortal"
   ],
   "logged_dexter_block" : [
     "cqMfZX",
@@ -93,6 +101,8 @@
     "no-access-wall-dexter",
     "hTAfNO",
     "lferAe",
-    "fLszWB"
+    "fLszWB",
+    "jKfjSS",
+    "cVszUl"
   ]
 }

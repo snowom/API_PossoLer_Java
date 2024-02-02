@@ -12,7 +12,7 @@ public class RestConfigs {
     protected HttpEntity<?> entity;
     protected ResponseEntity<String> response;
 
-    public RestConfigs() {
+    protected RestConfigs() {
         restTemplate = new RestTemplate();
     }
 
