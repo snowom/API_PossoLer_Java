@@ -5,7 +5,7 @@ import lombok.Getter;
 
 import javax.validation.constraints.NotEmpty;
 
-public class LeassonRequestDTO {
+public class LessonRequestDTO {
 
     @Getter
     @NotEmpty(message = "O campo \"leassonId\" não pode ser vazio")

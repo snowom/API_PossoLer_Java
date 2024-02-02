@@ -15,8 +15,12 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service("getLeasson")
-public class getVideoLeasson extends RestConfigs implements RespondeAiConnection {
+@Service("getLesson")
+public class getVideoLesson extends RestConfigs implements RespondeAiConnection {
+
+    private final String PROVIDER_JSON_PROPERTY_NAME = "provider";
+    private final String PROVIDERID_JSON_PROPERTY_NAME = "providerId";
+    private final String VIDEO_JSON_PROPERTY_NAME = "video";
 
     @Override
     public Object getData(String itemId, String token) {
@@ -41,10 +45,10 @@ public class getVideoLeasson extends RestConfigs implements RespondeAiConnection
             var lectureModes = (JSONArray) jsonObject.get("lectureModules");
 
             for(int i=0; i<lectureModes.length(); i++) {
-                var video = lectureModes.getJSONObject(i).getJSONObject("video");
+                var video = lectureModes.getJSONObject(i).getJSONObject(VIDEO_JSON_PROPERTY_NAME);
                 var videoResponse = VideoResponseDTO.builder()
-                        .provider(video.get("provider").toString())
-                        .providerId(video.get("providerId").toString())
+                        .provider(video.get(PROVIDER_JSON_PROPERTY_NAME).toString())
+                        .providerId(video.get(PROVIDERID_JSON_PROPERTY_NAME).toString())
                         .build();
                 videosResponse.add(videoResponse);
             }
