@@ -8,7 +8,12 @@
     "chTkVa",
     "cKfPcs",
     "gzzuMX",
-    "kEWCPZ"
+    "kEWCPZ",
+    "JhiVx",
+    "OrWoS",
+    "bOHpeS",
+    "juFcTb",
+    "cVgapz"
   ],
   "unlogged_remove_book_block" : [
     "ReactModalPortal",
@@ -35,16 +40,59 @@
     "main-wrapper"
   ],
   "data_cy" : {
-    "format_toggle" : "content-format-toggle-container",
-    "theory_text_content" : "theory-text-content-container",
-    "theory_video_content" : "theory-video-content-container",
-    "exercise_answer_button" : "exercise-show-answer-button-container",
-    "exercise_statement" : "exercise-statement",
-    "side_menu" : "side-menu-container"
+    "format_toggle" : [
+      "eeIelU",
+      "fyBnnG",
+      "gUqvSk",
+      "cCAhzQ",
+      "dJlAdG",
+      "jbJaGI",
+      "fLszWB",
+      "dSSlQm",
+      "container-format-toggle-content"
+    ],
+    "theory_text_content" : [
+      "rendered",
+      "container-theory-text-content"
+    ],
+    "theory_video_content" : [
+      "jWAqzd",
+      "dwDbDE",
+      "ccHIDk",
+      "fwbkbf",
+      "fUHfDK",
+      "hbAPxV",
+      "container-theory-video-content"
+    ],
+    "exercise_answer_button" : [
+      "Srqbu",
+      "gPKmDT",
+      "bNSZhm",
+      "bWTfFq",
+      "fXHnEe",
+      "container-exercise-show-answer-button"
+    ],
+    "exercise_statement" : [
+      "exercise-statement"
+    ],
+    "side_menu" : [
+      "side-menu-container"
+    ]
   },
-  "paywall_height_size" : 300,
+  "paywall_height_size" : 299,
   "logged_locked_icons" : "MuiSvgIcon-root",
-  "logged_enable_scroll_page" : "ReactModal__Body--open",
-  "logged_react_modal" : "ReactModal__Overlay",
-  "logged_dexter_block" : "no-access-dexter-wall"
+  "logged_enable_scroll_page" : [
+    "ReactModal__Body--open"
+  ],
+  "logged_react_modal" : [
+    "ReactModal__Overlay"
+  ],
+  "logged_dexter_block" : [
+    "cqMfZX",
+    "bzmRPs",
+    "no-access-wall-dexter",
+    "hTAfNO",
+    "lferAe",
+    "fLszWB"
+  ]
 }

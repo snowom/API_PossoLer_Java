@@ -4,10 +4,12 @@ import br.com.possoler.api.api_posso_ler.site.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+@CrossOrigin(origins = "*")
 @Controller
 public class HomeController {
 
@@ -68,9 +70,8 @@ public class HomeController {
         blocoTutorialService.blocoTutorialFactory(homeLanguage, mv);
         blocoComentarioService.blocoComentarioFactory(homeLanguage, mv);
         footerService.footerFactory(homeLanguage, mv);
-        versaoExtensaoScriptService.versaoExtensaoScriptFactory(homeLanguage, model);
-        glideScriptService.factoryElement(homeLanguage, model);
         versaoExtensaoScriptService.factoryElement(homeLanguage, model);
+        glideScriptService.factoryElement(homeLanguage, model);
         instrucoesDownloadDeskService.factoryElement(homeLanguage, model);
         instrucoesDownloadMobService.factoryElement(homeLanguage, model);
         cardChangelogService.factoryElement(homeLanguage, model);
@@ -98,9 +99,8 @@ public class HomeController {
         blocoTutorialService.blocoTutorialFactory(homeLanguage, mv);
         blocoComentarioService.blocoComentarioFactory(homeLanguage, mv);
         footerService.footerFactory(homeLanguage, mv);
-        versaoExtensaoScriptService.versaoExtensaoScriptFactory(homeLanguage, model);
-        glideScriptService.factoryElement(homeLanguage, model);
         versaoExtensaoScriptService.factoryElement(homeLanguage, model);
+        glideScriptService.factoryElement(homeLanguage, model);
         instrucoesDownloadDeskService.factoryElement(homeLanguage, model);
         instrucoesDownloadMobService.factoryElement(homeLanguage, model);
         cardChangelogService.factoryElement(homeLanguage, model);

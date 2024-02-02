@@ -4,15 +4,17 @@ import br.com.possoler.api.api_posso_ler.site.constants.configs.ConstantsConfigs
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.en_us.en_MenuLateralEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_MenuLateralEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_MenuLateralEnum;
+import br.com.possoler.api.api_posso_ler.site.interfaces.PreventNullLanguage;
 import br.com.possoler.api.api_posso_ler.site.model.MenuLateral;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 
 @Service
-public class MenuLateralService {
+public class MenuLateralService implements PreventNullLanguage {
 
     public void menuLateralFactory(String idioma, ModelAndView modelAndView) {
+
+        idioma = this.preventNullLanguage(idioma);
 
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())){
             modelAndView.addObject(
@@ -26,6 +28,7 @@ public class MenuLateralService {
                     .MenuLateralPerguntas(en_MenuLateralEnum.MENU_LATERAL_PERGUNTAS.getWord())
                     .MenuLateralTecnologias(en_MenuLateralEnum.MENU_LATERAL_TECNOLOGIAS.getWord())
                     .MenuLateralTutoriais(en_MenuLateralEnum.MENU_LATERAL_TUTORIAIS.getWord())
+                    .MenuLateralSobreMim(en_MenuLateralEnum.MENU_LATERAL_SOBREMIM.getWord())
                     .MenuLateralComentarios(en_MenuLateralEnum.MENU_LATERAL_COMENTARIOS.getWord())
                     .MenuLateralVaiUmCafe(en_MenuLateralEnum.MENU_LATERAL_VAIUMCAFE.getWord())
                     .build()
@@ -44,6 +47,7 @@ public class MenuLateralService {
                     .MenuLateralPerguntas(es_MenuLateralEnum.MENU_LATERAL_PERGUNTAS.getWord())
                     .MenuLateralTecnologias(es_MenuLateralEnum.MENU_LATERAL_TECNOLOGIAS.getWord())
                     .MenuLateralTutoriais(es_MenuLateralEnum.MENU_LATERAL_TUTORIAIS.getWord())
+                    .MenuLateralSobreMim(es_MenuLateralEnum.MENU_LATERAL_SOBREMIM.getWord())
                     .MenuLateralComentarios(es_MenuLateralEnum.MENU_LATERAL_COMENTARIOS.getWord())
                     .MenuLateralVaiUmCafe(es_MenuLateralEnum.MENU_LATERAL_VAIUMCAFE.getWord())
                     .build()
@@ -61,9 +65,15 @@ public class MenuLateralService {
                 .MenuLateralPerguntas(br_MenuLateralEnum.MENU_LATERAL_PERGUNTAS.getWord())
                 .MenuLateralTecnologias(br_MenuLateralEnum.MENU_LATERAL_TECNOLOGIAS.getWord())
                 .MenuLateralTutoriais(br_MenuLateralEnum.MENU_LATERAL_TUTORIAIS.getWord())
+                .MenuLateralSobreMim(br_MenuLateralEnum.MENU_LATERAL_SOBREMIM.getWord())
                 .MenuLateralComentarios(br_MenuLateralEnum.MENU_LATERAL_COMENTARIOS.getWord())
                 .MenuLateralVaiUmCafe(br_MenuLateralEnum.MENU_LATERAL_VAIUMCAFE.getWord())
                 .build()
             );
+    }
+
+    @Override
+    public String preventNullLanguage(String language) {
+        return (language == null) ? ConstantsConfigs.LANG_BR.getIdioma() : language;
     }
 }
