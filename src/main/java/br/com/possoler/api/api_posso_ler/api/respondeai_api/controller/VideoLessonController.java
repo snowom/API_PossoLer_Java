@@ -23,7 +23,7 @@ public class VideoLessonController {
         @RequestHeader("Authorization") String token,
         @RequestBody @Valid LessonRequestDTO leassonRequestDTO
     ){
-        Object response = respondeAiConnection.getData(leassonRequestDTO.getLeassonId(), token);
+        Object response = respondeAiConnection.getData(leassonRequestDTO.getLessonId(), token);
         return ResponseEntity.ok().body(response);
     }
 }

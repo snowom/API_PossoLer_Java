@@ -9,6 +9,6 @@ public class LessonRequestDTO {
 
     @Getter
     @NotEmpty(message = "O campo \"leassonId\" não pode ser vazio")
-    @JsonProperty(value = "leasson_id", required = true)
-    private String leassonId;
+    @JsonProperty(value = "lesson_id", required = true)
+    private String lessonId;
 }
