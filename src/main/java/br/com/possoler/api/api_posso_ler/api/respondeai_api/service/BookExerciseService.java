@@ -1,35 +1,28 @@
 package br.com.possoler.api.api_posso_ler.api.respondeai_api.service;
 
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.configs.RespondeAiRestConfigs;
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.constants.RequestEndpoints;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.BookExerciseResponseDTO;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiClient;
 import exceptions.ServerErrorException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.http.*;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component("getBookExercise")
-public class getBookExercise extends RespondeAiRestConfigs implements RespondeAiClient {
+@Service
+public class BookExerciseService {
 
-    @Override
-    public Object getData(String itemId, String token) {
-        HttpHeaders header = setHeaders(token);
-        final String URI = buildURIRequest(itemId);
+    private final RespondeAiClient respondeAiClient;
 
-//        httpMethod = HttpMethod.GET;
-//        entity = new HttpEntity<>(header);
-//        response = restTemplate.exchange(URI, httpMethod, entity, String.class);
-//
-//        validateResponse(response);
-//        var responseBody = response.getBody();
-//        var bookResponse = buildBookResponse(responseBody);
+    public BookExerciseService(@Qualifier("BookExerciseClient") RespondeAiClient respondeAiClient) {
+        this.respondeAiClient = respondeAiClient;
+    }
 
-        return null;
+    public Object getBookExerciseData(String itemId, String token) {
+        var response = respondeAiClient.getData(itemId, token);
+        return buildBookResponse(response.toString());
     }
 
     private BookExerciseResponseDTO buildBookResponse(String responseBody) {
@@ -74,10 +67,5 @@ public class getBookExercise extends RespondeAiRestConfigs implements RespondeAi
         }catch (Exception e) {
             throw new ServerErrorException("[Book Exercise] - Falha ao obter objeto \"lightSolution\"");
         }
-    }
-
-    @Override
-    public String buildURIRequest(String exerciseId) {
-        return RequestEndpoints.DOMAIN_REQUEST + RequestEndpoints.BOOK_EXERCISE_ENDPOINT_REQUEST + exerciseId;
     }
 }
