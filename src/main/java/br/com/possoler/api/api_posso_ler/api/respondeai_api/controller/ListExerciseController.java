@@ -1,8 +1,7 @@
 package br.com.possoler.api.api_posso_ler.api.respondeai_api.controller;
 
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.request.ExerciseRequestDTO;
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiClient;
-import org.springframework.beans.factory.annotation.Qualifier;
+import br.com.possoler.api.api_posso_ler.api.respondeai_api.service.ListExerciseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +11,10 @@ import javax.validation.Valid;
 @CrossOrigin(origins = "*")
 public class ListExerciseController {
 
-    private final RespondeAiClient respondeAiClient;
+    private final ListExerciseService listExerciseService;
 
-    public ListExerciseController(@Qualifier("getListExercise") RespondeAiClient respondeAiClient) {
-        this.respondeAiClient = respondeAiClient;
+    public ListExerciseController(ListExerciseService listExerciseService) {
+        this.listExerciseService = listExerciseService;
     }
 
     @PostMapping("${respondeai-api.endpoint.getListExerciseData}")
@@ -23,7 +22,7 @@ public class ListExerciseController {
             @RequestHeader(name = "Authorization") String token,
             @RequestBody @Valid ExerciseRequestDTO payload
     ){
-        Object response = respondeAiClient.getData(payload.getItemId(), token);
+        Object response = listExerciseService.getListExerciseData(payload.getItemId(), token);
         return ResponseEntity.ok().body(response);
     }
 }
