@@ -2,6 +2,7 @@ package br.com.possoler.api.api_posso_ler.api.respondeai_api.controller;
 
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.request.ExerciseRequestDTO;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiClient;
+import br.com.possoler.api.api_posso_ler.api.respondeai_api.service.TheoryService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +13,10 @@ import javax.validation.Valid;
 @CrossOrigin(origins = "*")
 public class TheoryController {
 
-    private final RespondeAiClient respondeAiClient;
+    private final TheoryService theoryService;
 
-    public TheoryController(@Qualifier("getTheory") RespondeAiClient respondeAiClient) {
-        this.respondeAiClient = respondeAiClient;
+    public TheoryController(TheoryService theoryService) {
+        this.theoryService = theoryService;
     }
 
     @PostMapping("${respondeai-api.endpoint.getTheoryData}")
@@ -23,7 +24,7 @@ public class TheoryController {
             @RequestHeader(name = "Authorization") String token,
             @RequestBody @Valid ExerciseRequestDTO payload
     ){
-        Object response = respondeAiClient.getData(payload.getItemId(), token);
+        Object response = theoryService.getTheoryData(payload.getItemId(), token);
         return ResponseEntity.ok().body(response);
     }
 }

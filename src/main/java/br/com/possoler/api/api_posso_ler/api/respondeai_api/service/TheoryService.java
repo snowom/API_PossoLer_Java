@@ -1,37 +1,29 @@
 package br.com.possoler.api.api_posso_ler.api.respondeai_api.service;
 
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.constants.RequestEndpoints;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.TheoryResponseDTO;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.VideoResponseDTO;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiClient;
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.configs.RespondeAiRestConfigs;
-import exceptions.ClientErrorException;
 import exceptions.ServerErrorException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.http.*;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component("getTheory")
-public class getTheory extends RespondeAiRestConfigs implements RespondeAiClient {
+@Service
+public class TheoryService {
 
-    @Override
-    public Object getData(String itemId, String token) {
-//        HttpHeaders header = setHeaders(token);
-//        final String URI = buildURIRequest(itemId);
-//
-//        httpMethod = HttpMethod.GET;
-//        entity = new HttpEntity<>(header);
-//        response = restTemplate.exchange(URI, httpMethod, entity, String.class);
-//
-//        validateResponse(response);
-//        var responseBody = response.getBody();
-//        TheoryResponseDTO theoryResponse = buildTheoryResponse(responseBody);
+    private final RespondeAiClient respondeAiClient;
 
-        return null;
+    public TheoryService(@Qualifier("TheoryClient") RespondeAiClient respondeAiClient) {
+        this.respondeAiClient = respondeAiClient;
+    }
+
+    public Object getTheoryData(String itemId, String token) {
+        var response = respondeAiClient.getData(itemId, token);
+        return buildTheoryResponse(response.toString());
     }
 
     private TheoryResponseDTO buildTheoryResponse(String responseBody) {
@@ -69,10 +61,5 @@ public class getTheory extends RespondeAiRestConfigs implements RespondeAiClient
         }
 
         return videos;
-    }
-
-    @Override
-    public String buildURIRequest(String exerciseId) throws ClientErrorException {
-        return RequestEndpoints.DOMAIN_REQUEST + RequestEndpoints.THEORY_ENDPOINT + exerciseId;
     }
 }
