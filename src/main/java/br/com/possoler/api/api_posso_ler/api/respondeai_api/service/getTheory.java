@@ -3,8 +3,8 @@ package br.com.possoler.api.api_posso_ler.api.respondeai_api.service;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.constants.RequestEndpoints;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.TheoryResponseDTO;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.VideoResponseDTO;
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiConnection;
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.configs.RestConfigs;
+import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiClient;
+import br.com.possoler.api.api_posso_ler.api.respondeai_api.configs.RespondeAiRestConfigs;
 import exceptions.ClientErrorException;
 import exceptions.ServerErrorException;
 import org.json.JSONArray;
@@ -16,22 +16,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component("getTheory")
-public class getTheory extends RestConfigs implements RespondeAiConnection {
+public class getTheory extends RespondeAiRestConfigs implements RespondeAiClient {
 
     @Override
     public Object getData(String itemId, String token) {
-        HttpHeaders header = setHeaders(token);
-        final String URI = buildURIRequest(itemId);
+//        HttpHeaders header = setHeaders(token);
+//        final String URI = buildURIRequest(itemId);
+//
+//        httpMethod = HttpMethod.GET;
+//        entity = new HttpEntity<>(header);
+//        response = restTemplate.exchange(URI, httpMethod, entity, String.class);
+//
+//        validateResponse(response);
+//        var responseBody = response.getBody();
+//        TheoryResponseDTO theoryResponse = buildTheoryResponse(responseBody);
 
-        httpMethod = HttpMethod.GET;
-        entity = new HttpEntity<>(header);
-        response = restTemplate.exchange(URI, httpMethod, entity, String.class);
-
-        validateResponse(response);
-        var responseBody = response.getBody();
-        TheoryResponseDTO theoryResponse = buildTheoryResponse(responseBody);
-
-        return theoryResponse;
+        return null;
     }
 
     private TheoryResponseDTO buildTheoryResponse(String responseBody) {

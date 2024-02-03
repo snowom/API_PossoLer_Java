@@ -1,9 +1,9 @@
 package br.com.possoler.api.api_posso_ler.api.respondeai_api.service;
 
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.configs.RestConfigs;
+import br.com.possoler.api.api_posso_ler.api.respondeai_api.configs.RespondeAiRestConfigs;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.constants.RequestEndpoints;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.BookExerciseResponseDTO;
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiConnection;
+import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiClient;
 import exceptions.ServerErrorException;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,22 +14,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component("getBookExercise")
-public class getBookExercise extends RestConfigs implements RespondeAiConnection {
+public class getBookExercise extends RespondeAiRestConfigs implements RespondeAiClient {
 
     @Override
     public Object getData(String itemId, String token) {
         HttpHeaders header = setHeaders(token);
         final String URI = buildURIRequest(itemId);
 
-        httpMethod = HttpMethod.GET;
-        entity = new HttpEntity<>(header);
-        response = restTemplate.exchange(URI, httpMethod, entity, String.class);
+//        httpMethod = HttpMethod.GET;
+//        entity = new HttpEntity<>(header);
+//        response = restTemplate.exchange(URI, httpMethod, entity, String.class);
+//
+//        validateResponse(response);
+//        var responseBody = response.getBody();
+//        var bookResponse = buildBookResponse(responseBody);
 
-        validateResponse(response);
-        var responseBody = response.getBody();
-        var bookResponse = buildBookResponse(responseBody);
-
-        return bookResponse;
+        return null;
     }
 
     private BookExerciseResponseDTO buildBookResponse(String responseBody) {

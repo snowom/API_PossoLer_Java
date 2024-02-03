@@ -1,10 +1,10 @@
 package br.com.possoler.api.api_posso_ler.api.respondeai_api.service;
 
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.configs.RestConfigs;
+import br.com.possoler.api.api_posso_ler.api.respondeai_api.configs.RespondeAiRestConfigs;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.constants.RequestEndpoints;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.ExerciseResponseDTO;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.VideoResponseDTO;
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiConnection;
+import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiClient;
 import exceptions.ServerErrorException;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,22 +15,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component("getExercise")
-public class getExercise extends RestConfigs implements RespondeAiConnection  {
+public class getExercise extends RespondeAiRestConfigs implements RespondeAiClient {
 
     @Override
     public Object getData(String itemId, String token) {
-        HttpHeaders header = setHeaders(token);
-        final String URI = buildURIRequest(itemId);
+//        HttpHeaders header = setHeaders(token);
+//        final String URI = buildURIRequest(itemId);
+//
+//        httpMethod = HttpMethod.GET;
+//        entity = new HttpEntity<>(header);
+//        response = restTemplate.exchange(URI, httpMethod, entity, String.class);
+//
+//        validateResponse(response);
+//        var responseBody = response.getBody();
+//        ExerciseResponseDTO exerciseResponse = buildExerciseResponse(responseBody);
 
-        httpMethod = HttpMethod.GET;
-        entity = new HttpEntity<>(header);
-        response = restTemplate.exchange(URI, httpMethod, entity, String.class);
-
-        validateResponse(response);
-        var responseBody = response.getBody();
-        ExerciseResponseDTO exerciseResponse = buildExerciseResponse(responseBody);
-
-        return exerciseResponse;
+        return null;
     }
 
     private ExerciseResponseDTO buildExerciseResponse(String responseBody) {
