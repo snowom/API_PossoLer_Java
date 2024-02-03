@@ -1,36 +1,29 @@
 package br.com.possoler.api.api_posso_ler.api.respondeai_api.service;
 
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.configs.RestConfigs;
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.constants.RequestEndpoints;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.ExerciseResponseDTO;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.VideoResponseDTO;
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiConnection;
+import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiClient;
 import exceptions.ServerErrorException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.http.*;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component("getListExercise")
-public class getListExercise extends RestConfigs implements RespondeAiConnection {
+@Service
+public class ListExerciseService {
 
-    @Override
-    public Object getData(String itemId, String token) {
-        HttpHeaders header = setHeaders(token);
-        final String URI = buildURIRequest(itemId);
+    private final RespondeAiClient respondeAiClient;
 
-        httpMethod = HttpMethod.GET;
-        entity = new HttpEntity<>(header);
-        response = restTemplate.exchange(URI, httpMethod, entity, String.class);
+    public ListExerciseService(@Qualifier("ListExerciseClient") RespondeAiClient respondeAiClient) {
+        this.respondeAiClient = respondeAiClient;
+    }
 
-        validateResponse(response);
-        var responseBody = response.getBody();
-        ExerciseResponseDTO exerciseResponse = buildListExerciseResponse(responseBody);
-
-        return exerciseResponse;
+    public Object getListExerciseData(String itemId, String token) {
+        var response = respondeAiClient.getData(itemId, token);
+        return buildListExerciseResponse(response.toString());
     }
 
     private ExerciseResponseDTO buildListExerciseResponse(String responseBody) {
@@ -85,10 +78,5 @@ public class getListExercise extends RestConfigs implements RespondeAiConnection
         }
 
         return videos;
-    }
-
-    @Override
-    public String buildURIRequest(String exerciseId) {
-        return RequestEndpoints.DOMAIN_REQUEST + RequestEndpoints.LIST_EXERCISE_ENDPOINT + exerciseId;
     }
 }

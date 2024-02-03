@@ -10,8 +10,8 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class RestConnection {
 
-    private RestTemplate restTemplate;
-    private HttpEntity<?> entity;
+    protected RestTemplate restTemplate;
+    protected HttpEntity<?> entity;
 
     protected RestConnection() {
         restTemplate = new RestTemplate();

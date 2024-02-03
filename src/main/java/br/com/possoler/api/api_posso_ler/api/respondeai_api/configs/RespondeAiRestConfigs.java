@@ -1,20 +1,12 @@
 package br.com.possoler.api.api_posso_ler.api.respondeai_api.configs;
 
+import br.com.possoler.api.api_posso_ler.api.utils.rest_connection.RestConnection;
 import exceptions.ClientErrorException;
 import exceptions.ServerErrorException;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
-public class RestConfigs {
-
-    protected RestTemplate restTemplate;
-    protected HttpMethod httpMethod;
-    protected HttpEntity<?> entity;
-    protected ResponseEntity<String> response;
-
-    protected RestConfigs() {
-        restTemplate = new RestTemplate();
-    }
+public class RespondeAiRestConfigs extends RestConnection {
 
     /**
      * Setta headers para chamada da API externa
@@ -37,12 +29,13 @@ public class RestConfigs {
      * Valida status code da resposta vinda da API externa
      * @param response
      */
-    protected void validateResponse(ResponseEntity<String> response) {
+    protected String getBody(ResponseEntity<String> response) {
         if(response.getStatusCode().is5xxServerError()) {
             throw new ServerErrorException("Falha ao obter os dados");
         }
-        if(response.getStatusCode() == HttpStatus.OK && !response.hasBody()) {
+        if((response.getStatusCode() == HttpStatus.OK && !response.hasBody()) || response.getStatusCode() == HttpStatus.NOT_FOUND) {
             throw new ServerErrorException("Não há conteúdos para exibir");
         }
+        return response.getBody();
     }
 }

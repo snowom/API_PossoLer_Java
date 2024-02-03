@@ -1,24 +1,20 @@
 package br.com.possoler.api.api_posso_ler.api.respondeai_api.service;
 
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.configs.RestConfigs;
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.constants.RequestEndpoints;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.video_lesson.CoveredTopicDTO;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.video_lesson.VideoDTO;
 import br.com.possoler.api.api_posso_ler.api.respondeai_api.dto.response.video_lesson.VideoLessonResponseDTO;
-import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiConnection;
+import br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces.RespondeAiClient;
 import exceptions.ServerErrorException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service("getLesson")
-public class getVideoLesson extends RestConfigs implements RespondeAiConnection {
+@Service
+public class VideoLessonService {
 
     private final String PROVIDER_JSON_PROPERTY_NAME = "provider";
     private final String PROVIDERID_JSON_PROPERTY_NAME = "providerId";
@@ -32,20 +28,18 @@ public class getVideoLesson extends RestConfigs implements RespondeAiConnection 
     private final String COVERED_TOPIC_SUBJECT_ID_PROPERTY_NAME = "subjectId";
     private final String COVERED_TOPIC_THEORY_ID_PROPERTY_NAME = "theoryId";
 
-    @Override
-    public Object getData(String itemId, String token) {
-        HttpHeaders header = setHeaders(token);
-        final String URI = buildURIRequest(itemId);
+    private final RespondeAiClient respondeAiClient;
 
-        httpMethod = HttpMethod.GET;
-        entity = new HttpEntity<>(header);
-        response = restTemplate.exchange(URI, httpMethod, entity, String.class);
-
-        validateResponse(response);
-        var responseBody = response.getBody();
-        var response = buildVideoLeassonResponse(responseBody);
-        return response;
+    public VideoLessonService(@Qualifier("VideoLessonClient") RespondeAiClient respondeAiClient) {
+        this.respondeAiClient = respondeAiClient;
     }
+
+
+    public List<VideoLessonResponseDTO> getVideoLessonData(String itemId, String token) {
+        var response = respondeAiClient.getData(itemId, token);
+        return buildVideoLeassonResponse(response.toString());
+    }
+
 
     private List<VideoLessonResponseDTO> buildVideoLeassonResponse(String responseBody) {
         var videosResponse = new ArrayList<VideoLessonResponseDTO>();
@@ -73,6 +67,7 @@ public class getVideoLesson extends RestConfigs implements RespondeAiConnection 
         }
     }
 
+
     private VideoDTO buildVideoResponse(JSONObject jsonArrayObject) {
         try{
             var videoName = jsonArrayObject.get(VIDEO_NAME_PROPERTY_NAME).toString();
@@ -90,6 +85,7 @@ public class getVideoLesson extends RestConfigs implements RespondeAiConnection 
             throw new ServerErrorException("[Video Leassons] - Falha ao montar objeto \"videos\"");
         }
     }
+
 
     private List<CoveredTopicDTO> buildCoveredTopicsResponse(JSONObject jsonObject) {
         var coveredTopics = new ArrayList<CoveredTopicDTO>();
@@ -119,10 +115,5 @@ public class getVideoLesson extends RestConfigs implements RespondeAiConnection 
         }catch(Exception e){
             throw new ServerErrorException("[Video Leassons] - Falha ao montar objeto \"coverageTopic\"");
         }
-    }
-
-    @Override
-    public String buildURIRequest(String exerciseId) {
-        return RequestEndpoints.DOMAIN_REQUEST + RequestEndpoints.VIDEO_LEASSON_ENDPOINT_REQUEST + exerciseId;
     }
 }

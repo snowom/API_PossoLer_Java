@@ -1,6 +1,6 @@
 package br.com.possoler.api.api_posso_ler.api.respondeai_api.interfaces;
 
-public interface RespondeAiConnection {
+public interface RespondeAiClient {
 
     /**
      * Realiza Requisicao para API do Responde Ai e retorna objeto obtido na requisicao
