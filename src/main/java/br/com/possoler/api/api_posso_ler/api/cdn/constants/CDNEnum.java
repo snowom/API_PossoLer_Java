@@ -11,7 +11,10 @@ public enum CDNEnum {
     LOMBOK_LOGO("lomboklogo", "img/lombok.png"),
     SPRING_LOGO("springlogo", "img/spring.png"),
     POSSOLER_LOGO("possolerlogo", "img/128.png"),
-    RESPONDE_AI_LOGO("respondeailogo", "img/respai.png");
+    RESPONDE_AI_LOGO("respondeailogo", "img/respai.png"),
+    GLIDE_JS("glidejs", "glide.min.js"),
+    GLIDE_CORE_CSS("glidecorecss", "glide.core.min.css"),
+    GLIDE_THEME_CSS("glidethemecss", "glide.theme.min.css");
 
     @Getter
     private final String fileParamName;
