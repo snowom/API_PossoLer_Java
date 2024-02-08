@@ -55,11 +55,14 @@ public class CDNFileService {
         }
         if(file.equalsIgnoreCase(CDNEnum.RESPONDE_AI_LOGO.getFileParamName())) {
             return CDNEnum.RESPONDE_AI_LOGO.getFilename();
-        }if(file.equalsIgnoreCase(CDNEnum.GLIDE_JS.getFileParamName())) {
+        }
+        if(file.equalsIgnoreCase(CDNEnum.GLIDE_JS.getFileParamName())) {
             return CDNEnum.GLIDE_JS.getFilename();
-        }if(file.equalsIgnoreCase(CDNEnum.GLIDE_CORE_CSS.getFileParamName())) {
+        }
+        if(file.equalsIgnoreCase(CDNEnum.GLIDE_CORE_CSS.getFileParamName())) {
             return CDNEnum.GLIDE_CORE_CSS.getFilename();
-        }if(file.equalsIgnoreCase(CDNEnum.GLIDE_THEME_CSS.getFileParamName())) {
+        }
+        if(file.equalsIgnoreCase(CDNEnum.GLIDE_THEME_CSS.getFileParamName())) {
             return CDNEnum.GLIDE_THEME_CSS.getFilename();
         }
         throw new NotFoundException("Arquivo CDN não encontrado");
