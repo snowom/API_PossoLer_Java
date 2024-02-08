@@ -18,6 +18,7 @@ public class DataCyModel {
     private List<String> theory_text_content;
     private List<String> theory_video_content;
     private List<String> exercise_answer_button;
+    private List<String> video_lesson_div_content;
     private List<String> exercise_div_content;
     private List<String> exercise_statement;
     private List<String> side_menu;
