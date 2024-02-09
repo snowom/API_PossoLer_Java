@@ -12,9 +12,9 @@ import java.io.IOException;
 @Service
 public class RespondeAiPaywallDOMService {
 
-    private final String RESOURCES_PATH = System.getProperty("user.dir") + PathConstants.FOLDER_POSSOLER_INTEGRATOR + "/paywallDOM/configFiles/";
+    //private final String RESOURCES_PATH = System.getProperty("user.dir") + PathConstants.FOLDER_POSSOLER_INTEGRATOR + "/paywallDOM/configFiles/";
     private final String FILENAME = "respondeai.json";
-    //private final String RESOURCES_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\paywallDOM\\configFiles\\";
+    private final String RESOURCES_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\paywallDOM\\configFiles\\";
 
     public RespondeAiConfigModel getRespondeAiPDConfigs() {
         try {
