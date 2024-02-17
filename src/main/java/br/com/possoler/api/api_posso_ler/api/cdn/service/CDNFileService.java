@@ -89,6 +89,9 @@ public class CDNFileService {
         if(file.equalsIgnoreCase(CDNEnum.EXTENSION_GAUCHAZH.getFileParamName())) {
             return CDNEnum.EXTENSION_GAUCHAZH.getFilename();
         }
+        if(file.equalsIgnoreCase(CDNEnum.EXTENSION_OPOPULAR.getFileParamName())) {
+            return CDNEnum.EXTENSION_OPOPULAR.getFilename();
+        }
         throw new NotFoundException("Arquivo CDN não encontrado");
     }
 }
