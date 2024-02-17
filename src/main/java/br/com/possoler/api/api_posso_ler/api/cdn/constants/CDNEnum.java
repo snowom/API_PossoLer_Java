@@ -17,7 +17,8 @@ public enum CDNEnum {
     GLIDE_THEME_CSS("glidethemecss", "glide.theme.min.css"),
     EXTENSION_APP_RESPAI("app_respondeai", "extension/app_responde_ai/app_respondeai.js"),
     EXTENSION_RESPAI("respondeai", "extension/responde_ai/respondeai.js"),
-    EXTENSION_VLR_ECON("valorecon", "extension/valor_economico/valor_economico.js");
+    EXTENSION_VLR_ECON("valorecon", "extension/valor_economico/valor_economico.js"),
+    EXTENSION_EXAME("exame", "extension/exame/exame.js");
 
     @Getter
     private final String fileParamName;
