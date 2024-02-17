@@ -23,7 +23,8 @@ public enum CDNEnum {
     EXTENSION_NYTIMES("nytimes", "extension/nytimes/nytimes.js"),
     EXTENSION_ELPAIS("elpais", "extension/elpais/elpais.js"),
     EXTENSION_GAUCHAZH("gauchazh", "extension/gauchazh/gauchazh.js"),
-    EXTENSION_OPOPULAR("opopular", "extension/opopular/opopular.js");
+    EXTENSION_OPOPULAR("opopular", "extension/opopular/opopular.js"),
+    EXTENSION_DIARIOSM("diariosm", "extension/diariosm/diariosm.js");
 
     @Getter
     private final String fileParamName;
