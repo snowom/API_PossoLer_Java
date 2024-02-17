@@ -20,7 +20,8 @@ public enum CDNEnum {
     EXTENSION_VLR_ECON("valorecon", "extension/valor_economico/valor_economico.js"),
     EXTENSION_EXAME("exame", "extension/exame/exame.js"),
     EXTENSION_JOTA("jota", "extension/jota/jota.js"),
-    EXTENSION_NYTIMES("nytimes", "extension/nytimes/nytimes.js");
+    EXTENSION_NYTIMES("nytimes", "extension/nytimes/nytimes.js"),
+    EXTENSION_ELPAIS("elpais", "extension/elpais/elpais.js");
 
     @Getter
     private final String fileParamName;
