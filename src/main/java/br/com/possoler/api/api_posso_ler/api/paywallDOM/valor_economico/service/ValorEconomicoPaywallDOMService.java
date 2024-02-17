@@ -13,9 +13,9 @@ import java.io.IOException;
 @Service
 public class ValorEconomicoPaywallDOMService {
 
-    private final String RESOURCES_PATH = System.getProperty("user.dir") + PathConstants.FOLDER_POSSOLER_INTEGRATOR + "/paywallDOM/configFiles/";
     private final String FILENAME = "valoreconomico.json";
-    //private final String RESOURCES_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\paywallDOM\\configFiles\\";
+    //private final String RESOURCES_PATH = System.getProperty("user.dir") + PathConstants.FOLDER_POSSOLER_INTEGRATOR + "/paywallDOM/configFiles/";
+    private final String RESOURCES_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\paywallDOM\\configFiles\\";
 
     public ValorEconomicoConfigModel getValorEconomicoPDConfigs() {
         try {
