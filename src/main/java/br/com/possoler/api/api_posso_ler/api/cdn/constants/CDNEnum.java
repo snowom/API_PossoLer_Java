@@ -30,7 +30,8 @@ public enum CDNEnum {
     EXTENSION_OPOVO("opovo", "extension/opovo/opovo.js"),
     EXTENSION_GAZ("gaz", "extension/gaz/gaz.js"),
     EXTENSION_POSSOLER("possoler", "extension/possoler/possoler.js"),
-    EXTENSION_ATT_VERSAO("att_versao", "extension/att_versao/att_versao.js");
+    EXTENSION_ATT_VERSAO("att_versao", "extension/att_versao/att_versao.js"),
+    EXTENSION_CHECK_MESSAGES("check_messages", "extension/check_messages/check_messages.js");
 
     @Getter
     private final String fileParamName;
