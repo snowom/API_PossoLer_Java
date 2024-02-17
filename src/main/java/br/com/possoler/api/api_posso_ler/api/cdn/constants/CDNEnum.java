@@ -18,7 +18,8 @@ public enum CDNEnum {
     EXTENSION_APP_RESPAI("app_respondeai", "extension/app_responde_ai/app_respondeai.js"),
     EXTENSION_RESPAI("respondeai", "extension/responde_ai/respondeai.js"),
     EXTENSION_VLR_ECON("valorecon", "extension/valor_economico/valor_economico.js"),
-    EXTENSION_EXAME("exame", "extension/exame/exame.js");
+    EXTENSION_EXAME("exame", "extension/exame/exame.js"),
+    EXTENSION_JOTA("jota", "extension/jota/jota.js");
 
     @Getter
     private final String fileParamName;
