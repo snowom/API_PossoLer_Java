@@ -32,7 +32,8 @@ public enum CDNEnum {
     EXTENSION_POSSOLER("possoler", "extension/possoler/possoler.js"),
     EXTENSION_ATT_VERSAO("att_versao", "extension/att_versao/att_versao.js"),
     EXTENSION_CHECK_MESSAGES("check_messages", "extension/check_messages/check_messages.js"),
-    EXTENSION_COUNT_CONTENT("count_content", "extension/count_content/count_content.js");
+    EXTENSION_COUNT_CONTENT("count_content", "extension/count_content/count_content.js"),
+    EXTENSION_SAVE_SITE_ACCESS("save_site_access", "extension/save_site_access/save_site_access.js");
 
     @Getter
     private final String fileParamName;
