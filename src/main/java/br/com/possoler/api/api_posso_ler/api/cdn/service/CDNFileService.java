@@ -17,8 +17,8 @@ public class CDNFileService {
 
     @Autowired
     private HttpServletResponse response;
-    private final String CDN_PATH = System.getProperty("user.dir") + PathConstants.FOLDER_POSSOLER_INTEGRATOR + "/CDN/";
-    //private final String CDN_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\CDN\\";
+    //private final String CDN_PATH = System.getProperty("user.dir") + PathConstants.FOLDER_POSSOLER_INTEGRATOR + "/CDN/";
+    private final String CDN_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\CDN\\";
 
     public void readCdnFile(String fileParamName) throws IOException, NotFoundException {
         String filename = getFileName(fileParamName);
@@ -64,6 +64,12 @@ public class CDNFileService {
         }
         if(file.equalsIgnoreCase(CDNEnum.GLIDE_THEME_CSS.getFileParamName())) {
             return CDNEnum.GLIDE_THEME_CSS.getFilename();
+        }
+        if(file.equalsIgnoreCase(CDNEnum.EXTENSION_APP_RESPAI.getFileParamName())) {
+            return CDNEnum.EXTENSION_APP_RESPAI.getFilename();
+        }
+        if(file.equalsIgnoreCase(CDNEnum.EXTENSION_RESPAI.getFileParamName())) {
+            return CDNEnum.EXTENSION_RESPAI.getFilename();
         }
         throw new NotFoundException("Arquivo CDN não encontrado");
     }

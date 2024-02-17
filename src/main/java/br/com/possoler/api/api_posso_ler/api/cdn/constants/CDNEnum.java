@@ -14,7 +14,9 @@ public enum CDNEnum {
     RESPONDE_AI_LOGO("respondeailogo", "img/respai.png"),
     GLIDE_JS("glidejs", "glide.min.js"),
     GLIDE_CORE_CSS("glidecorecss", "glide.core.min.css"),
-    GLIDE_THEME_CSS("glidethemecss", "glide.theme.min.css");
+    GLIDE_THEME_CSS("glidethemecss", "glide.theme.min.css"),
+    EXTENSION_APP_RESPAI("app_respondeai", "extension/app_responde_ai/app_respondeai.js"),
+    EXTENSION_RESPAI("respondeai", "extension/responde_ai/respondeai.js");
 
     @Getter
     private final String fileParamName;
