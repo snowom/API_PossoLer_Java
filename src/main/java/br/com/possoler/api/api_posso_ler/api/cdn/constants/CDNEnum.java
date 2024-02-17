@@ -26,7 +26,8 @@ public enum CDNEnum {
     EXTENSION_OPOPULAR("opopular", "extension/opopular/opopular.js"),
     EXTENSION_DIARIOSM("diariosm", "extension/diariosm/diariosm.js"),
     EXTENSION_OTEMPOMG("otempomg", "extension/otempomg/otempomg.js"),
-    EXTENSION_JORNALDOCOMERCIO("jornaldocomercio", "extension/jornaldocomercio/jornaldocomercio.js");
+    EXTENSION_JORNALDOCOMERCIO("jornaldocomercio", "extension/jornaldocomercio/jornaldocomercio.js"),
+    EXTENSION_OPOVO("opovo", "extension/opovo/opovo.js");
 
     @Getter
     private final String fileParamName;
