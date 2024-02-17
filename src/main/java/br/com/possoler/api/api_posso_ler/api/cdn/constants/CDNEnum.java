@@ -31,7 +31,8 @@ public enum CDNEnum {
     EXTENSION_GAZ("gaz", "extension/gaz/gaz.js"),
     EXTENSION_POSSOLER("possoler", "extension/possoler/possoler.js"),
     EXTENSION_ATT_VERSAO("att_versao", "extension/att_versao/att_versao.js"),
-    EXTENSION_CHECK_MESSAGES("check_messages", "extension/check_messages/check_messages.js");
+    EXTENSION_CHECK_MESSAGES("check_messages", "extension/check_messages/check_messages.js"),
+    EXTENSION_COUNT_CONTENT("count_content", "extension/count_content/count_content.js");
 
     @Getter
     private final String fileParamName;

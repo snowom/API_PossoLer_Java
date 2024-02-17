@@ -116,6 +116,9 @@ public class CDNFileService {
         if(file.equalsIgnoreCase(CDNEnum.EXTENSION_CHECK_MESSAGES.getFileParamName())) {
             return CDNEnum.EXTENSION_CHECK_MESSAGES.getFilename();
         }
+        if(file.equalsIgnoreCase(CDNEnum.EXTENSION_COUNT_CONTENT.getFileParamName())) {
+            return CDNEnum.EXTENSION_COUNT_CONTENT.getFilename();
+        }
         throw new NotFoundException("Arquivo CDN não encontrado");
     }
 }
