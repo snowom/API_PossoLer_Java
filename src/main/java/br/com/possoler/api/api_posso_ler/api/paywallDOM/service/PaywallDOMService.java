@@ -1,11 +1,8 @@
 package br.com.possoler.api.api_posso_ler.api.paywallDOM.service;
 
-import br.com.possoler.api.api_posso_ler.api.utils.PathConstants;
+import br.com.possoler.api.api_posso_ler.api.paywallDOM.config.PaywallDOMConfig;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.ServerErrorException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -14,9 +11,11 @@ import java.io.IOException;
 @Service
 public class PaywallDOMService {
 
-    @Autowired
-    private Environment environment;
-    private String FILEPATH;
+    private final String FILEPATH;
+
+    public PaywallDOMService(PaywallDOMConfig paywallDOMConfig) {
+        FILEPATH = paywallDOMConfig.setFilepath();
+    }
 
     public Object getConfig(String filename) {
         try {
@@ -25,13 +24,5 @@ public class PaywallDOMService {
         } catch (IOException | RuntimeException e) {
             throw new ServerErrorException("Falha ao recuperar configurações");
         }
-    }
-
-    @Bean
-    private void setFilepath() {
-        var scope = environment.getProperty("SCOPE");
-        FILEPATH = (scope == null)
-            ? System.getProperty("user.dir") + PathConstants.FOLDER_POSSOLER_INTEGRATOR + "/paywallDOM/configFiles/"
-            : System.getProperty("user.dir") + "\\src\\main\\resources\\paywallDOM\\configFiles\\";
     }
 }
