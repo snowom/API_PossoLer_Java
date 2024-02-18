@@ -14,8 +14,11 @@ import java.io.IOException;
 @CrossOrigin(origins = "*")
 public class CDNController {
 
-    @Autowired
-    private CDNFileService cdnFileService;
+    private final CDNFileService cdnFileService;
+
+    public CDNController(CDNFileService cdnFileService) {
+        this.cdnFileService = cdnFileService;
+    }
 
     @GetMapping("${cdn-api.endpoint.getcdnfile}")
     private ResponseEntity<?> getCdnFile(@RequestParam(name = "file") String file) throws IOException {
