@@ -19,13 +19,11 @@ public class CDNFileService {
     @Autowired
     private HttpServletResponse response;
     private final String CDN_PATH;
-    private Map<String, String> files = new HashMap<>();
-    private final CDNConfigs cdnConfigs;
+    private final Map<String, String> files;
 
     public CDNFileService(CDNConfigs cdnConfigs) {
-        this.cdnConfigs = cdnConfigs;
-        CDN_PATH = this.cdnConfigs.setCDNPath();
-        files = this.cdnConfigs.createCDNFilesMap();
+        CDN_PATH = cdnConfigs.setCDNPath();
+        files = cdnConfigs.createCDNFilesMap();
     }
 
     public void readCdnFile(String fileParamName) throws IOException, NotFoundException {
