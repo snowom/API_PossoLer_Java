@@ -4,17 +4,23 @@ import br.com.possoler.api.api_posso_ler.site.constants.configs.ConstantsConfigs
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.en_us.en_ConteudosEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_ConteudosEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_ConteudosEnum;
-import br.com.possoler.api.api_posso_ler.site.interfaces.PreventNullLanguage;
 import br.com.possoler.api.api_posso_ler.site.model.Conteudos;
+import br.com.possoler.api.api_posso_ler.site.utils.LanguageUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 @Service
-public class ConteudosService implements PreventNullLanguage {
+public class ConteudosService {
+
+    private final LanguageUtils languageUtils;
+
+    ConteudosService(LanguageUtils languageUtils) {
+        this.languageUtils = languageUtils;
+    }
 
     public void conteudoFactory(String idioma, ModelAndView modelAndView) {
 
-        idioma = this.preventNullLanguage(idioma);
+        idioma = languageUtils.preventNullLanguage(idioma);
 
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
             modelAndView.addObject(
@@ -40,10 +46,5 @@ public class ConteudosService implements PreventNullLanguage {
             .labelQuantidadeConteudos(br_ConteudosEnum.LABEL_QUANTIDADE_CONTEUDOS.getLabel())
             .build()
         );
-    }
-
-    @Override
-    public String preventNullLanguage(String language) {
-        return (language == null) ? ConstantsConfigs.LANG_BR.getIdioma() : language;
     }
 }

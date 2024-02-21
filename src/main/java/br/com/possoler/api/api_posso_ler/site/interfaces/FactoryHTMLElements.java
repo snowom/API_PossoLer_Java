@@ -4,5 +4,5 @@ import org.springframework.ui.Model;
 
 public interface FactoryHTMLElements {
 
-    public void factoryElement(String idioma, Model model);
+    void factoryElement(String idioma, Model model);
 }

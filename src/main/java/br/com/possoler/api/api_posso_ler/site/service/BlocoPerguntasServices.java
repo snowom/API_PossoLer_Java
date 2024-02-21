@@ -4,17 +4,23 @@ import br.com.possoler.api.api_posso_ler.site.constants.configs.ConstantsConfigs
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.en_us.en_BlocoPerguntasEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_BlocoPerguntasEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_BlocoPerguntasEnum;
-import br.com.possoler.api.api_posso_ler.site.interfaces.PreventNullLanguage;
 import br.com.possoler.api.api_posso_ler.site.model.BlocoPerguntasFrequentes;
+import br.com.possoler.api.api_posso_ler.site.utils.LanguageUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 @Service
-public class BlocoPerguntasServices implements PreventNullLanguage {
+public class BlocoPerguntasServices {
+
+    private final LanguageUtils languageUtils;
+
+    BlocoPerguntasServices(LanguageUtils languageUtils) {
+        this.languageUtils = languageUtils;
+    }
 
     public void blocoPerguntasFactory(String idioma, ModelAndView modelAndView) {
 
-        idioma = this.preventNullLanguage(idioma);
+        idioma = languageUtils.preventNullLanguage(idioma);
 
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
             modelAndView.addObject(
@@ -166,10 +172,5 @@ public class BlocoPerguntasServices implements PreventNullLanguage {
             .label83(br_BlocoPerguntasEnum.LABEL_83.getLabel()).label84(br_BlocoPerguntasEnum.LABEL_84.getLabel())
             .build()
         );
-    }
-
-    @Override
-    public String preventNullLanguage(String language) {
-        return (language == null) ? ConstantsConfigs.LANG_BR.getIdioma() : language;
     }
 }

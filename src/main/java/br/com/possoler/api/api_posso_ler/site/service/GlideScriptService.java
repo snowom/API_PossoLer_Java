@@ -5,16 +5,22 @@ import br.com.possoler.api.api_posso_ler.site.constants.i18n.en_us.en_GlideScrip
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_GlideScriptEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_GlideScriptEnum;
 import br.com.possoler.api.api_posso_ler.site.interfaces.FactoryHTMLElements;
-import br.com.possoler.api.api_posso_ler.site.interfaces.PreventNullLanguage;
+import br.com.possoler.api.api_posso_ler.site.utils.LanguageUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 @Service
-public class GlideScriptService implements FactoryHTMLElements, PreventNullLanguage {
+public class GlideScriptService implements FactoryHTMLElements {
+
+    private final LanguageUtils languageUtils;
+
+    GlideScriptService(LanguageUtils languageUtils) {
+        this.languageUtils = languageUtils;
+    }
 
     public void factoryElement(String idioma, Model model) {
 
-        idioma = this.preventNullLanguage(idioma);
+        idioma = languageUtils.preventNullLanguage(idioma);
 
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
             model.addAttribute("glideScriptLabel1", en_GlideScriptEnum.LABEL_1.getLabel());
@@ -31,10 +37,5 @@ public class GlideScriptService implements FactoryHTMLElements, PreventNullLangu
         model.addAttribute("glideScriptLabel1", br_GlideScriptEnum.LABEL_1.getLabel());
         model.addAttribute("glideScriptLabel2", br_GlideScriptEnum.LABEL_2.getLabel());
         model.addAttribute("glideScriptLabel3", br_GlideScriptEnum.LABEL_3.getLabel());
-    }
-
-    @Override
-    public String preventNullLanguage(String language) {
-        return (language == null) ? ConstantsConfigs.LANG_BR.getIdioma() : language;
     }
 }

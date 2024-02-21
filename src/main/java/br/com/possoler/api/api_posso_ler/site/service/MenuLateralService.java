@@ -4,17 +4,23 @@ import br.com.possoler.api.api_posso_ler.site.constants.configs.ConstantsConfigs
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.en_us.en_MenuLateralEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_MenuLateralEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_MenuLateralEnum;
-import br.com.possoler.api.api_posso_ler.site.interfaces.PreventNullLanguage;
 import br.com.possoler.api.api_posso_ler.site.model.MenuLateral;
+import br.com.possoler.api.api_posso_ler.site.utils.LanguageUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 @Service
-public class MenuLateralService implements PreventNullLanguage {
+public class MenuLateralService {
+
+    private final LanguageUtils languageUtils;
+
+    MenuLateralService(LanguageUtils languageUtils) {
+        this.languageUtils = languageUtils;
+    }
 
     public void menuLateralFactory(String idioma, ModelAndView modelAndView) {
 
-        idioma = this.preventNullLanguage(idioma);
+        idioma = languageUtils.preventNullLanguage(idioma);
 
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())){
             modelAndView.addObject(
@@ -70,10 +76,5 @@ public class MenuLateralService implements PreventNullLanguage {
                 .MenuLateralVaiUmCafe(br_MenuLateralEnum.MENU_LATERAL_VAIUMCAFE.getWord())
                 .build()
             );
-    }
-
-    @Override
-    public String preventNullLanguage(String language) {
-        return (language == null) ? ConstantsConfigs.LANG_BR.getIdioma() : language;
     }
 }

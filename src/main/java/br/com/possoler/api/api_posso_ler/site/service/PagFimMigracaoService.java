@@ -5,17 +5,23 @@ import br.com.possoler.api.api_posso_ler.site.constants.i18n.en_us.en_PagFimMigr
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_PagFimMigracaoEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_PagFimMigracaoEnum;
 import br.com.possoler.api.api_posso_ler.site.interfaces.FactoryHTMLElements;
-import br.com.possoler.api.api_posso_ler.site.interfaces.PreventNullLanguage;
+import br.com.possoler.api.api_posso_ler.site.utils.LanguageUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 @Service
-public class PagFimMigracaoService implements FactoryHTMLElements, PreventNullLanguage {
+public class PagFimMigracaoService implements FactoryHTMLElements {
+
+    private final LanguageUtils languageUtils;
+
+    PagFimMigracaoService(LanguageUtils languageUtils) {
+        this.languageUtils = languageUtils;
+    }
 
     @Override
     public void factoryElement(String idioma, Model model) {
 
-        idioma = this.preventNullLanguage(idioma);
+        idioma = languageUtils.preventNullLanguage(idioma);
 
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
             model.addAttribute("pagFimMigracao_label1", en_PagFimMigracaoEnum.LABEL_1.getLabel());
@@ -68,10 +74,5 @@ public class PagFimMigracaoService implements FactoryHTMLElements, PreventNullLa
         model.addAttribute("pagFimMigracao_label13", br_PagFimMigracaoEnum.LABEL_13.getLabel());
         model.addAttribute("pagFimMigracao_label14", br_PagFimMigracaoEnum.LABEL_14.getLabel());
         model.addAttribute("pagFimMigracao_label15", br_PagFimMigracaoEnum.LABEL_15.getLabel());
-    }
-
-    @Override
-    public String preventNullLanguage(String language) {
-        return (language == null) ? ConstantsConfigs.LANG_BR.getIdioma() : language;
     }
 }
