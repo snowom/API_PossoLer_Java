@@ -1,7 +1,7 @@
 package br.com.possoler.api.api_posso_ler.site.controller;
 
 import br.com.possoler.api.api_posso_ler.site.service.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.possoler.api.api_posso_ler.site.utils.LanguageUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,42 +13,64 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
-    @Autowired
-    MenuLateralService menuLateralService;
-    @Autowired
-    HeadService headService;
-    @Autowired
-    ConteudosService conteudosService;
-    @Autowired
-    BlocoDownloadService blocoDownloadService;
-    @Autowired
-    BlocoSobreService blocoSobreService;
-    @Autowired
-    BlocoDoacoesService blocoDoacoesService;
-    @Autowired
-    BlocoPerguntasServices blocoPerguntasServices;
-    @Autowired
-    BlocoTecnologiaService blocoTecnologiaService;
-    @Autowired
-    BlocoTutorialService blocoTutorialService;
-    @Autowired
-    BlocoComentarioService blocoComentarioService;
-    @Autowired
-    FooterService footerService;
-    @Autowired
-    GlideScriptService glideScriptService;
-    @Autowired
-    VersaoExtensaoScriptService versaoExtensaoScriptService;
-    @Autowired
-    InstrucoesDownloadDeskService instrucoesDownloadDeskService;
-    @Autowired
-    InstrucoesDownloadMobService instrucoesDownloadMobService;
-    @Autowired
-    CardChangelogService cardChangelogService;
-    @Autowired
-    CardChaveAcessoService cardChaveAcessoService;
-    @Autowired
-    IdiomaService idiomaService;
+    private final MenuLateralService menuLateralService;
+    private final HeadService headService;
+    private final ConteudosService conteudosService;
+    private final BlocoDownloadService blocoDownloadService;
+    private final BlocoSobreService blocoSobreService;
+    private final BlocoDoacoesService blocoDoacoesService;
+    private final BlocoPerguntasServices blocoPerguntasServices;
+    private final BlocoTecnologiaService blocoTecnologiaService;
+    private final BlocoTutorialService blocoTutorialService;
+    private final BlocoComentarioService blocoComentarioService;
+    private final FooterService footerService;
+    private final GlideScriptService glideScriptService;
+    private final VersaoExtensaoScriptService versaoExtensaoScriptService;
+    private final InstrucoesDownloadDeskService instrucoesDownloadDeskService;
+    private final InstrucoesDownloadMobService instrucoesDownloadMobService;
+    private final CardChangelogService cardChangelogService;
+    private final CardChaveAcessoService cardChaveAcessoService;
+    private final LanguageUtils languageUtils;
+
+    HomeController(
+        MenuLateralService menuLateralService,
+        HeadService headService,
+        ConteudosService conteudosService,
+        BlocoDownloadService blocoDownloadService,
+        BlocoSobreService blocoSobreService,
+        BlocoDoacoesService blocoDoacoesService,
+        BlocoPerguntasServices blocoPerguntasServices,
+        BlocoTecnologiaService blocoTecnologiaService,
+        BlocoTutorialService blocoTutorialService,
+        BlocoComentarioService blocoComentarioService,
+        FooterService footerService,
+        GlideScriptService glideScriptService,
+        VersaoExtensaoScriptService versaoExtensaoScriptService,
+        InstrucoesDownloadDeskService instrucoesDownloadDeskService,
+        InstrucoesDownloadMobService instrucoesDownloadMobService,
+        CardChangelogService cardChangelogService,
+        CardChaveAcessoService cardChaveAcessoService,
+        LanguageUtils languageUtils
+    ) {
+        this.menuLateralService = menuLateralService;
+        this.headService = headService;
+        this.conteudosService = conteudosService;
+        this.blocoDownloadService = blocoDownloadService;
+        this.blocoSobreService = blocoSobreService;
+        this.blocoDoacoesService = blocoDoacoesService;
+        this.blocoPerguntasServices = blocoPerguntasServices;
+        this.blocoTecnologiaService = blocoTecnologiaService;
+        this.blocoTutorialService = blocoTutorialService;
+        this.blocoComentarioService = blocoComentarioService;
+        this.footerService = footerService;
+        this.glideScriptService = glideScriptService;
+        this.versaoExtensaoScriptService = versaoExtensaoScriptService;
+        this.instrucoesDownloadDeskService = instrucoesDownloadDeskService;
+        this.instrucoesDownloadMobService = instrucoesDownloadMobService;
+        this.cardChangelogService = cardChangelogService;
+        this.cardChaveAcessoService = cardChaveAcessoService;
+        this.languageUtils = languageUtils;
+    }
 
     public static String homeLanguage;
 
@@ -58,7 +80,7 @@ public class HomeController {
         String language
     ) {
         ModelAndView mv = new ModelAndView();
-        homeLanguage = idiomaService.returnValidLanguage(language);
+        homeLanguage = languageUtils.preventNullLanguage(language);
         menuLateralService.menuLateralFactory(homeLanguage, mv);
         headService.headFactory(homeLanguage, mv);
         conteudosService.conteudoFactory(homeLanguage, mv);
@@ -87,7 +109,7 @@ public class HomeController {
             String language
     ) {
         ModelAndView mv = new ModelAndView();
-        homeLanguage = idiomaService.returnValidLanguage(language);
+        homeLanguage = languageUtils.preventNullLanguage(language);
         menuLateralService.menuLateralFactory(homeLanguage, mv);
         headService.headFactory(homeLanguage, mv);
         conteudosService.conteudoFactory(homeLanguage, mv);
