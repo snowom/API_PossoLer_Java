@@ -1,5 +1,6 @@
 package br.com.possoler.api.api_posso_ler.api.signUser.service;
 
+import br.com.possoler.api.api_posso_ler.api.core_api.service.DownloadService;
 import br.com.possoler.api.api_posso_ler.api.signUser.model.Usuario;
 import br.com.possoler.api.api_posso_ler.api.signUser.repository.UsuarioRepository;
 import exceptions.NotFoundException;
@@ -15,14 +16,25 @@ public class UsuarioService{
 
     @Autowired
     UsuarioRepository usuarioRepository;
+    private final DownloadService downloadService;
+    private final HashService hashService;
 
-    public void insereUsuario(String userHash, String userCode) {
+    UsuarioService(DownloadService downloadService, HashService hashService) {
+        this.downloadService = downloadService;
+        this.hashService = hashService;
+    }
+
+    public String insereUsuario() {
+        var userHash = hashService.generateHash();
+        var userCode = hashService.getUserCode();
+
         Usuario user = Usuario.builder()
             .hash(userHash)
             .codigo(userCode)
             .ativo(false)
             .build();
         usuarioRepository.save(user);
+        return userHash;
     }
 
     public HashMap<String, String> isUniqueUser(String hash) {
@@ -59,6 +71,7 @@ public class UsuarioService{
                 Usuario usuario = usuarios.get(0);
                 usuario.setAtivo(true);
                 usuarioRepository.save(usuario);
+                downloadService.incrementDownload();
             }
             default -> throw new ServerErrorException("hash duplicado!");
         }
