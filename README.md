@@ -5,8 +5,8 @@
 
 Sistema backend do projeto [Posso Ler?](https://github.com/thomazf/PossoLer) seguindo o padrão de API Restful <br>
 <br>
-<img src="https://img.shields.io/badge/Versão atual-0.3.2 RELEASE-blue.svg"/>
-<img src="https://img.shields.io/badge/Data atualização-16/08/2023-green.svg"/>
+<img src="https://img.shields.io/badge/Versão atual-1.4.3 RELEASE-blue.svg"/>
+<img src="https://img.shields.io/badge/Data atualização-22/02/2024-green.svg"/>
 <img src="https://img.shields.io/badge/Tecnologia-Java 14-red.svg"/>
 <img src="https://img.shields.io/badge/Tecnologia-Spring Boot 2.7.8-orange.svg"/>
 <img src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
