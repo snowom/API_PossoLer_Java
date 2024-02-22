@@ -10,16 +10,18 @@ public enum br_CardChangelogEnum {
     LABEL_5(" - Baixe a versão mais recente <a id=\"linkInstalacao\" href=\"\">AQUI</a>"),
     LABEL_6("O que há de novo nessa versão?"),
     LABEL_7(
-    "<li class=\"lead\">Adicionado Uol</li>" +
-        "<li class=\"lead\">Adicionado Sempre Família</li>" +
-        "<li class=\"lead\">Ajuste bypass Revista Veja</li>" +
-        "<li class=\"lead\">Ajuste bypass Revista Exame e Exame Invest</li>"
+    "<li class=\"lead\">Adicionado Você SA</li>" +
+        "<li class=\"lead\">Ajuste bypass Estadão</li>" +
+        "<li class=\"lead\">Ajuste bypass Gaucha ZH</li>" +
+        "<li class=\"lead\">Ajuste bypass Responde Aí</li>" +
+        "<li class=\"lead\">Aulões Responde Aí totalmente desbloqueados</li>" +
+        "<li class=\"lead\">Remoção bloqueio de detecção da extensão em Responde Aí</li>"
 
     ),
     LABEL_8(
-    "<li class=\"lead\">Ajuste bypass Responde Aí</li>" +
-        "<li class=\"lead\">Remoção bloqueio de detecção da extensão em Responde Aí</li>"+
-        "<li class=\"lead\">Melhorias de performance da extensão</li>" +
+        "<li class=\"lead\">Diminuição de 130KB no tamanho do Userscript</li>" +
+        "<li class=\"lead\">Mudança de arquitetura de software da extensão para microserviços</li>" +
+        "<li class=\"lead\">Melhorias de performance do sistema backend da extensão</li>" +
         "<li class=\"lead\">Correção de alguns bugs presentes nas versões anteriores</li>"
     ),
     LABEL_9("Ver changelog completo");

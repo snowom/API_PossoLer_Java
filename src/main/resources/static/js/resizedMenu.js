@@ -31,13 +31,13 @@ function setResizedMenu()
                             <li class='lead'><a class='link-texto' target='_blank' href='https://brasil.elpais.com/'><em>El País</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.jornalvs.com.br/'><em>Jornal VS</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://valor.globo.com/'><em>Valor Econômico</em></a></li>
+                            <li class='lead'><a class='link-texto' target='_blank' href='https://gauchazh.clicrbs.com.br/'><em>GaúchaZH</em></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3">
                     <div>
                         <ul style='display: inline-block !important;'>
-                            <li class='lead'><a class='link-texto' target='_blank' href='https://gauchazh.clicrbs.com.br/'><em>GaúchaZH</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.jornaldocomercio.com/'><em>Jornal do Comércio</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.economist.com/'><em>The Economist</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.opopular.com.br/'><em>O Popular</em></a></li>
@@ -58,6 +58,7 @@ function setResizedMenu()
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.gaz.com.br/'><em>GAZ - Gazeta Sta. Cruz do Sul</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.semprefamilia.com.br/'><em>Sempre Família</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://tab.uol.com.br/'><em>Tab Uol</em></a></li>
+                            <li class='lead'><a class='link-texto' target='_blank' href='https://vocesa.abril.com.br/'><em>Você SA</em></a></li>
                         </ul>
                     </div>
                 </div>
@@ -94,13 +95,13 @@ function setResizedMenu()
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.nytimes.com/'><em>New York Times</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://brasil.elpais.com/'><em>El País</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.jornalvs.com.br/'><em>Jornal VS</em></a></li>
+                            <li class='lead'><a class='link-texto' target='_blank' href='https://valor.globo.com/'><em>Valor Econômico</em></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-12 col-lg-3">
                     <div>
                         <ul style='display: inline-block !important;'>
-                            <li class='lead'><a class='link-texto' target='_blank' href='https://valor.globo.com/'><em>Valor Econômico</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://gauchazh.clicrbs.com.br/'><em>GaúchaZH</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.jornaldocomercio.com/'><em>Jornal do Comércio</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.economist.com/'><em>The Economist</em></a></li>
@@ -111,13 +112,13 @@ function setResizedMenu()
                             <li class='lead'><a class='link-texto' target='_blank' href='https://invest.exame.com/'><em>Exame Invest</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://degraoemgrao.blogfolha.uol.com.br/'><em>De Grão em Grão</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://jc.ne10.uol.com.br/'><em>Jornal do Commercio</em></a></li>
+                            <li class='lead'><a class='link-texto' target='_blank' href='https://opovo.com.br/'><em>Jornal O Povo</em></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-12 col-lg-3">
                     <div>
                         <ul style='display: inline-block !important;'>
-                            <li class='lead'><a class='link-texto' target='_blank' href='https://opovo.com.br/'><em>Jornal O Povo</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.correio24horas.com.br/'><em>Jornal Correio 24 Horas</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.jornalnh.com.br/'><em>Jornal NH</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.atribuna.com.br/'><em>A Tribuna - Santos</em></a></li>
@@ -128,6 +129,7 @@ function setResizedMenu()
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.gaz.com.br/'><em>GAZ - Gazeta Sta. Cruz do Sul</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://www.semprefamilia.com.br/'><em>Sempre Família</em></a></li>
                             <li class='lead'><a class='link-texto' target='_blank' href='https://tab.uol.com.br/'><em>Tab Uol</em></a></li>
+                            <li class='lead'><a class='link-texto' target='_blank' href='https://vocesa.abril.com.br/'><em>Você SA</em></a></li>
                         </ul>
                     </div>
                 </div>
