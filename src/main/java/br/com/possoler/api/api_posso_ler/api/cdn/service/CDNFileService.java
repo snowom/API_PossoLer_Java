@@ -1,7 +1,6 @@
 package br.com.possoler.api.api_posso_ler.api.cdn.service;
 
-import br.com.possoler.api.api_posso_ler.api.cdn.constants.CDNEnum;
-import br.com.possoler.api.api_posso_ler.api.utils.PathConstants;
+import br.com.possoler.api.api_posso_ler.api.cdn.config.CDNConfigs;
 import exceptions.NotFoundException;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,51 +10,35 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class CDNFileService {
 
     @Autowired
     private HttpServletResponse response;
-    private final String CDN_PATH = System.getProperty("user.dir") + PathConstants.FOLDER_POSSOLER_INTEGRATOR + "/CDN/";
-    //private final String CDN_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\CDN\\";
+    private final String CDN_PATH;
+    private final Map<String, String> files;
+
+    public CDNFileService(CDNConfigs cdnConfigs) {
+        CDN_PATH = cdnConfigs.setCDNPath();
+        files = cdnConfigs.createCDNFilesMap();
+    }
 
     public void readCdnFile(String fileParamName) throws IOException, NotFoundException {
-        String filename = getFileName(fileParamName);
-        File file = new File(CDN_PATH + filename);
+        String filepath = getFilepath(fileParamName);
+        File file = new File(CDN_PATH + filepath);
         FileInputStream inputStream = new FileInputStream(file);
         IOUtils.copy(inputStream, response.getOutputStream());
         response.flushBuffer();
     }
 
-    private String getFileName(String file) {
-        if(file.equalsIgnoreCase(CDNEnum.BLOCK_CORE_PAYWALL.getFileParamName())) {
-            return CDNEnum.BLOCK_CORE_PAYWALL.getFilename();
+    private String getFilepath(String fileAlias) {
+        var filepath = files.get(fileAlias);
+        if(filepath == null) {
+            throw new NotFoundException("Arquivo CDN não encontrado");
         }
-        if(file.equalsIgnoreCase(CDNEnum.SNACKBAR_JS.getFileParamName())) {
-            return CDNEnum.SNACKBAR_JS.getFilename();
-        }
-        if(file.equalsIgnoreCase(CDNEnum.SNACKBAR_CSS.getFileParamName())) {
-            return CDNEnum.SNACKBAR_CSS.getFilename();
-        }
-        if(file.equalsIgnoreCase(CDNEnum.POSSOLER_LOGO.getFileParamName())) {
-            return CDNEnum.POSSOLER_LOGO.getFilename();
-        }
-        if(file.equalsIgnoreCase(CDNEnum.AXIOS_LOGO.getFileParamName())) {
-            return CDNEnum.AXIOS_LOGO.getFilename();
-        }
-        if(file.equalsIgnoreCase(CDNEnum.MAVEN_LOGO.getFileParamName())) {
-            return CDNEnum.MAVEN_LOGO.getFilename();
-        }
-        if(file.equalsIgnoreCase(CDNEnum.LOMBOK_LOGO.getFileParamName())) {
-            return CDNEnum.LOMBOK_LOGO.getFilename();
-        }
-        if(file.equalsIgnoreCase(CDNEnum.SPRING_LOGO.getFileParamName())) {
-            return CDNEnum.SPRING_LOGO.getFilename();
-        }
-        if(file.equalsIgnoreCase(CDNEnum.RESPONDE_AI_LOGO.getFileParamName())) {
-            return CDNEnum.RESPONDE_AI_LOGO.getFilename();
-        }
-        throw new NotFoundException("Arquivo CDN não encontrado");
+        return filepath;
     }
 }

@@ -5,17 +5,23 @@ import br.com.possoler.api.api_posso_ler.site.constants.i18n.en_us.en_PagAlertRe
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_PagAlertRespaiEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_PagAlertRespaiEnum;
 import br.com.possoler.api.api_posso_ler.site.interfaces.FactoryHTMLElements;
-import br.com.possoler.api.api_posso_ler.site.interfaces.PreventNullLanguage;
+import br.com.possoler.api.api_posso_ler.site.utils.LanguageUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 @Service
-public class PagRespaiService implements FactoryHTMLElements, PreventNullLanguage {
+public class PagRespaiService implements FactoryHTMLElements {
+
+    private final LanguageUtils languageUtils;
+
+    PagRespaiService(LanguageUtils languageUtils) {
+        this.languageUtils = languageUtils;
+    }
 
     @Override
     public void factoryElement(String idioma, Model model) {
 
-        idioma = this.preventNullLanguage(idioma);
+        idioma = languageUtils.preventNullLanguage(idioma);
 
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
             model.addAttribute("pagAlertRespai_lbl1", en_PagAlertRespaiEnum.LABEL_1.getLabel());
@@ -47,10 +53,5 @@ public class PagRespaiService implements FactoryHTMLElements, PreventNullLanguag
         model.addAttribute("pagAlertRespai_lbl6", br_PagAlertRespaiEnum.LABEL_6.getLabel());
         model.addAttribute("pagAlertRespai_lbl7", br_PagAlertRespaiEnum.LABEL_7.getLabel());
         model.addAttribute("pagAlertRespai_lbl8", br_PagAlertRespaiEnum.LABEL_8.getLabel());
-    }
-
-    @Override
-    public String preventNullLanguage(String language) {
-        return (language == null) ? ConstantsConfigs.LANG_BR.getIdioma() : language;
     }
 }

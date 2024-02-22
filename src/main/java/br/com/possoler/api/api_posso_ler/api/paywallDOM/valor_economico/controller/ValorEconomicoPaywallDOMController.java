@@ -1,8 +1,6 @@
 package br.com.possoler.api.api_posso_ler.api.paywallDOM.valor_economico.controller;
 
-import br.com.possoler.api.api_posso_ler.api.paywallDOM.valor_economico.model.ValorEconomicoConfigModel;
-import br.com.possoler.api.api_posso_ler.api.paywallDOM.valor_economico.service.ValorEconomicoPaywallDOMService;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.possoler.api.api_posso_ler.api.paywallDOM.service.PaywallDOMService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,12 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*")
 public class ValorEconomicoPaywallDOMController {
 
-    @Autowired
-    ValorEconomicoPaywallDOMService valorEconomicoPaywallDOMService;
+    private final String FILENAME = "valoreconomico.json";
+    private final PaywallDOMService paywallDOMService;
+
+    public ValorEconomicoPaywallDOMController(PaywallDOMService paywallDOMService) {
+        this.paywallDOMService = paywallDOMService;
+    }
 
     @GetMapping("${paywalldom-api.endpoint.valorecon}")
-    private ResponseEntity<ValorEconomicoConfigModel> getPaywallDOMValorEconomico() {
-        ValorEconomicoConfigModel valorEconomicoConfigModel = valorEconomicoPaywallDOMService.getValorEconomicoPDConfigs();
+    private ResponseEntity<?> getPaywallDOMValorEconomico() {
+        Object valorEconomicoConfigModel = paywallDOMService.getConfig(FILENAME);
         return ResponseEntity.ok().body(valorEconomicoConfigModel);
     }
 }

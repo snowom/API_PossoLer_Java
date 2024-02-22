@@ -5,16 +5,22 @@ import br.com.possoler.api.api_posso_ler.site.constants.i18n.en_us.en_Instrucoes
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_InstrucoesDownloadDeskEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_InstrucoesDownloadDeskEnum;
 import br.com.possoler.api.api_posso_ler.site.interfaces.FactoryHTMLElements;
-import br.com.possoler.api.api_posso_ler.site.interfaces.PreventNullLanguage;
+import br.com.possoler.api.api_posso_ler.site.utils.LanguageUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 @Service
-public class InstrucoesDownloadDeskService implements FactoryHTMLElements, PreventNullLanguage {
+public class InstrucoesDownloadDeskService implements FactoryHTMLElements {
+
+    private final LanguageUtils languageUtils;
+
+    InstrucoesDownloadDeskService(LanguageUtils languageUtils) {
+        this.languageUtils = languageUtils;
+    }
 
     public void factoryElement(String idioma, Model model) {
 
-        idioma = this.preventNullLanguage(idioma);
+        idioma = languageUtils.preventNullLanguage(idioma);
 
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
             model.addAttribute("instrucoesDownloadDesk_label1", en_InstrucoesDownloadDeskEnum.LABEL_1.getLabel());
@@ -76,10 +82,5 @@ public class InstrucoesDownloadDeskService implements FactoryHTMLElements, Preve
         model.addAttribute("instrucoesDownloadDesk_label16", br_InstrucoesDownloadDeskEnum.LABEL_16.getLabel());
         model.addAttribute("instrucoesDownloadDesk_label17", br_InstrucoesDownloadDeskEnum.LABEL_17.getLabel());
         model.addAttribute("instrucoesDownloadDesk_label18", br_InstrucoesDownloadDeskEnum.LABEL_18.getLabel());
-    }
-
-    @Override
-    public String preventNullLanguage(String language) {
-        return (language == null) ? ConstantsConfigs.LANG_BR.getIdioma() : language;
     }
 }

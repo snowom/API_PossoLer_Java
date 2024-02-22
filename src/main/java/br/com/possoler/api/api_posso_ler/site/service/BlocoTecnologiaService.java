@@ -4,17 +4,23 @@ import br.com.possoler.api.api_posso_ler.site.constants.configs.ConstantsConfigs
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.en_us.en_BlocoTecnologiasEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.es.es_BlocoTecnologiasEnum;
 import br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br.br_BlocoTecnologiasEnum;
-import br.com.possoler.api.api_posso_ler.site.interfaces.PreventNullLanguage;
 import br.com.possoler.api.api_posso_ler.site.model.BlocoTecnologia;
+import br.com.possoler.api.api_posso_ler.site.utils.LanguageUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 @Service
-public class BlocoTecnologiaService implements PreventNullLanguage {
+public class BlocoTecnologiaService {
+
+    private final LanguageUtils languageUtils;
+
+    BlocoTecnologiaService(LanguageUtils languageUtils) {
+        this.languageUtils = languageUtils;
+    }
 
     public void blocoTecnologiaFactory(String idioma, ModelAndView modelAndView) {
 
-        idioma = this.preventNullLanguage(idioma);
+        idioma = languageUtils.preventNullLanguage(idioma);
 
         if(idioma.equalsIgnoreCase(ConstantsConfigs.LANG_EN.getIdioma())) {
             modelAndView.addObject(
@@ -102,10 +108,5 @@ public class BlocoTecnologiaService implements PreventNullLanguage {
             .label21(br_BlocoTecnologiasEnum.LABEL_21.getLabel())
             .build()
         );
-    }
-
-    @Override
-    public String preventNullLanguage(String language) {
-        return (language == null) ? ConstantsConfigs.LANG_BR.getIdioma() : language;
     }
 }
