@@ -47,13 +47,15 @@
                         "authorization": token
                     }
                 }).then((resp) => {
-                    console.log(resp);
 
                     if(!resp.data.hasOwnProperty("lightSolution")){
                         throw new Error("Falha ao obter objeto \"lightSolution\"")
                     }
                     if(!resp.data.hasOwnProperty("lightAnswer")){
                         throw new Error("Falha ao obter objeto \"lightAnswer\"")
+                    }
+                    if(!resp.data.hasOwnProperty("lightBody")){
+                        throw new Error("Falha ao obter objeto \"lightBody\"")
                     }
 
                     const STYLE_H2 = 'color: rgb(54, 170, 173); font-size: 1.5em; font-family: "Droid Serif", serif; margin: 0; font-weight: inherit; outline: none; box-sizing: border-box; font-size: 1.2em;';
@@ -63,6 +65,11 @@
 
                     let htmlResponse = "<div style='flex: 1 1 0%; align-self: center; background-color: white; width: 100%'>";
                     htmlResponse += "<div style='padding: 0px 30px;'>";
+
+                    htmlResponse += `<div style="${STYLE_FONT_STEPS} margin: 60px 0px;">`;
+                    htmlResponse += `<h2 style="${STYLE_H2}">Enunciado</h2>`;
+                    htmlResponse += `<div style='margin: 30px 0px; 60px;'>${resp.data.lightBody}</div>`
+                    htmlResponse += `</div>`;
 
                     resp.data.lightSolution.forEach((step, index) => {
                         let currentStep = index += 1;
