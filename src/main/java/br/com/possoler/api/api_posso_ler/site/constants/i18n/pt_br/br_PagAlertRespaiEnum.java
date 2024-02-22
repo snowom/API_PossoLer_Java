@@ -3,14 +3,14 @@ package br.com.possoler.api.api_posso_ler.site.constants.i18n.pt_br;
 import lombok.Getter;
 
 public enum br_PagAlertRespaiEnum {
-    LABEL_1("Volta provisória do Responde Aí - \"Oi sumido, rs\""),
-    LABEL_2("Recentemente, fixei um comentário no site informando que "),
-    LABEL_3("estava pensando em parar"),
-    LABEL_4(" com o suporte ao Responde Aí devido ao novo bloqueio que eles implementaram, e o que isso me levou a refletir."),
-    LABEL_5("Combinei de conversar com a equipe de SEO do Responde Aí para saber realmente o quanto a extensão está afetando de forma negativa a empresa e, a partir disso, decidir se de fato pararei com o suporte ou não. Contudo, como não tive uma resposta por parte deles, pretendo continuar com o suporte."),
-    LABEL_6("Ultimamente, vem sendo muito difícil dar suporte ao projeto "),
-    LABEL_7("Posso Ler?"),
-    LABEL_8(", pois sou apenas eu que cuido dele e ando bem ocupado com estudos, vida pessoal, e pensando em novos projetos que fazem mais sentido para meu crescimento profissional. Mas darei o máximo para manter o projeto vivo e o mais atualizado possível!");
+    LABEL_1("O DEV FICOU LOUCO! VOLTA TOTAL DO RESPONDE AÍ"),
+    LABEL_2("Falaaa galera! Após algum tempo ausente, volto com boas novidades! Depois de \"dar um tempo de descanso ao Responde Aí\", decidi voltar as atividades, e  trago o site "),
+    LABEL_3("totalmente desbloqueado "),
+    LABEL_4("para que vocês possam voltar a estudar sem tantas dificuldades e mandar bem nas matérias!"),
+    LABEL_5("Contudo, olhando o site do Responde Aí, vi que eles implementaram um sistema de anúncios da Google. Portanto, como vocês já estão acessando o conteúdo gratuitamente, peço encarecidamente para que NÃO utilizem bloqueadores de anúncios nesse site, pois eles também necessitam de uma fonte de renda para se manter, e cá entre nós, um anúncio no cantinho da tela não machuca ninguém, né?"),
+    LABEL_6("Agradeço a todos que me escreveram relatando os novos bloqueios do site e também contribuindo com soluções paliativas enquanto o projeto não recebia atualizações. Saiba que a ajuda e a interação de vocês fazem "),
+    LABEL_7("toda diferença "),
+    LABEL_8("no projeto. Tentarei focar mais nas atualizações do projeto, porém nada garantido, pois sou apenas eu que cuido dele, e ando bem ocupado com estudos, vida pessoal, e pensando em novos projetos que fazem mais sentido para meu crescimento profissional. Mas darei o máximo para manter o projeto vivo e o mais atualizado possível!");
 
     @Getter
     private String label;
