@@ -1,6 +1,6 @@
 package br.com.possoler.api.api_posso_ler.api.cachemock_api.service;
 
-import br.com.possoler.api.api_posso_ler.api.cachemock_api.config.CacheMockConfig;
+import br.com.possoler.api.api_posso_ler.api.cachemock_api.config.CachemockConfig;
 import br.com.possoler.api.api_posso_ler.api.cachemock_api.dto.PostModelDTO;
 import br.com.possoler.api.api_posso_ler.api.cachemock_api.model.PostArticleEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,7 +20,7 @@ public class CachemockService {
     private final String RESOURCES_PATH;
     private final String AUTHORIZATION_PRIVATE_KEY;
 
-    CachemockService(CacheMockConfig cacheMockConfig) {
+    CachemockService(CachemockConfig cacheMockConfig) {
         RESOURCES_PATH = cacheMockConfig.setFilePath();
         AUTHORIZATION_PRIVATE_KEY = cacheMockConfig.getAuthPrivateKey();
         objectMapper = new ObjectMapper();

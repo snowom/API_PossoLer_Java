@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
 @Configuration
-public class CacheMockConfig {
+public class CachemockConfig {
 
     @Autowired
     private Environment environment;
@@ -24,5 +24,11 @@ public class CacheMockConfig {
     public String getAuthPrivateKey() {
         var privateKey = environment.getProperty("cachemock-api.header-auth-private-key");
         return privateKey == null ? "" : privateKey;
+    }
+
+    @Bean
+    public String getArticleContentRoute() {
+        var route = environment.getProperty("cachemock-api.endpoint.getArticleContent");
+        return route == null ? "" : route;
     }
 }
