@@ -1,15 +1,13 @@
 package br.com.possoler.api.api_posso_ler.api.cachemock_api.service;
 
+import br.com.possoler.api.api_posso_ler.api.cachemock_api.config.CachemockConfig;
 import br.com.possoler.api.api_posso_ler.api.cachemock_api.dto.PostModelDTO;
 import br.com.possoler.api.api_posso_ler.api.cachemock_api.model.PostArticleEntity;
-import br.com.possoler.api.api_posso_ler.api.utils.PathConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.ClientErrorException;
 import exceptions.NotFoundException;
 import exceptions.ServerErrorException;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -18,12 +16,15 @@ import java.io.IOException;
 @Service
 public class CachemockService {
 
-    @Autowired
-    private Environment env;
-    @Autowired
-    private ObjectMapper objectMapper;
-    private final String RESOURCES_PATH = System.getProperty("user.dir") + PathConstants.FOLDER_POSSOLER_INTEGRATOR + "/cachemock/jsonFiles/";
-    //private final String RESOURCES_PATH = System.getProperty("user.dir") + "\\src\\main\\resources\\cachemock\\jsonFiles\\";
+    private final ObjectMapper objectMapper;
+    private final String RESOURCES_PATH;
+    private final String AUTHORIZATION_PRIVATE_KEY;
+
+    CachemockService(CachemockConfig cacheMockConfig) {
+        RESOURCES_PATH = cacheMockConfig.setFilePath();
+        AUTHORIZATION_PRIVATE_KEY = cacheMockConfig.getAuthPrivateKey();
+        objectMapper = new ObjectMapper();
+    }
 
     /**
      * Cria arquivo JSON com conteudo da pagina desbloqueada
@@ -122,6 +123,6 @@ public class CachemockService {
 
 
     public Boolean isValidAuthorizationHeader(String authHeader) {
-        return authHeader.equals(DigestUtils.sha3_256Hex(this.env.getProperty("cachemock-api.header-auth-private-key")));
+        return authHeader.equals(DigestUtils.sha3_256Hex(AUTHORIZATION_PRIVATE_KEY));
     }
 }
