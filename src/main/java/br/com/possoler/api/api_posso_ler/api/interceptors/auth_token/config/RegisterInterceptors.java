@@ -6,17 +6,24 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.List;
+
 @Configuration
 public class RegisterInterceptors implements WebMvcConfigurer {
 
     private final AuthTokenService authTokenService;
+    private final List<String> endpoints;
 
-    RegisterInterceptors(AuthTokenService authTokenService) {
+    RegisterInterceptors(AuthTokenService authTokenService, EndpointsConfig endpointsConfig) {
         this.authTokenService = authTokenService;
+        endpoints = endpointsConfig.getEndpointsFromEnviroment();
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new AuthTokenInterceptor(authTokenService)); // é possível adicionar a função .addPathPatterns() para definir um pattern de url em que a interceptação será feita
+        registry.addInterceptor(new AuthTokenInterceptor(authTokenService))
+            .excludePathPatterns(endpoints); // A função .excludePathPatterns() define um pattern de url em que a interceptação não será feita
     }
+
+
 }
