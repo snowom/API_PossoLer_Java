@@ -58,13 +58,8 @@ public class UsuarioService{
         return response;
     }
 
-    private List<Usuario> buscaUsuariosPorHash(String hash) {
-        return usuarioRepository.findByHash(hash)
-            .orElseThrow(() -> new ServerErrorException("falha ao localizar usuário"));
-    }
-
     public void activeUser(String hash) {
-        List<Usuario> usuarios = findUserByHashAndAtivo(hash, false);
+        List<Usuario> usuarios = findUserByHashAndActiveFlag(hash, false);
         switch (usuarios.toArray().length) {
             case 0 -> throw new NotFoundException("chave inválida!");
             case 1 -> {
@@ -77,8 +72,13 @@ public class UsuarioService{
         }
     }
 
-    private List<Usuario> findUserByHashAndAtivo(String hash, Boolean ativo) {
-        return usuarioRepository.findByHashAndAtivo(hash, ativo)
+    private List<Usuario> buscaUsuariosPorHash(String hash) {
+        return usuarioRepository.findByHash(hash)
+            .orElseThrow(() -> new ServerErrorException("falha ao localizar usuário"));
+    }
+
+    public List<Usuario> findUserByHashAndActiveFlag(String hash, Boolean activeFlag) {
+        return usuarioRepository.findByHashAndAtivo(hash, activeFlag)
             .orElseThrow(() -> new ServerErrorException("falha ao localizar usuário"));
     }
 }
