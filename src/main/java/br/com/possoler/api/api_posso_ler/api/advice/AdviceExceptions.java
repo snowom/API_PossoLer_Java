@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import exceptions.ClientErrorException;
+import exceptions.InvalidUserAuthTokenException;
 import exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -134,6 +135,14 @@ public class AdviceExceptions {
     private Map<String, String> fileNotFoundException(FileNotFoundException e){
         Map<String, String> response = new HashMap<>();
         response.put("response_error", "falha ao localizar arquivo no servidor");
+        return response;
+    }
+
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(InvalidUserAuthTokenException.class)
+    private Map<String, String> invalidUserAuthTokenException(InvalidUserAuthTokenException e){
+        Map<String, String> response = new HashMap<>();
+        response.put("response", e.getMessage());
         return response;
     }
 }
